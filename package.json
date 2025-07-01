@@ -1,0 +1,26 @@
+{
+  "name": "pixelartui",
+  "version": "0.0.1",
+  "description": "Pixel Art Component library",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/muyaszed/pixelartui.git"
+  },
+  "keywords": [
+    "component",
+    "library"
+  ],
+  "author": "Yazed Jamal",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/muyaszed/pixelartui/issues"
+  },
+  "homepage": "https://github.com/muyaszed/pixelartui#readme",
+  "devDependencies": {
+    "typescript": "^5.8.3"
+  }
+}
