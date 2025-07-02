@@ -4,13 +4,34 @@
   "description": "Pixel Art Component library",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "rollup -c",
-    "dev": "rollup -c -w"
+    "dev": "rollup -c -w",
+    "test": "jest --watchAll --verbose"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/muyaszed/pixelartui.git"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "babel": {
+    "sourceType": "unambiguous",
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-typescript",
+      [
+        "@babel/preset-react",
+        {
+          "runtime": "automatic"
+        }
+      ]
+    ]
   },
   "keywords": [
     "component",
@@ -23,10 +44,18 @@
   },
   "homepage": "https://github.com/muyaszed/pixelartui#readme",
   "devDependencies": {
+    "@babel/preset-env": "^7.28.0",
+    "@babel/preset-react": "^7.27.1",
+    "@babel/preset-typescript": "^7.27.1",
     "@rollup/plugin-commonjs": "^28.0.6",
     "@rollup/plugin-node-resolve": "^16.0.1",
     "@rollup/plugin-typescript": "^11.1.6",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "@types/jest": "^30.0.0",
     "@types/react": "^19.1.8",
+    "jest": "^30.0.3",
+    "jest-environment-jsdom": "^30.0.2",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "rollup-plugin-dts": "^6.2.1",
