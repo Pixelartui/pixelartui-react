@@ -11,7 +11,9 @@
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
-    "test": "jest --watchAll --verbose"
+    "test": "jest --watchAll --verbose",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "repository": {
     "type": "git",
@@ -47,9 +49,18 @@
     "@babel/preset-env": "^7.28.0",
     "@babel/preset-react": "^7.27.1",
     "@babel/preset-typescript": "^7.27.1",
+    "@chromatic-com/storybook": "^1.9.0",
     "@rollup/plugin-commonjs": "^28.0.6",
     "@rollup/plugin-node-resolve": "^16.0.1",
     "@rollup/plugin-typescript": "^11.1.6",
+    "@storybook/addon-essentials": "^8.2.10",
+    "@storybook/addon-interactions": "^8.2.10",
+    "@storybook/addon-links": "^8.2.10",
+    "@storybook/addon-onboarding": "^8.2.10",
+    "@storybook/blocks": "^8.2.10",
+    "@storybook/react": "^8.2.10",
+    "@storybook/react-vite": "^8.2.10",
+    "@storybook/test": "^8.2.10",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
     "@types/jest": "^30.0.0",
@@ -60,6 +71,7 @@
     "react-dom": "^19.1.0",
     "rollup-plugin-dts": "^6.2.1",
     "rollup-plugin-postcss": "^4.0.2",
+    "storybook": "^8.2.10",
     "styled-components": "^6.1.19",
     "tslib": "^2.8.1",
     "typescript": "^5.8.3"

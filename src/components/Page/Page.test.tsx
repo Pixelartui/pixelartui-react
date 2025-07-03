@@ -7,7 +7,7 @@ describe("Page", () => {
     // Arrange
     const title = "Test Title";
     const children = "Test Children";
-    const { getByText } = render(<Page title={title}>{children}</Page>);
+    const { getByText } = render(<Page backgroundColor="#ffffff" title={title}>{children}</Page>);
 
     // Act
     const titleElement = getByText(title);
