@@ -78,7 +78,7 @@ workflows:
   build_release:
     jobs:
       - lint_code:
-        filters:
+          filters:
             tags:
               only: /^v.*/
             branches:
