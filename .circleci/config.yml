@@ -75,14 +75,6 @@ workflows:
       - build:
           requires:
             - run_tests
-  build_release:
-    jobs:
-      - build:
-          filters:
-            tags:
-              only: /^v.*/
-            branches:
-              ignore: /.*/
       - publish_to_npm:
           requires:
             - build
@@ -90,4 +82,4 @@ workflows:
             tags:
               only: /^v.*/
             branches:
-              ignore: /.*/
+              ignore: /.*/      
