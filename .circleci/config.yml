@@ -1,0 +1,107 @@
+version: 2.1
+
+orbs:
+  node: circleci/node@5.0.2
+
+jobs:
+  lint_code:
+    executor: node/default
+    description: Lint code
+    steps:
+      - checkout
+      - node/install-packages
+      - run:
+          name: Install dependencies
+          command: npm install
+      - run:
+          name: Lint code
+          command: npm run lint:fix
+      - persist_to_workspace:
+          root: .
+          paths:
+            - node_modules
+            - package-lock.json
+            - package.json
+            - src
+            - .eslintrc.js
+            - .prettierrc.js
+            - .gitignore
+            - .npmignore
+            - .nvmrc
+            - .circleci
+            - rollup.config.mjs
+            - commitlint.config.js
+            - tsconfig.json
+            - .husky
+  run_tests:
+    executor: node/default
+    description: Run tests
+    steps:
+      - attach_workspace:
+          at: .
+      - run:
+          name: Run tests
+          command: npm run test
+  build:
+    executor: node/default
+    description: Build
+    steps:
+      - attach_workspace:
+          at: .
+      - run:
+          name: Build
+          command: npm run build
+  run_release:
+    executor: node/default
+    description: Run release
+    steps:
+      - checkout
+      - node/install-packages
+      - run:
+          name: Set up git credentials
+          command: |
+            git config --global user.email $GIT_EMAIL
+            git config --global user.name $GIT_NAME
+      - run:
+          name: Run release
+          command: |
+            npm run release
+            git push --follow-tags "https://${GH_TOKEN}@github.com/muyaszed/pixelartui.git" main
+  publish_to_npm:
+    executor: node/default
+    description: Publish to npm
+    steps:
+      - checkout
+      - node/install-packages
+      - run:
+          name: Login to NPM
+          command:  echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
+      - run:
+          name: Publish to NPM
+          command: npm publish
+          environment:
+            NPM_TOKEN: $NPM_TOKEN
+workflows:
+  build_app:
+    jobs:
+      - lint_code
+      - run_tests:
+          requires:
+            - lint_code
+      - build:
+          requires:
+            - run_tests
+      - run_release:
+          requires:
+            - build
+          filters:
+            branches:
+              only:
+               - main
+      - publish_to_npm:
+          requires:
+            - run_release
+          filters:
+            branches:
+              only:
+               - main
