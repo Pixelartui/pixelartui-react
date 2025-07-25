@@ -66,6 +66,12 @@ jobs:
           name: Run release
           command: |
             npm run release
+      - run:
+          name: Skip CI
+          command: git commit --amend -m "$(git log -1 --pretty=%B) [ci skip]"
+      - run: 
+          name: Push Updated version
+          command: git push origin $CIRCLE_BRANCH --tags
   publish_to_npm:
     executor: node/default
     description: Publish to npm
