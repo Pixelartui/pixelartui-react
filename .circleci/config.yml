@@ -75,6 +75,24 @@ workflows:
       - build:
           requires:
             - run_tests
+  build_release:
+    jobs:
+      - lint_code:
+        filters:
+            tags:
+              only: /^v.*/
+      - run_tests:
+          requires:
+            - lint_code
+          filters:
+            tags:
+              only: /^v.*/
+      - build:
+          requires:
+            - run_tests
+          filters:
+            tags:
+              only: /^v.*/
       - publish_to_npm:
           requires:
             - build
