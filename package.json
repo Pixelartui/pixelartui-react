@@ -1,6 +1,6 @@
 {
   "name": "pixelartui",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Pixel Art Component library",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
