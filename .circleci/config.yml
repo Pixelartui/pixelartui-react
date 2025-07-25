@@ -68,7 +68,7 @@ jobs:
 workflows:
   build_app:
     jobs:
-      - lint_code:
+      - lint_code
       - run_tests:
           requires:
             - lint_code
