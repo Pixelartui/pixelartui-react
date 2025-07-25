@@ -69,26 +69,15 @@ workflows:
   build_app:
     jobs:
       - lint_code:
-          filters:
-            branches:
-              ignore: /.*/      
       - run_tests:
           requires:
             - lint_code
-          filters:
-            branches:
-              ignore: /.*/      
       - build:
           requires:
             - run_tests
-          filters:
-            branches:
-              ignore: /.*/      
       - publish_to_npm:
           requires:
             - build
           filters:
             tags:
               only: /^v.*/
-            branches:
-              ignore: /.*/      
