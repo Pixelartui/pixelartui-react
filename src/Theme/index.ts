@@ -1,5 +1,6 @@
 import { DefaultTheme, createGlobalStyle } from 'styled-components';
-import PixelifyRegular from '../fonts/PixelifySans-Regular.ttf';
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const PixelifyRegular = require('../fonts/PixelifySans-Regular.ttf');
 
 const mainColor = '#1976d2';
 const mainFontColor = '#ffffff';
