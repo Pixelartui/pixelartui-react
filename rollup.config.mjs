@@ -4,7 +4,7 @@ import commonjs from "@rollup/plugin-commonjs";
 import dts from "rollup-plugin-dts";
 import postcss from "rollup-plugin-postcss";
 import packageJson from "./package.json" with { type: "json" };
-import copy from 'rollup-plugin-copy';
+import url from '@rollup/plugin-url';
 
 export default [
   {
@@ -22,6 +22,11 @@ export default [
       },
     ],
     plugins: [
+        url({
+          include: ['**/*.woff', '**/*.woff2', '**/*.ttf'], // Include font file types
+          limit: Infinity, // Optionally, set a limit to embed as data URI
+          fileName: '[dirname][name][extname]' // Control output file name and path
+        }),
       resolve({
         extensions: [".js", ".jsx", ".ts", ".tsx"],
         skip: ["react", "react-dom"],
@@ -30,12 +35,6 @@ export default [
       typescript({
         tsconfig: "./tsconfig.json",
         exclude: ["**/*.test.tsx", "**/*.test.ts", "**/*.stories.ts"],
-      }),
-      copy({
-        targets: [{
-            src: "src/fonts",
-            dest: "dist/fonts"
-        }],
       }),
       postcss({ extensions: [".css"], inject: true, extract: false }),
     ]

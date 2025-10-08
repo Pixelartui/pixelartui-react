@@ -7,22 +7,33 @@ declare module 'styled-components' {
         color: {
             main: {
                 normal: {
-                    background: string;
-                    fontColor: string;
+                    primary: string;
+                    secondary: string;
+                    tertiary: string;
+                    font: string;
+                    border: string;
                 },
                 hover: {
-                    background: string;
-                    fontColor: string;
+                    primary: string;
+                    secondary: string;
+                    tertiary: string;
+                    font: string;
+                    border: string;
                 }
             },
             outline: {
                 normal: {
-                    background: string;
-                    fontColor: string;
+                    primary: string;
+                    secondary: string;
+                    tertiary: string;
+                    font: string;
+                    border: string;
                 },
                 hover: {
-                    background: string;
-                    fontColor: string;
+                    primary: string;
+                    secondary: string;
+                    tertiary: string;
+                    font: string;
                     border: string;
                 }
             },

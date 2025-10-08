@@ -1,10 +1,14 @@
 import { DefaultTheme, createGlobalStyle } from 'styled-components';
-// eslint-disable-next-line @typescript-eslint/no-require-imports
-const PixelifyRegular = require('../fonts/PixelifySans-Regular.ttf');
+import PixelifyRegular from '../fonts/PixelifySans-Regular.ttf';
+import { adjust } from './helper';
 
-const mainColor = '#1976d2';
-const mainFontColor = '#ffffff';
-const outlineFontColor = '#1976d2';
+
+const mainPrimaryColor = '#04A1E1';
+const mainSecondaryColor = adjust(mainPrimaryColor, 40);
+const mainTertiaryColor = adjust(mainPrimaryColor, -30);
+const mainFontColor = '##1C2924';
+const mainBorderColor = '#1C2924';
+const outlinePrimaryColor = '#ffffff00';
 
 
 export const GlobalStyle = createGlobalStyle`
@@ -23,23 +27,34 @@ export const theme: DefaultTheme = {
         color: {
             main: {
                 normal: {
-                    background: mainColor,
-                    fontColor: mainFontColor,
+                    primary: mainPrimaryColor,
+                    secondary: mainSecondaryColor,
+                    tertiary: mainTertiaryColor,
+                    font: mainFontColor,
+                    border: mainBorderColor,
                 },
                 hover: {
-                    background: '#000000',
-                    fontColor: mainFontColor,
+                    primary: adjust(mainPrimaryColor, -10),
+                    secondary: mainSecondaryColor,
+                    tertiary: mainTertiaryColor,
+                    font: mainFontColor,
+                    border: mainBorderColor,
                 }
             },
             outline: {
                 normal: {
-                    background: 'transparent',
-                    fontColor: outlineFontColor,
+                    primary: outlinePrimaryColor,
+                    secondary: mainSecondaryColor,
+                    tertiary: mainTertiaryColor,
+                    font: mainFontColor,
+                    border: mainBorderColor,
                 },
                 hover: {
-                    background: 'lightgrey',
-                    fontColor: outlineFontColor,
-                    border: mainColor,
+                    primary: '#d3cccc',
+                    secondary: mainSecondaryColor,
+                    tertiary: mainTertiaryColor,
+                    font: mainFontColor,
+                    border: mainBorderColor,
                 }
             }
         },

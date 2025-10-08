@@ -1,4 +1,4 @@
-import type { Meta} from '@storybook/react'
+import type { Meta} from '@storybook/react-vite'
 import {Button} from ".";
 
 const meta = {
@@ -64,4 +64,14 @@ export const ButtonRound = {
     round: true,
   }
 };
+
+export const ButtonCustomColor = {
+  args: {
+    text: "Custom color",
+    buttonSize: 'medium',
+    buttonType: 'main',
+    backgroundColor: '#05EB57',
+  }
+};
+
 

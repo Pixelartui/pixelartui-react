@@ -7,4 +7,5 @@ export interface ButtonProps {
     buttonType: ButtonType;
     fullwidth?: boolean;
     round?: boolean;
+    backgroundColor?: string;
 }
