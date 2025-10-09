@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.4.6](https://github.com/muyaszed/pixelartui/compare/v0.4.5...v0.4.6) (2025-10-09)
+
+
+### Features
+
+* include fonts in the build ([f5f895e](https://github.com/muyaszed/pixelartui/commit/f5f895e958ec4b74c05f833fa4172e951745fb3d))
+
 ### [0.4.5](https://github.com/muyaszed/pixelartui/compare/v0.4.4...v0.4.5) (2025-10-09)
 
 ### [0.4.4](https://github.com/muyaszed/pixelartui/compare/v0.4.3...v0.4.4) (2025-10-09)
