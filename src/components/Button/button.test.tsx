@@ -5,14 +5,14 @@ import { ButtonProps, ButtonType } from './types';
 import { Button } from './index';
 import { StyledTextContainer } from './styled';
 
-describe('Button component', () => {
-    const props: ButtonProps = {
-        text: 'Button',
-        buttonSize: 'medium',
-        buttonType: 'main',
-        onClick: jest.fn(),
-    };
+const props: ButtonProps = {
+    text: 'Button',
+    buttonSize: 'medium',
+    buttonType: 'main',
+    onClick: jest.fn(),
+};
 
+describe('Button component', () => {    
     it('renders correctly', () => {
         const {getByText} = render(<Button {...props} />)
         const button = getByText(props.text);
