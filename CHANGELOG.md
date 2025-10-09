@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.4.4](https://github.com/muyaszed/pixelartui/compare/v0.4.3...v0.4.4) (2025-10-09)
+
+
+### Features
+
+* exclude react when build ([d3d48d6](https://github.com/muyaszed/pixelartui/commit/d3d48d6e08763768287712d7dc79dfc05f41dee2))
+
 ### [0.4.3](https://github.com/muyaszed/pixelartui/compare/v0.4.2...v0.4.3) (2025-10-09)
 
 ### [0.4.2](https://github.com/muyaszed/pixelartui/compare/v0.4.1...v0.4.2) (2025-10-09)
