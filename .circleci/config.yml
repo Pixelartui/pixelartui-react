@@ -39,10 +39,10 @@ jobs:
     docker:
       - image: cimg/base:stable
     steps:
-      - attach_workspace:
-          at: .
+      - checkout
       - node/install:
           node-version: "18.20.5"
+      - node/install-packages
       - run:
           name: Run tests
           command: npm run test
