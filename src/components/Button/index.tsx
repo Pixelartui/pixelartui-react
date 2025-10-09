@@ -16,12 +16,22 @@ import {
 import { ButtonProps } from './types';
 import { GlobalStyle, theme } from '../../Theme';
 
-export const Button: React.FC<ButtonProps> = ({ text, buttonSize, buttonType, fullwidth, round, backgroundColor }) => {
+export const Button: React.FC<ButtonProps> = ({ 
+    text, 
+    buttonSize, 
+    buttonType, 
+    fullwidth, 
+    round, 
+    backgroundColor,
+    onClick,
+}) => {
+    const handleOnClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+        onClick(event);
+    }
     return (
-       
         <ThemeProvider theme={theme}>
             <GlobalStyle />
-            <StyledButtonContainer $fullwidth={fullwidth}>
+            <StyledButtonContainer onClick={handleOnClick} $fullwidth={fullwidth}>
                 <StyledButtonSideContainer $round={round}>
                     {
                         round ?
