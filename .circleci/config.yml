@@ -37,7 +37,7 @@ jobs:
     executor: node/default
     description: Run tests
     docker:
-      - image: cimg/node:18.20.5
+      - image: circleci/node:current
     steps:
       - attach_workspace:
           at: .
