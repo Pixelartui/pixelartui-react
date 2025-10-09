@@ -5,6 +5,7 @@ import dts from "rollup-plugin-dts";
 import postcss from "rollup-plugin-postcss";
 import packageJson from "./package.json" with { type: "json" };
 import url from '@rollup/plugin-url';
+import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 
 export default [
   {
@@ -22,6 +23,7 @@ export default [
       },
     ],
     plugins: [
+        peerDepsExternal(),
         url({
           include: ['**/*.woff', '**/*.woff2', '**/*.ttf'], // Include font file types
           limit: Infinity, // Optionally, set a limit to embed as data URI
