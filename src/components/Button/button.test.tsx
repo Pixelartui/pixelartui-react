@@ -1,4 +1,5 @@
-import {render, fireEvent} from '@testing-library/react'
+import {render, fireEvent} from '@testing-library/react';
+import '@testing-library/jest-dom';
 import { find } from 'styled-components/test-utils';
 import { ButtonProps, ButtonType } from './types';
 import { Button } from './index';
