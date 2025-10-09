@@ -1,7 +1,6 @@
 import '@testing-library/jest-dom';
 import {render, fireEvent} from '@testing-library/react';
 import { find } from 'styled-components/test-utils';
-import { ButtonProps, ButtonType } from './types';
 import { Button } from './index';
 import { StyledTextContainer } from './styled';
 
@@ -10,17 +9,27 @@ const props = {
     buttonSize: 'medium',
     buttonType: 'main',
     onClick: jest.fn(),
-} as ButtonProps;
+};
 
 describe('Button component', () => {    
     it('renders correctly', () => {
-        const {getByText} = render(<Button {...props} />)
+        const {getByText} = render(<Button {...{
+            text: 'Button',
+            buttonSize: 'medium',
+            buttonType: 'main',
+            onClick: jest.fn(),
+        }} />)
         const button = getByText(props.text);
         expect(button).toBeInTheDocument();
     });
 
     it('renders the correct size', () => {
-        const {container} = render(<Button {...props} />)
+        const {container} = render(<Button {...{
+            text: 'Button',
+            buttonSize: 'medium',
+            buttonType: 'main',
+            onClick: jest.fn(),
+        }} />)
         const component = find(container, StyledTextContainer);
         const styles = getComputedStyle(component!);
         expect(styles.getPropertyValue('min-height')).toBe('35px');
@@ -28,11 +37,12 @@ describe('Button component', () => {
     });
 
     it('renders the correct type', () => {
-        const newProps = {
-            ...props,
-            buttonType: 'outline' as ButtonType,
-        };
-        const {container} = render(<Button {...newProps} />)
+        const {container} = render(<Button {...{
+            text: 'Button',
+            buttonSize: 'medium',
+            buttonType: 'outline',
+            onClick: jest.fn(),
+        }} />)
         const component = find(container, StyledTextContainer);
         const styles = getComputedStyle(component!);
         expect(styles.getPropertyValue('background')).toBe('rgba(255, 255, 255, 0)');
@@ -40,11 +50,17 @@ describe('Button component', () => {
 
 
     it('invoke the correct function when clicked', () => {
-        const {getByText} = render(<Button {...props} />)
+        const mockOnclick = jest.fn();
+        const {getByText} = render(<Button {...{
+            text: 'Button',
+            buttonSize: 'medium',
+            buttonType: 'main',
+            onClick: mockOnclick,
+        }} />)
         const button = getByText(props.text);
         fireEvent.click(button);
 
-        expect(props.onClick).toHaveBeenCalledTimes(1);
+        expect(mockOnclick).toHaveBeenCalledTimes(1);
     });
 
 })
