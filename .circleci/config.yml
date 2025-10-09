@@ -36,6 +36,8 @@ jobs:
   run_tests:
     executor: node/default
     description: Run tests
+    docker:
+      - image: cimg/node:18.20.5
     steps:
       - attach_workspace:
           at: .
