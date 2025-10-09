@@ -5,12 +5,12 @@ import { ButtonProps, ButtonType } from './types';
 import { Button } from './index';
 import { StyledTextContainer } from './styled';
 
-const props: ButtonProps = {
+const props = {
     text: 'Button',
     buttonSize: 'medium',
     buttonType: 'main',
     onClick: jest.fn(),
-};
+} as ButtonProps;
 
 describe('Button component', () => {    
     it('renders correctly', () => {
