@@ -6,7 +6,6 @@ import postcss from "rollup-plugin-postcss";
 import packageJson from "./package.json" with { type: "json" };
 import url from '@rollup/plugin-url';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
-import copy from 'rollup-plugin-copy';
 
 export default [
   {
@@ -27,7 +26,7 @@ export default [
         peerDepsExternal(),
         url({
           include: ['**/*.woff', '**/*.woff2', '**/*.ttf'], // Include font file types
-          limit: Infinity, // Optionally, set a limit to embed as data URI
+          limit: 0, // Optionally, set a limit to embed as data URI
           fileName: '[dirname][name][extname]' // Control output file name and path
         }),
       resolve({
@@ -40,14 +39,6 @@ export default [
         exclude: ["**/*.test.tsx", "**/*.test.ts", "**/*.stories.ts"],
       }),
       postcss({ extensions: [".css"], inject: true, extract: false }),
-      copy({
-        targets: [
-          {
-            src: "src/fonts/*",
-            dest: "./dist/fonts",
-          }
-        ],
-      })
     ]
   },
   {
