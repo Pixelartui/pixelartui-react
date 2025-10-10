@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.4.10](https://github.com/muyaszed/pixelartui/compare/v0.4.9...v0.4.10) (2025-10-10)
+
+
+### Features
+
+* fix circleci flow ([d33f3f9](https://github.com/muyaszed/pixelartui/commit/d33f3f963121e0a1fce72c0c3dd6e7c6383be9a5))
+
 ### [0.4.9](https://github.com/muyaszed/pixelartui/compare/v0.4.8...v0.4.9) (2025-10-10)
 
 ### [0.4.8](https://github.com/muyaszed/pixelartui/compare/v0.4.7...v0.4.8) (2025-10-10)
