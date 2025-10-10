@@ -1,6 +1,6 @@
 {
   "name": "pixelartui",
-  "version": "0.4.8",
+  "version": "0.4.9",
   "description": "Pixel Art Component library",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -18,7 +18,7 @@
     "prepare": "husky",
     "lint": "eslint ./src/ --ext .ts,.tsx",
     "lint:fix": "eslint ./src --ext .ts,.tsx --fix",
-    "release": "standard-version"
+    "release": "standard-version && git push --follow-tags origin main"
   },
   "repository": {
     "type": "git",
