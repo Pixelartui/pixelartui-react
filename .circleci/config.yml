@@ -36,13 +36,9 @@ jobs:
   run_tests:
     executor: node/default
     description: Run tests
-    docker:
-      - image: cimg/base:stable
     steps:
-      - checkout
-      - node/install:
-          node-version: "18.20.5"
-      - node/install-packages
+      - attach_workspace:
+          at: .
       - run:
           name: Run tests
           command: npm run test
