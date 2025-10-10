@@ -9,6 +9,8 @@ jobs:
     description: Lint code
     steps:
       - checkout
+      - node/install:
+          node-version: "18.20.5"
       - node/install-packages
       - run:
           name: Install dependencies
@@ -39,8 +41,6 @@ jobs:
     steps:
       - attach_workspace:
           at: .
-      - node/install:
-          node-version: "18.20.5"
       - run:
           name: Run tests
           command: npm run test
