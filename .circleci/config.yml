@@ -36,6 +36,7 @@ jobs:
             - tsconfig.json
             - .husky
             - babel.config.json
+            - __mocks__
   run_tests:
     executor: 
       name: node/default
