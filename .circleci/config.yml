@@ -7,10 +7,10 @@ jobs:
   lint_code:
     executor: node/default
     description: Lint code
+    docker:
+      - image: circleci/node:current
     steps:
       - checkout
-      - node/install:
-          node-version: "18.20.5"
       - node/install-packages
       - run:
           name: Install dependencies
@@ -38,6 +38,8 @@ jobs:
   run_tests:
     executor: node/default
     description: Run tests
+    docker:
+      - image: circleci/node:current
     steps:
       - attach_workspace:
           at: .
