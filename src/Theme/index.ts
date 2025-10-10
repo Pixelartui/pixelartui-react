@@ -13,7 +13,7 @@ const outlinePrimaryColor = '#ffffff00';
 
 export const GlobalStyle = createGlobalStyle`
     @font-face {
-        font-family: 'Pixelify';
+        font-family: 'Pixelify Sans';
         font-weight: normal;
         font-style: normal;
         font-display: swap;

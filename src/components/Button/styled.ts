@@ -56,7 +56,7 @@ const handleCustomButtonColor = (customColor: string) => {
 export const StyledButtonContainer = Styled.div<{
     $fullwidth?: boolean;
 }>`
-    font-family: 'Pixelify';
+    font-family: 'Pixelify Sans';
     display: flex;
     cursor: pointer;
     width: ${props => props.$fullwidth ? 'width: 100%;' : 'fit-content'};
