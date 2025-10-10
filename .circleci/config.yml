@@ -5,7 +5,9 @@ orbs:
 
 jobs:
   lint_code:
-    executor: node/default
+    executor: 
+      name: node/default
+      tag: "18.20.5"
     description: Lint code
     steps:
       - checkout
