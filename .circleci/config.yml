@@ -34,15 +34,13 @@ jobs:
             - tsconfig.json
             - .husky
   run_tests:
-    executor: node/default
+    executor: 
+      name: node/default
+      tag: "18.20.5"
     description: Run tests
-    docker:
-      - image: cimg/base:stable
     steps:
       - attach_workspace:
           at: .
-      - node/install:
-          node-version: "18.20.5"
       - run:
           name: Run tests
           command: npm run test
