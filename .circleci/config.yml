@@ -37,10 +37,12 @@ jobs:
     executor: node/default
     description: Run tests
     docker:
-      - image: circleci/node:current
+      - image: cimg/base:stable
     steps:
       - attach_workspace:
           at: .
+      - node/install:
+          node-version: "18.20.5"
       - run:
           name: Run tests
           command: npm run test
