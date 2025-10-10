@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.4.12](https://github.com/muyaszed/pixelartui/compare/v0.4.11...v0.4.12) (2025-10-10)
+
+
+### Features
+
+* fix circleci flow ([6af9c5d](https://github.com/muyaszed/pixelartui/commit/6af9c5ddc375d917902d59a0a3791d1b07ceea5c))
+* fix circleci flow ([d2dd49d](https://github.com/muyaszed/pixelartui/commit/d2dd49d96948d6cddcde0480c374a7e52bc3b891))
+* fix circleci flow ([aa2ff2e](https://github.com/muyaszed/pixelartui/commit/aa2ff2e93bc2511a6ce02a7198c42b322e29d299))
+* fix circleci flow ([e29bf24](https://github.com/muyaszed/pixelartui/commit/e29bf24d1ec42332eeb4635b8c3a606e9707b30a))
+* fix circleci flow ([d030122](https://github.com/muyaszed/pixelartui/commit/d030122aab9a75b76c25fed9bf04e0df0a518293))
+* fix circleci flow ([e7c9bb0](https://github.com/muyaszed/pixelartui/commit/e7c9bb092ab2d98a83df8f5c5cc1cf11d9566b32))
+* fix circleci flow ([1f708b6](https://github.com/muyaszed/pixelartui/commit/1f708b6dd7c772cde78674efdf8f491142ddaa20))
+* fix circleci flow ([d38ef3f](https://github.com/muyaszed/pixelartui/commit/d38ef3f48a6f2d738a17675393d1c2c3541b78a5))
+* fix circleci flow ([853d6ce](https://github.com/muyaszed/pixelartui/commit/853d6ce2ba50d2ef4fe606ecf510efeb576ea07e))
+* fix circleci flow ([82e37a8](https://github.com/muyaszed/pixelartui/commit/82e37a81aea005efc64bfeb405800d0955249d3c))
+* fix circleci flow ([df4572c](https://github.com/muyaszed/pixelartui/commit/df4572c19f9e3a914e1ebc03a1d61d63aa56800c))
+
 ### [0.4.11](https://github.com/muyaszed/pixelartui/compare/v0.4.10...v0.4.11) (2025-10-10)
 
 
