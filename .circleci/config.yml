@@ -61,6 +61,8 @@ jobs:
     steps:
       - checkout
       - node/install-packages
+      - attach_workspace:
+          at: .
       - run:
           name: Login to NPM
           command:  echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
