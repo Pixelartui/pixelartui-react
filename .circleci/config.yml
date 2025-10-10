@@ -39,6 +39,8 @@ jobs:
     steps:
       - attach_workspace:
           at: .
+      - node/install:
+          node-version: "18.20.5"
       - run:
           name: Run tests
           command: npm run test
