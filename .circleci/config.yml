@@ -7,8 +7,6 @@ jobs:
   lint_code:
     executor: node/default
     description: Lint code
-    docker:
-      - image: circleci/node:current
     steps:
       - checkout
       - node/install-packages
