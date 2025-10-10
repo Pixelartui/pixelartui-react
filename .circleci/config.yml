@@ -35,6 +35,7 @@ jobs:
             - commitlint.config.js
             - tsconfig.json
             - .husky
+            - babel.config.json
   run_tests:
     executor: 
       name: node/default
