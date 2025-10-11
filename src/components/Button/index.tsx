@@ -2,16 +2,18 @@ import React from 'react';
 import { ThemeProvider } from 'styled-components'
 import { 
     StyledButtonContainer, 
-    StyledButtonSide, 
+    StyledButtonSideMainFirst, 
     StyledButtonSideContainer, 
     StyledButtonSideRoundFirst,
     StyledButtonSideRoundInnerLayer,
-    StyledButtonSideRoundOuterInnerLayer,
     StyledButtonSideRoundSecond,
     StyledButtonSideRoundSecondRightSide,
     StyledButtonSideRoundThird,
     StyledTextContainer, 
-    StyledTextContainerSecondLayer 
+    StyledTextContainerSecondLayer, 
+    StyledButtonSideMainSecond,
+    StyledButtonSideMainSecondInner,
+    StyledButtonSideMainSecondInnerRight
 } from './styled';
 import { ButtonProps } from './types';
 import { GlobalStyle, theme } from '../../Theme';
@@ -36,9 +38,8 @@ export const Button: React.FC<ButtonProps> = ({
                     {
                         round ?
                         <>
-                                <StyledButtonSideRoundFirst $type={buttonType}>
-                                    <StyledButtonSideRoundOuterInnerLayer $type={buttonType}/>
-                                </StyledButtonSideRoundFirst>
+                                <StyledButtonSideRoundFirst $type={buttonType}/>
+                                    
                                 <StyledButtonSideRoundSecond $type={buttonType} $backgroundColor={backgroundColor}>
                                     <StyledButtonSideRoundInnerLayer $type={buttonType} $backgroundColor={backgroundColor}/>
                                 </StyledButtonSideRoundSecond >
@@ -46,7 +47,12 @@ export const Button: React.FC<ButtonProps> = ({
                                     <StyledButtonSideRoundInnerLayer $type={buttonType} $backgroundColor={backgroundColor}/>
                                 </StyledButtonSideRoundThird> 
                         </> :
-                            <StyledButtonSide $type={buttonType} />
+                        <>
+                            <StyledButtonSideMainFirst $type={buttonType} />
+                            <StyledButtonSideMainSecond $type={buttonType} $size={buttonSize}>
+                                <StyledButtonSideMainSecondInner $type={buttonType} />
+                            </StyledButtonSideMainSecond>
+                        </>
                     }
                     
                 </StyledButtonSideContainer>            
@@ -70,12 +76,14 @@ export const Button: React.FC<ButtonProps> = ({
                                 <StyledButtonSideRoundSecondRightSide $type={buttonType} $backgroundColor={backgroundColor}>
                                     <StyledButtonSideRoundInnerLayer $type={buttonType} $backgroundColor={backgroundColor}/>
                                 </StyledButtonSideRoundSecondRightSide >
-                                <StyledButtonSideRoundFirst $type={buttonType}>
-                                    <StyledButtonSideRoundOuterInnerLayer $type={buttonType}/>
-                                </StyledButtonSideRoundFirst>
-                                
+                                <StyledButtonSideRoundFirst $type={buttonType}/>                                
                         </> :
-                            <StyledButtonSide $type={buttonType} />
+                        <>
+                            <StyledButtonSideMainSecond $type={buttonType} $size={buttonSize}>
+                                <StyledButtonSideMainSecondInnerRight $type={buttonType} />
+                            </StyledButtonSideMainSecond>
+                            <StyledButtonSideMainFirst $type={buttonType} />
+                        </>
                     }
                     
                 </StyledButtonSideContainer>     

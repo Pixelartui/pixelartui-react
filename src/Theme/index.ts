@@ -6,7 +6,8 @@ import { adjust } from './helper';
 const mainPrimaryColor = '#04A1E1';
 const mainSecondaryColor = adjust(mainPrimaryColor, 40);
 const mainTertiaryColor = adjust(mainPrimaryColor, -30);
-const mainFontColor = '##1C2924';
+const mainFontColor = '#1C2924';
+const mainFontColorContrast = '#ffffff';
 const mainBorderColor = '#1C2924';
 const outlinePrimaryColor = '#ffffff00';
 
@@ -30,14 +31,20 @@ export const theme: DefaultTheme = {
                     primary: mainPrimaryColor,
                     secondary: mainSecondaryColor,
                     tertiary: mainTertiaryColor,
-                    font: mainFontColor,
+                    font: {
+                        bright: mainFontColor,
+                        dark: mainFontColorContrast,
+                    },
                     border: mainBorderColor,
                 },
                 hover: {
-                    primary: adjust(mainPrimaryColor, -10),
+                    primary: adjust(mainPrimaryColor, 5),
                     secondary: mainSecondaryColor,
                     tertiary: mainTertiaryColor,
-                    font: mainFontColor,
+                    font: {
+                        bright: mainFontColor,
+                        dark: mainFontColorContrast,
+                    },
                     border: mainBorderColor,
                 }
             },
@@ -46,14 +53,20 @@ export const theme: DefaultTheme = {
                     primary: outlinePrimaryColor,
                     secondary: mainSecondaryColor,
                     tertiary: mainTertiaryColor,
-                    font: mainFontColor,
+                    font: {
+                        bright: mainFontColor,
+                        dark: mainFontColorContrast,
+                    },
                     border: mainBorderColor,
                 },
                 hover: {
-                    primary: '#d3cccc',
+                    primary: '#96969669',
                     secondary: mainSecondaryColor,
                     tertiary: mainTertiaryColor,
-                    font: mainFontColor,
+                    font: {
+                        bright: mainFontColor,
+                        dark: mainFontColorContrast,
+                    },
                     border: mainBorderColor,
                 }
             }

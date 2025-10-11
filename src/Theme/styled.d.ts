@@ -1,6 +1,9 @@
 import 'styled-components';
 
-
+interface FontColor {
+    bright: string;
+    dark: string;
+}
 declare module 'styled-components' {
   export interface DefaultTheme {
     button: {
@@ -10,14 +13,14 @@ declare module 'styled-components' {
                     primary: string;
                     secondary: string;
                     tertiary: string;
-                    font: string;
+                    font: FontColor;
                     border: string;
                 },
                 hover: {
                     primary: string;
                     secondary: string;
                     tertiary: string;
-                    font: string;
+                    font: FontColor;
                     border: string;
                 }
             },
@@ -26,14 +29,14 @@ declare module 'styled-components' {
                     primary: string;
                     secondary: string;
                     tertiary: string;
-                    font: string;
+                    font: FontColor;
                     border: string;
                 },
                 hover: {
                     primary: string;
                     secondary: string;
                     tertiary: string;
-                    font: string;
+                    font: FontColor;
                     border: string;
                 }
             },

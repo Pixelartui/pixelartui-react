@@ -1,6 +1,7 @@
 import Styled, { DefaultTheme } from 'styled-components';
 import { ButtonSize, ButtonType } from './types';
-import { adjust } from '../../Theme/helper';
+import { adjust, getContrastColor } from '../../Theme/helper';
+import { FontColor } from '../../Theme/styled';
 
 const handleButtonSize = (size: ButtonSize, theme: DefaultTheme) => {
     switch(size) {
@@ -42,7 +43,7 @@ const handleCustomButtonColor = (customColor: string) => {
     const customPrimaryColor = customColor;
     const customSecondaryColor = adjust(customColor, 40);
     const customTertiaryColor = adjust(customColor, -30);
-    const customHover = adjust(customPrimaryColor, -10);
+    const customHover = adjust(customPrimaryColor, 5);
 
     return {
         customPrimaryColor,
@@ -50,6 +51,10 @@ const handleCustomButtonColor = (customColor: string) => {
         customTertiaryColor,
         customHover,
     }
+}
+
+const handleFontColor = (backgroundColor: string, color: FontColor) => {
+    return getContrastColor(backgroundColor, color.dark, color.bright);
 }
 
 
@@ -65,7 +70,6 @@ export const StyledButtonContainer = Styled.div<{
 export const StyledButtonSideContainer = Styled.div<{ 
     $round?: boolean;
 }>`
-    width: ${props => props.$round ? '9px' : '3px'};
     display: flex;
     align-items: center;
 `;
@@ -78,21 +82,17 @@ export const StyledTextContainer = Styled.div<{
 }>`
     ${props => props.$fullwidth ? 'width: 100%;' : ''}
     display: flex;
-    justify-content: center;
-    align-items: center;
-    border-top: 3px solid ${props => handleButtonColour(props.$type || 'main', props.theme).border};
-    border-bottom: 3px solid ${props => handleButtonColour(props.$type || 'main', props.theme).border};
-    background: ${props => props.$backgroundColor ? handleCustomButtonColor(props.$backgroundColor).customPrimaryColor : handleButtonColour(props.$type || 'main', props.theme).primary};
-    color: ${props => handleButtonColour(props.$type || 'main', props.theme).font};
-    min-width: ${props => handleButtonSize(props.$size || 'medium', props.theme).width};
-    min-height: ${props => handleButtonSize(props.$size || 'medium', props.theme).height};
-    font-size: ${props => handleButtonSize(props.$size || 'medium', props.theme).fontSize};
+    background: transparent;
+    color: ${props => handleFontColor(
+        props.$backgroundColor ? handleCustomButtonColor(props.$backgroundColor).customPrimaryColor : handleButtonColour(props.$type || 'main', props.theme).primary,
+        handleButtonColour(props.$type || 'main', props.theme).font,
+    )};
 
-        ${StyledButtonContainer}:hover & {
-            background:  ${props => props.$backgroundColor ? handleCustomButtonColor(props.$backgroundColor).customHover : handleHoverColour(props.$type || 'main', props.theme).primary};
-            border-top: 3px solid ${props => handleHoverColour(props.$type || 'main', props.theme).border};
-            border-bottom: 3px solid ${props => handleHoverColour(props.$type || 'main', props.theme).border};
-        }
+    min-width: ${props => handleButtonSize(props.$size || 'medium', props.theme).width};
+    height: ${props => handleButtonSize(props.$size || 'medium', props.theme).height};
+    font-size: ${props => handleButtonSize(props.$size || 'medium', props.theme).fontSize};
+    border-top: 3px solid black;
+    border-bottom: 3px solid black;
 `;
 
 export const StyledTextContainerSecondLayer = Styled.div<{ 
@@ -105,28 +105,74 @@ export const StyledTextContainerSecondLayer = Styled.div<{
     display: flex;
     justify-content: center;
     align-items: center;
+    background: ${props => props.$backgroundColor ? handleCustomButtonColor(props.$backgroundColor).customPrimaryColor : handleButtonColour(props.$type || 'main', props.theme).primary};
+    mix-blend-mode: difference;
+
+    ${StyledButtonContainer}:hover & {
+            background:  ${props => props.$backgroundColor ? handleCustomButtonColor(props.$backgroundColor).customHover : handleHoverColour(props.$type || 'main', props.theme).primary};
+        }
 `;
 
-export const StyledButtonSide = Styled.div<{ 
+export const StyledButtonSideMainFirst = Styled.div<{ 
     $type?: ButtonType;
     $backgroundColor?: string;
 }>`
     background: ${props => handleButtonColour(props.$type || 'main', props.theme).border};
-    width: 100%;
+    width: 3px;
     height: calc(100% - 6px);
     display: flex;
         
 `;
 
-export const StyledButtonSideRoundFirst = Styled(StyledButtonSide)`
-    height: calc(100% - 24px);
-    border-top: 3px solid ${props => handleButtonColour(props.$type || 'main', props.theme).border};
+export const StyledButtonSideMainSecond = Styled.div<{ 
+    $size?: ButtonSize;
+    $type?: ButtonType;
+
+}>`
     border-bottom: 3px solid ${props => handleButtonColour(props.$type || 'main', props.theme).border};
+    border-top: 3px solid ${props => handleButtonColour(props.$type || 'main', props.theme).border};
+    height: ${props => handleButtonSize(props.$size || 'medium', props.theme).height};
+    display: flex;
+        width: 3px;
+
+`;
+
+export const StyledButtonSideMainSecondInner = Styled.div<{ 
+    $backgroundColor?: string;
+    $type?: ButtonType;
+}>`
+    width: 100%;
+    display: flex;
+    background: ${props => props.$backgroundColor ? handleCustomButtonColor(props.$backgroundColor).customSecondaryColor : handleButtonColour(props.$type || 'main', props.theme).secondary};
+    border-bottom: 3px solid ${props => props.$backgroundColor ? handleCustomButtonColor(props.$backgroundColor).customTertiaryColor : handleButtonColour(props.$type || 'main', props.theme).tertiary};
+`;
+
+export const StyledButtonSideMainSecondInnerRight =  Styled.div<{ 
+    $backgroundColor?: string;
+    $type?: ButtonType;
+}>`
+    width: 100%;
+    display: flex;
+    background: ${props => props.$backgroundColor ? handleCustomButtonColor(props.$backgroundColor).customSecondaryColor : handleButtonColour(props.$type || 'main', props.theme).tertiary};
+    border-top: 3px solid ${props => props.$backgroundColor ? handleCustomButtonColor(props.$backgroundColor).customTertiaryColor : handleButtonColour(props.$type || 'main', props.theme).secondary};
+`;
+
+export const StyledButtonSideRoundFirst = Styled.div<{ 
+    $backgroundColor?: string;
+    $type?: ButtonType;
+}>`
+    width: 3px;
+    height: calc(100% - 18px);
     background: ${props => handleButtonColour(props.$type || 'main', props.theme).border};
 
 `;
 
-export const StyledButtonSideRoundSecond = Styled(StyledButtonSide)`
+export const StyledButtonSideRoundSecond = Styled.div<{ 
+    $backgroundColor?: string;
+    $type?: ButtonType;
+}>`
+    width: 3px;
+    display: flex;
     height: calc(100% - 18px);
     border-top: 3px solid ${props => handleButtonColour(props.$type || 'main', props.theme).border};
     border-bottom: 3px solid ${props => handleButtonColour(props.$type || 'main', props.theme).border};
@@ -134,12 +180,24 @@ export const StyledButtonSideRoundSecond = Styled(StyledButtonSide)`
 
 `;
 
-export const StyledButtonSideRoundSecondRightSide = Styled(StyledButtonSideRoundSecond)`
+export const StyledButtonSideRoundSecondRightSide = Styled.div<{ 
+    $backgroundColor?: string;
+    $type?: ButtonType;
+}>`
+    width: 3px;
+    height: calc(100% - 18px);
+    border-top: 3px solid ${props => handleButtonColour(props.$type || 'main', props.theme).border};
+    border-bottom: 3px solid ${props => handleButtonColour(props.$type || 'main', props.theme).border};
     background: ${props => props.$backgroundColor ? handleCustomButtonColor(props.$backgroundColor).customTertiaryColor : handleButtonColour(props.$type || 'main', props.theme).tertiary};
 `;
 
 
-export const StyledButtonSideRoundThird = Styled(StyledButtonSide)`
+export const StyledButtonSideRoundThird = Styled.div<{ 
+    $backgroundColor?: string;
+    $type?: ButtonType;
+}>`
+    width: 3px;
+    display: flex;
     height: calc(100% - 12px);
     border-top: 3px solid ${props => handleButtonColour(props.$type || 'main', props.theme).border};
     border-bottom: 3px solid ${props => handleButtonColour(props.$type || 'main', props.theme).border};
@@ -150,10 +208,14 @@ export const StyledButtonSideRoundThird = Styled(StyledButtonSide)`
 
 `;
 
-export const StyledButtonSideRoundInnerLayer = Styled(StyledTextContainerSecondLayer)`
+export const StyledButtonSideRoundInnerLayer = Styled.div<{ 
+    $backgroundColor?: string;
+    $type?: ButtonType;
+}>`
+    width: 100%;
+    border-top: 3px solid ${props => props.$backgroundColor ? handleCustomButtonColor(props.$backgroundColor).customSecondaryColor : handleButtonColour(props.$type || 'main', props.theme).secondary};
+    border-bottom: 3px solid ${props => props.$backgroundColor ? handleCustomButtonColor(props.$backgroundColor).customTertiaryColor : handleButtonColour(props.$type || 'main', props.theme).tertiary};
+    display: flex;
 `;
 
-export const StyledButtonSideRoundOuterInnerLayer = Styled(StyledTextContainerSecondLayer)`
-    border: none;
-`;
 

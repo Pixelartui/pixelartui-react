@@ -2,7 +2,7 @@ import '@testing-library/jest-dom';
 import {render, fireEvent} from '@testing-library/react';
 import { find } from 'styled-components/test-utils';
 import { Button } from './index';
-import { StyledTextContainer } from './styled';
+import { StyledTextContainer, StyledTextContainerSecondLayer } from './styled';
 
 const props = {
     text: 'Button',
@@ -32,7 +32,7 @@ describe('Button component', () => {
         }} />)
         const component = find(container, StyledTextContainer);
         const styles = getComputedStyle(component!);
-        expect(styles.getPropertyValue('min-height')).toBe('35px');
+        expect(styles.getPropertyValue('height')).toBe('35px');
         expect(styles.getPropertyValue('min-width')).toBe('100px');
     });
 
@@ -43,7 +43,7 @@ describe('Button component', () => {
             buttonType: 'outline',
             onClick: jest.fn(),
         }} />)
-        const component = find(container, StyledTextContainer);
+        const component = find(container, StyledTextContainerSecondLayer);
         const styles = getComputedStyle(component!);
         expect(styles.getPropertyValue('background')).toBe('rgba(255, 255, 255, 0)');
     });
