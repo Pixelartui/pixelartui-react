@@ -1,6 +1,6 @@
 import Styled, { DefaultTheme } from 'styled-components';
 import { ButtonSize, ButtonType } from './types';
-import { adjust, getContrastColor } from '../../Theme/helper';
+import { getContrastColor, handleCustomColor } from '../../Theme/helper';
 import { FontColor } from '../../Theme/styled';
 
 const handleButtonSize = (size: ButtonSize, theme: DefaultTheme) => {
@@ -40,17 +40,7 @@ const handleHoverColour = (type: ButtonType, theme: DefaultTheme) => {
 }
 
 const handleCustomButtonColor = (customColor: string) => {
-    const customPrimaryColor = customColor;
-    const customSecondaryColor = adjust(customColor, 40);
-    const customTertiaryColor = adjust(customColor, -30);
-    const customHover = adjust(customPrimaryColor, 5);
-
-    return {
-        customPrimaryColor,
-        customSecondaryColor,
-        customTertiaryColor,
-        customHover,
-    }
+    return handleCustomColor(customColor);
 }
 
 const handleFontColor = (backgroundColor: string, color: FontColor) => {
@@ -133,8 +123,7 @@ export const StyledButtonSideMainSecond = Styled.div<{
     border-top: 3px solid ${props => handleButtonColour(props.$type || 'main', props.theme).border};
     height: ${props => handleButtonSize(props.$size || 'medium', props.theme).height};
     display: flex;
-        width: 3px;
-
+    width: 3px;
 `;
 
 export const StyledButtonSideMainSecondInner = Styled.div<{ 

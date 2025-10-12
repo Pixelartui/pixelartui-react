@@ -10,3 +10,17 @@ export const getContrastColor = (hexcolor: string, darkColor: string, brightColo
     
     return (yiqColorSpace >= 128) ? brightColor : darkColor;
 }
+
+export const handleCustomColor = (customColor: string) => {
+    const customPrimaryColor = customColor;
+    const customSecondaryColor = adjust(customColor, 40);
+    const customTertiaryColor = adjust(customColor, -30);
+    const customHover = adjust(customPrimaryColor, 5);
+
+    return {
+        customPrimaryColor,
+        customSecondaryColor,
+        customTertiaryColor,
+        customHover,
+    }
+}
