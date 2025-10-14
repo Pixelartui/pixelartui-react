@@ -95,7 +95,7 @@ export const theme: DefaultTheme = {
             },
         }
     },
-    inputText: {
+    textInput: {
         color: {
             primary: mainPrimaryColor,
             secondary: mainSecondaryColor,
@@ -107,7 +107,7 @@ export const theme: DefaultTheme = {
             border: mainBorderColor,
         },
         size: {
-            width: '120px',
+            width: '140px',
             height: '30px',
             fontSize: '24px',
         }

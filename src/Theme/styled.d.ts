@@ -65,7 +65,7 @@ declare module 'styled-components' {
             },
         }
     },
-    inputText: {
+    textInput: {
         color: {
             primary: string;
             secondary: string;
