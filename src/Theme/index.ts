@@ -24,6 +24,12 @@ export const GlobalStyle = createGlobalStyle`
 `;
 
 export const theme: DefaultTheme = {
+    general: {
+        color: {
+            white: '#ffffff',
+            black: '#000000'
+        }
+    },
     button: {
         color: {
             main: {
@@ -89,4 +95,21 @@ export const theme: DefaultTheme = {
             },
         }
     },
+    textInput: {
+        color: {
+            primary: mainPrimaryColor,
+            secondary: mainSecondaryColor,
+            tertiary: mainTertiaryColor,
+            font: {
+                bright: mainFontColor,
+                dark: mainFontColorContrast,
+            },
+            border: mainBorderColor,
+        },
+        size: {
+            width: '140px',
+            height: '30px',
+            fontSize: '24px',
+        }
+    }
 }

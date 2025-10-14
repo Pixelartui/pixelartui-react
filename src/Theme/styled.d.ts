@@ -6,6 +6,12 @@ interface FontColor {
 }
 declare module 'styled-components' {
   export interface DefaultTheme {
+    general: {
+        color: {
+            white: string;
+            black: string;
+        }
+    }
     button: {
         color: {
             main: {
@@ -59,5 +65,19 @@ declare module 'styled-components' {
             },
         }
     },
+    textInput: {
+        color: {
+            primary: string;
+            secondary: string;
+            tertiary: string;
+            font: FontColor;
+            border: string;
+        },
+        size: {
+            width: string;
+            height: string;
+            fontSize: string;
+        },
+    }
   }
 }

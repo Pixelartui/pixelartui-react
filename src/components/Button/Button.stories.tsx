@@ -19,7 +19,8 @@ export const ButtonOutline = {
   args: {
     text: "Outline",
     buttonSize: 'medium',
-    buttonType: 'outline'
+    buttonType: 'outline',
+    round: false
   }
 };
 
