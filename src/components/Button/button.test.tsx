@@ -48,6 +48,18 @@ describe('Button component', () => {
         expect(styles.getPropertyValue('background')).toBe('rgba(255, 255, 255, 0)');
     });
 
+    it('renders correctly when disabled', () => {
+        const {container} = render(<Button {...{
+            text: 'Button',
+            buttonSize: 'medium',
+            buttonType: 'main',
+            onClick: jest.fn(),
+            disabled: true,
+        }} />)
+        const component = find(container, StyledTextContainerSecondLayer);
+        const styles = getComputedStyle(component!);
+        expect(styles.getPropertyValue('background')).toBe('rgb(236, 221, 247)');
+    });
 
     it('invoke the correct function when clicked', () => {
         const mockOnclick = jest.fn();

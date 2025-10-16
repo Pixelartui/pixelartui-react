@@ -2,7 +2,8 @@ import type { Meta} from '@storybook/react-vite'
 import {TextInput} from ".";
 
 const meta = {
-  component: TextInput,
+    title: 'Pixel Component/TextInput',
+    component: TextInput,
 } satisfies Meta<typeof TextInput>;
 
 export default meta;
@@ -47,12 +48,19 @@ export const TextInputError = {
     inputName: 'name',
     type: 'main',
     textLabel: 'The Label',
-    error: 'Error message'
+    error: true,
+    helperText: 'Error message'
   }
 };
 
-
-
+export const TextInputDisabled = {
+  args: {
+    inputName: 'name',
+    type: 'main',
+    textLabel: 'The Label',
+    disabled: true,
+  }
+};
 
 export const TextInputCustomColor = {
   args: {

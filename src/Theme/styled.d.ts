@@ -4,10 +4,31 @@ interface FontColor {
     bright: string;
     dark: string;
 }
+
+interface ComponentColorGroup {
+    primary: string;
+    secondary: string;
+    tertiary: string;
+    font: FontColor;
+    border: string;
+}
+
+interface ComponentSizeGroup {
+    width: string;
+    height: string;
+    fontSize: string;
+}
 declare module 'styled-components' {
   export interface DefaultTheme {
     general: {
         color: {
+            primary: string;
+            secondary: string;
+            tertiary: string;
+            disabled: string;
+            font: string;
+            fontContrast: string;
+            fontDisabled: string;
             white: string;
             black: string;
         }
@@ -15,69 +36,27 @@ declare module 'styled-components' {
     button: {
         color: {
             main: {
-                normal: {
-                    primary: string;
-                    secondary: string;
-                    tertiary: string;
-                    font: FontColor;
-                    border: string;
-                },
-                hover: {
-                    primary: string;
-                    secondary: string;
-                    tertiary: string;
-                    font: FontColor;
-                    border: string;
-                }
+                normal: ComponentColorGroup,
+                hover: ComponentColorGroup
             },
             outline: {
-                normal: {
-                    primary: string;
-                    secondary: string;
-                    tertiary: string;
-                    font: FontColor;
-                    border: string;
-                },
-                hover: {
-                    primary: string;
-                    secondary: string;
-                    tertiary: string;
-                    font: FontColor;
-                    border: string;
-                }
+                normal: ComponentColorGroup,
+                hover: ComponentColorGroup
             },
         },
         size: {
-            small: {
-                width: string;
-                height: string;
-                fontSize: string;
-            },
-            medium: {
-                width: string;
-                height: string;
-                fontSize: string;
-            },
-            large: {
-                width: string;
-                height: string;
-                fontSize: string;
-            },
+            small: ComponentSizeGroup,
+            medium: ComponentSizeGroup,
+            large: ComponentSizeGroup,
         }
     },
     textInput: {
-        color: {
-            primary: string;
-            secondary: string;
-            tertiary: string;
-            font: FontColor;
-            border: string;
-        },
-        size: {
-            width: string;
-            height: string;
-            fontSize: string;
-        },
+        color: ComponentColorGroup,
+        size: ComponentSizeGroup,
+    },
+    select: {
+        color: ComponentColorGroup,
+        size: ComponentSizeGroup,
     }
   }
 }

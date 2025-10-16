@@ -10,6 +10,7 @@ const mainFontColor = '#1C2924';
 const mainFontColorContrast = '#ffffff';
 const mainBorderColor = '#1C2924';
 const outlinePrimaryColor = '#ffffff00';
+const disableColor = '#ECDDF7';
 
 
 export const GlobalStyle = createGlobalStyle`
@@ -26,6 +27,13 @@ export const GlobalStyle = createGlobalStyle`
 export const theme: DefaultTheme = {
     general: {
         color: {
+            primary: mainPrimaryColor,
+            secondary: mainSecondaryColor,
+            tertiary: mainTertiaryColor,
+            font: mainFontColor,
+            fontContrast: mainFontColorContrast,
+            fontDisabled: '#d7d0d0',
+            disabled: disableColor,
             white: '#ffffff',
             black: '#000000'
         }
@@ -109,7 +117,24 @@ export const theme: DefaultTheme = {
         size: {
             width: '140px',
             height: '30px',
-            fontSize: '24px',
+            fontSize: '20px',
+        }
+    },
+    select: {
+        color: {
+            primary: mainPrimaryColor,
+            secondary: mainSecondaryColor,
+            tertiary: mainTertiaryColor,
+            font: {
+                bright: mainFontColor,
+                dark: mainFontColorContrast,
+            },
+            border: mainBorderColor,
+        },
+        size: {
+            width: '130px',
+            height: '30px',
+            fontSize: '20px',
         }
     }
 }

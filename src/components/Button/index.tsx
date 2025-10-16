@@ -25,64 +25,149 @@ export const Button: React.FC<ButtonProps> = ({
     fullwidth, 
     round, 
     backgroundColor,
+    disabled,
     onClick,
 }) => {
     const handleOnClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+        if (disabled) return
+
         onClick(event);
     }
     return (
         <ThemeProvider theme={theme}>
             <GlobalStyle />
-            <StyledButtonContainer onClick={handleOnClick} $fullwidth={fullwidth}>
-                <StyledButtonSideContainer $round={round}>
+            <StyledButtonContainer
+                className='cp-button-container'
+                onClick={handleOnClick} 
+                $fullwidth={fullwidth}
+                $disabled={disabled}
+            >
+                <StyledButtonSideContainer 
+                    className='cp-button-side-container'
+                    $round={round}
+                >
                     {
                         round ?
                         <>
-                                <StyledButtonSideRoundFirst $type={buttonType}/>
-                                    
-                                <StyledButtonSideRoundSecond $type={buttonType} $backgroundColor={backgroundColor}>
-                                    <StyledButtonSideRoundInnerLayer $type={buttonType} $backgroundColor={backgroundColor}/>
+                                <StyledButtonSideRoundFirst 
+                                    className='cp-button-side-round-first'
+                                    $type={buttonType}
+                                />
+                                <StyledButtonSideRoundSecond
+                                    className='cp-button-side-round-second'
+                                    $type={buttonType} 
+                                    $backgroundColor={backgroundColor}
+                                    $disabled={disabled}
+                                >
+                                    <StyledButtonSideRoundInnerLayer 
+                                        className='cp-button-side-roun-inner-layer'
+                                        $type={buttonType} 
+                                        $backgroundColor={backgroundColor}
+                                        $disabled={disabled}
+                                    />
                                 </StyledButtonSideRoundSecond >
-                                <StyledButtonSideRoundThird $type={buttonType} $backgroundColor={backgroundColor}>
-                                    <StyledButtonSideRoundInnerLayer $type={buttonType} $backgroundColor={backgroundColor}/>
+                                <StyledButtonSideRoundThird
+                                    className='cp-button-side-round-third'
+                                    $type={buttonType} 
+                                    $backgroundColor={backgroundColor}
+                                    $disabled={disabled}
+                                >
+                                    <StyledButtonSideRoundInnerLayer
+                                        className='cp-button-side-round-inner-layer' 
+                                        $type={buttonType} 
+                                        $backgroundColor={backgroundColor}
+                                        $disabled={disabled}
+                                    />
                                 </StyledButtonSideRoundThird> 
                         </> :
                         <>
-                            <StyledButtonSideMainFirst $type={buttonType} />
-                            <StyledButtonSideMainSecond $type={buttonType} $size={buttonSize}>
-                                <StyledButtonSideMainSecondInner $type={buttonType} />
+                            <StyledButtonSideMainFirst 
+                                className='cp-button-side-main-first'
+                                $type={buttonType} 
+                            />
+                            <StyledButtonSideMainSecond
+                                className='cp-button-side-main-second'
+                                $type={buttonType} 
+                                $size={buttonSize}
+                            >
+                                <StyledButtonSideMainSecondInner
+                                    className='cp-button-side-main-second-inner'
+                                    $type={buttonType}
+                                    $backgroundColor={backgroundColor}
+                                    $disabled={disabled}
+                                />
                             </StyledButtonSideMainSecond>
                         </>
                     }
                     
                 </StyledButtonSideContainer>            
-                <StyledTextContainer 
+                <StyledTextContainer
+                    className='cp-button-text-container'
                     $size={buttonSize}
                     $type={buttonType}
                     $fullwidth={fullwidth || false}
                     $backgroundColor={backgroundColor}
                 >
-                    <StyledTextContainerSecondLayer $type={buttonType} $backgroundColor={backgroundColor}>
+                    <StyledTextContainerSecondLayer 
+                        className='cp-button-text-container-second-layer'
+                        $type={buttonType} 
+                        $backgroundColor={backgroundColor}
+                        $disabled={disabled}
+                    >
                         {text}
                     </StyledTextContainerSecondLayer>
                 </StyledTextContainer>
-                <StyledButtonSideContainer $round={round}>
+                <StyledButtonSideContainer
+                    className='cp-button-side-container'
+                    $round={round}
+                >
                     {
                         round ?
                         <>
-                                <StyledButtonSideRoundThird $type={buttonType} $backgroundColor={backgroundColor}>
-                                    <StyledButtonSideRoundInnerLayer $type={buttonType} $backgroundColor={backgroundColor}/>
+                                <StyledButtonSideRoundThird
+                                    className='cp-button-side-round-third'
+                                    $type={buttonType} 
+                                    $backgroundColor={backgroundColor}
+                                    $disabled={disabled}
+                                >
+                                    <StyledButtonSideRoundInnerLayer
+                                        className='cp-button-side-round-inner-layer' 
+                                        $type={buttonType} 
+                                        $backgroundColor={backgroundColor}
+                                        $disabled={disabled}
+                                    />
                                 </StyledButtonSideRoundThird> 
-                                <StyledButtonSideRoundSecondRightSide $type={buttonType} $backgroundColor={backgroundColor}>
-                                    <StyledButtonSideRoundInnerLayer $type={buttonType} $backgroundColor={backgroundColor}/>
+                                <StyledButtonSideRoundSecondRightSide 
+                                    className='cp-button-side-round-second-right-side'
+                                    $type={buttonType} 
+                                    $backgroundColor={backgroundColor}
+                                    $disabled={disabled}
+                                >
+                                    <StyledButtonSideRoundInnerLayer
+                                        className='cp-button-side-round-inner-layer' 
+                                        $type={buttonType} 
+                                        $backgroundColor={backgroundColor}
+                                        $disabled={disabled}
+                                    />
                                 </StyledButtonSideRoundSecondRightSide >
-                                <StyledButtonSideRoundFirst $type={buttonType}/>                                
+                                <StyledButtonSideRoundFirst 
+                                    className='cp-button-side-round-first'
+                                    $type={buttonType}
+                                />                                
                         </> :
                         <>
                             <StyledButtonSideMainSecond $type={buttonType} $size={buttonSize}>
-                                <StyledButtonSideMainSecondInnerRight $type={buttonType} />
+                                <StyledButtonSideMainSecondInnerRight
+                                    className='cp-button-side-main-second-inner-right'
+                                    $type={buttonType}
+                                    $backgroundColor={backgroundColor} 
+                                    $disabled={disabled}
+                                />
                             </StyledButtonSideMainSecond>
-                            <StyledButtonSideMainFirst $type={buttonType} />
+                            <StyledButtonSideMainFirst 
+                                className='cp-button-side-main-first'
+                                $type={buttonType} 
+                            />
                         </>
                     }
                     

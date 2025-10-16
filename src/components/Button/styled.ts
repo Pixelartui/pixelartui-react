@@ -1,6 +1,6 @@
 import Styled, { DefaultTheme } from 'styled-components';
 import { ButtonSize, ButtonType } from './types';
-import { getContrastColor, handleCustomColor } from '../../Theme/helper';
+import { adjust, getContrastColor, handleCustomColor } from '../../Theme/helper';
 import { FontColor } from '../../Theme/styled';
 
 const handleButtonSize = (size: ButtonSize, theme: DefaultTheme) => {
@@ -47,13 +47,88 @@ const handleFontColor = (backgroundColor: string, color: FontColor) => {
     return getContrastColor(backgroundColor, color.dark, color.bright);
 }
 
+const handleSecondLayerBackground = (
+    disabled: boolean | undefined,
+    theme: DefaultTheme,
+    backgroundColor: string | undefined,
+    type: ButtonType | undefined
+) => {
+
+    if (disabled) {
+        return theme.general.color.disabled;
+    }
+
+    if (backgroundColor) {
+        return handleCustomButtonColor(backgroundColor).customPrimaryColor;
+    }
+
+    return handleButtonColour(type || 'main', theme).primary
+}
+
+const handleSecondLayerBackgroundHover = (
+    disabled: boolean | undefined,
+    theme: DefaultTheme,
+    backgroundColor: string | undefined,
+    type: ButtonType | undefined
+) => {
+
+    if (disabled) {
+        return theme.general.color.disabled;
+    }
+
+    if (backgroundColor) {
+        return handleCustomButtonColor(backgroundColor).customHover;
+    }
+
+    return handleHoverColour(type || 'main', theme).primary
+}
+
+const handleSecondLayerTopBorder = (
+    disabled: boolean | undefined,
+    theme: DefaultTheme,
+    backgroundColor: string | undefined,
+    type: ButtonType | undefined
+) => {
+
+    if (disabled) {
+        return adjust(theme.general.color.disabled, 40);
+    }
+
+    if (backgroundColor) {
+        return handleCustomButtonColor(backgroundColor).customSecondaryColor;
+    }
+
+    return handleButtonColour(type || 'main', theme).secondary;
+}
+
+const handleSecondLayerBottomBorder = (
+    disabled: boolean | undefined,
+    theme: DefaultTheme,
+    backgroundColor: string | undefined,
+    type: ButtonType | undefined
+) => {
+
+    if (disabled) {
+        return adjust(theme.general.color.disabled, -30);
+    }
+
+    if (backgroundColor) {
+        return handleCustomButtonColor(backgroundColor).customTertiaryColor;
+    }
+
+    return handleButtonColour(type || 'main', theme).tertiary;
+}
+
+
+
 
 export const StyledButtonContainer = Styled.div<{
     $fullwidth?: boolean;
+    $disabled?: boolean;
 }>`
     font-family: 'Pixelify Sans';
     display: flex;
-    cursor: pointer;
+    cursor: ${props => props.$disabled ? 'not-allowed' : 'pointer'};
     width: ${props => props.$fullwidth ? 'width: 100%;' : 'fit-content'};
 `;
 
@@ -88,18 +163,19 @@ export const StyledTextContainer = Styled.div<{
 export const StyledTextContainerSecondLayer = Styled.div<{ 
     $type?: ButtonType;
     $backgroundColor?: string;
+    $disabled?: boolean;
 }>`
-    border-top: 3px solid ${props => props.$backgroundColor ? handleCustomButtonColor(props.$backgroundColor).customSecondaryColor : handleButtonColour(props.$type || 'main', props.theme).secondary};
-    border-bottom: 3px solid ${props => props.$backgroundColor ? handleCustomButtonColor(props.$backgroundColor).customTertiaryColor : handleButtonColour(props.$type || 'main', props.theme).tertiary};
+    border-top: 3px solid ${props => handleSecondLayerTopBorder(props.$disabled, props.theme, props.$backgroundColor, props.$type)};
+    border-bottom: 3px solid ${props => handleSecondLayerBottomBorder(props.$disabled, props.theme, props.$backgroundColor, props.$type)};
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: ${props => props.$backgroundColor ? handleCustomButtonColor(props.$backgroundColor).customPrimaryColor : handleButtonColour(props.$type || 'main', props.theme).primary};
+    background: ${props => handleSecondLayerBackground(props.$disabled, props.theme, props.$backgroundColor, props.$type)};
     mix-blend-mode: difference;
 
     ${StyledButtonContainer}:hover & {
-            background:  ${props => props.$backgroundColor ? handleCustomButtonColor(props.$backgroundColor).customHover : handleHoverColour(props.$type || 'main', props.theme).primary};
+            background:  ${props => handleSecondLayerBackgroundHover(props.$disabled, props.theme, props.$backgroundColor, props.$type)};
         }
 `;
 
@@ -129,21 +205,23 @@ export const StyledButtonSideMainSecond = Styled.div<{
 export const StyledButtonSideMainSecondInner = Styled.div<{ 
     $backgroundColor?: string;
     $type?: ButtonType;
+    $disabled?: boolean;
 }>`
     width: 100%;
     display: flex;
-    background: ${props => props.$backgroundColor ? handleCustomButtonColor(props.$backgroundColor).customSecondaryColor : handleButtonColour(props.$type || 'main', props.theme).secondary};
-    border-bottom: 3px solid ${props => props.$backgroundColor ? handleCustomButtonColor(props.$backgroundColor).customTertiaryColor : handleButtonColour(props.$type || 'main', props.theme).tertiary};
+    background: ${props => handleSecondLayerTopBorder(props.$disabled, props.theme, props.$backgroundColor, props.$type)};
+    border-bottom: 3px solid ${props => handleSecondLayerBottomBorder(props.$disabled, props.theme, props.$backgroundColor, props.$type)};
 `;
 
 export const StyledButtonSideMainSecondInnerRight =  Styled.div<{ 
     $backgroundColor?: string;
     $type?: ButtonType;
+    $disabled?: boolean;
 }>`
     width: 100%;
     display: flex;
-    background: ${props => props.$backgroundColor ? handleCustomButtonColor(props.$backgroundColor).customSecondaryColor : handleButtonColour(props.$type || 'main', props.theme).tertiary};
-    border-top: 3px solid ${props => props.$backgroundColor ? handleCustomButtonColor(props.$backgroundColor).customTertiaryColor : handleButtonColour(props.$type || 'main', props.theme).secondary};
+    background: ${props => handleSecondLayerBottomBorder(props.$disabled, props.theme, props.$backgroundColor, props.$type)};
+    border-top: 3px solid ${props => handleSecondLayerTopBorder(props.$disabled, props.theme, props.$backgroundColor, props.$type)};
 `;
 
 export const StyledButtonSideRoundFirst = Styled.div<{ 
@@ -159,40 +237,43 @@ export const StyledButtonSideRoundFirst = Styled.div<{
 export const StyledButtonSideRoundSecond = Styled.div<{ 
     $backgroundColor?: string;
     $type?: ButtonType;
+    $disabled?: boolean;
 }>`
     width: 3px;
     display: flex;
     height: calc(100% - 18px);
     border-top: 3px solid ${props => handleButtonColour(props.$type || 'main', props.theme).border};
     border-bottom: 3px solid ${props => handleButtonColour(props.$type || 'main', props.theme).border};
-    background: ${props => props.$backgroundColor ? handleCustomButtonColor(props.$backgroundColor).customSecondaryColor : handleButtonColour(props.$type || 'main', props.theme).secondary};
+    background: ${props => handleSecondLayerTopBorder(props.$disabled, props.theme, props.$backgroundColor, props.$type)};
 
 `;
 
 export const StyledButtonSideRoundSecondRightSide = Styled.div<{ 
     $backgroundColor?: string;
     $type?: ButtonType;
+    $disabled?: boolean;
 }>`
     width: 3px;
     height: calc(100% - 18px);
     border-top: 3px solid ${props => handleButtonColour(props.$type || 'main', props.theme).border};
     border-bottom: 3px solid ${props => handleButtonColour(props.$type || 'main', props.theme).border};
-    background: ${props => props.$backgroundColor ? handleCustomButtonColor(props.$backgroundColor).customTertiaryColor : handleButtonColour(props.$type || 'main', props.theme).tertiary};
+    background: ${props => handleSecondLayerBottomBorder(props.$disabled, props.theme, props.$backgroundColor, props.$type)};
 `;
 
 
 export const StyledButtonSideRoundThird = Styled.div<{ 
     $backgroundColor?: string;
     $type?: ButtonType;
+    $disabled?: boolean;
 }>`
     width: 3px;
     display: flex;
     height: calc(100% - 12px);
     border-top: 3px solid ${props => handleButtonColour(props.$type || 'main', props.theme).border};
     border-bottom: 3px solid ${props => handleButtonColour(props.$type || 'main', props.theme).border};
-    background: ${props => props.$backgroundColor ? handleCustomButtonColor(props.$backgroundColor).customPrimaryColor : handleButtonColour(props.$type || 'main', props.theme).primary};
+    background: ${props => handleSecondLayerBackground(props.$disabled, props.theme, props.$backgroundColor, props.$type)};
         ${StyledButtonContainer}:hover & {
-            background:  ${props => props.$backgroundColor ? handleCustomButtonColor(props.$backgroundColor).customHover : handleHoverColour(props.$type || 'main', props.theme).primary};
+            background:  ${props => handleSecondLayerBackgroundHover(props.$disabled, props.theme, props.$backgroundColor, props.$type)};
         }
 
 `;
@@ -200,10 +281,11 @@ export const StyledButtonSideRoundThird = Styled.div<{
 export const StyledButtonSideRoundInnerLayer = Styled.div<{ 
     $backgroundColor?: string;
     $type?: ButtonType;
+    $disabled?: boolean;
 }>`
     width: 100%;
-    border-top: 3px solid ${props => props.$backgroundColor ? handleCustomButtonColor(props.$backgroundColor).customSecondaryColor : handleButtonColour(props.$type || 'main', props.theme).secondary};
-    border-bottom: 3px solid ${props => props.$backgroundColor ? handleCustomButtonColor(props.$backgroundColor).customTertiaryColor : handleButtonColour(props.$type || 'main', props.theme).tertiary};
+    border-top: 3px solid ${props => handleSecondLayerTopBorder(props.$disabled, props.theme, props.$backgroundColor, props.$type)};
+    border-bottom: 3px solid ${props => handleSecondLayerBottomBorder(props.$disabled, props.theme, props.$backgroundColor, props.$type)};
     display: flex;
 `;
 

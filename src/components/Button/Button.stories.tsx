@@ -2,7 +2,8 @@ import type { Meta} from '@storybook/react-vite'
 import {Button} from ".";
 
 const meta = {
-  component: Button,
+    title: 'Pixel Component/Button',
+    component: Button,
 } satisfies Meta<typeof Button>;
 
 export default meta;
@@ -65,6 +66,16 @@ export const ButtonRound = {
     round: true,
   }
 };
+
+export const ButtonDisabled = {
+  args: {
+    text: "Disabled",
+    buttonSize: 'medium',
+    buttonType: 'main',
+    disabled: true,
+  }
+};
+
 
 export const ButtonCustomColor = {
   args: {
