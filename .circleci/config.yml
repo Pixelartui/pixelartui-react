@@ -62,6 +62,7 @@ jobs:
           root: .
           paths:
             - dist
+            - README.md
   publish_to_npm:
     executor: node/default
     description: Publish to npm
