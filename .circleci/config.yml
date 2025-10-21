@@ -37,6 +37,7 @@ jobs:
             - .husky
             - babel.config.json
             - __mocks__
+            - README.md
   run_tests:
     executor: 
       name: node/default
