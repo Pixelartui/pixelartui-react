@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.4.14](https://github.com/muyaszed/pixelartui/compare/v0.4.13...v0.4.14) (2025-10-21)
+
+
+### Features
+
+* update cilcle ci config ([24bd539](https://github.com/muyaszed/pixelartui/commit/24bd539f8a6d12dbeb9f235814193c57985bbf95))
+
 ### [0.4.13](https://github.com/muyaszed/pixelartui/compare/v0.4.12...v0.4.13) (2025-10-21)
 
 
