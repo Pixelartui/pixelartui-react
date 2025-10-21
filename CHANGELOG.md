@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.4.13](https://github.com/muyaszed/pixelartui/compare/v0.4.12...v0.4.13) (2025-10-21)
+
+
+### Features
+
+* added readme ([61d9217](https://github.com/muyaszed/pixelartui/commit/61d921730b97c16d5b144aebae004fa11d234f44))
+* complete Text input component ([9e7f8f5](https://github.com/muyaszed/pixelartui/commit/9e7f8f525c6cf1fc3df9bd42e4c4877490e280ec))
+* fix button test ([8654188](https://github.com/muyaszed/pixelartui/commit/86541889367250af756a7ca7a443468abd0f3914))
+* initial text input component ([7fb0059](https://github.com/muyaszed/pixelartui/commit/7fb0059235e219ef786a49e22b90bc4565e84bf6))
+* select component ([bdc49b6](https://github.com/muyaszed/pixelartui/commit/bdc49b69768837122e2457577a800a87eb54939c))
+
 ### [0.4.12](https://github.com/muyaszed/pixelartui/compare/v0.4.11...v0.4.12) (2025-10-10)
 
 
