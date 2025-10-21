@@ -1,0 +1,1 @@
+export { useClickOutsideCompnent } from './useClickOutsideComponent';

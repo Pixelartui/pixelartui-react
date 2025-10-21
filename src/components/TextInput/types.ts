@@ -7,6 +7,8 @@ export interface TextInputProps {
     placeholder?: string;
     backgroundColor?: string;
     noLabel?: boolean;
-    error?: string;
+    error?: boolean;
+    helperText?: string;
+    disabled?: boolean;
     onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }

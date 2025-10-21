@@ -66,10 +66,11 @@ describe('Text Input component', () => {
     it('renders error validation message', () => {
         const newProps = {
             ...props,
-            error: 'Error'
+            error: true,
+            helperText: 'message',
         };
         const {getByText} = render(<TextInput {...newProps} />)
-        const error = getByText(newProps.error!);
+        const error = getByText(newProps.helperText!);
         expect(error).toBeInTheDocument();
     });
 

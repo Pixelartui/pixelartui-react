@@ -10,5 +10,6 @@ export interface ButtonProps {
     fullwidth?: boolean;
     round?: boolean;
     backgroundColor?: string;
+    disabled?: boolean;
     onClick: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
 }

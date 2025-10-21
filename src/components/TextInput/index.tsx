@@ -1,8 +1,7 @@
-import React from 'react';
-import { ThemeProvider } from 'styled-components'
-import { StyledInput, StyledInputSideFirst, StyledInputSideSecond, StyledInputSideSecondInnerLeft, StyledInputSideSecondInnerRight, StyledInputTextInner, StyledInputTextOuter, StyledTextInputContainer, StyledTextInputError, StyledTextInputErrorWrapper, StyledTextInputLabel, StyledTextInputSideWrapper, StyledTextInputWrapper } from './styled';
+import React, { useState } from 'react';
+import { StyledInput, StyledTextInputContainer, StyledTextInputHelperText, StyledTextInputHelperTextWrapper, StyledTextInputLabel, StyledTextInputWrapper} from './styled';
 import { TextInputProps } from './types';
-import { GlobalStyle, theme } from '../../Theme';
+import { StyledPixelBox } from '../SharedComponent/StyledPixelBox';
 
 export const TextInput: React.FC<TextInputProps> = ({ 
     inputName,
@@ -12,56 +11,55 @@ export const TextInput: React.FC<TextInputProps> = ({
     textLabel,
     noLabel,
     error,
+    helperText,
+    disabled,
     onChange,
+    ...props
 }) => {
+    const [inputValue, setInputValue] = useState('');
     const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setInputValue(event.currentTarget.value);
         if (onChange) {
             onChange(event)
         }
     }
     return (
-        <ThemeProvider theme={theme}>
-            <GlobalStyle />
-            <StyledTextInputContainer data-testid="qa-input-text" className='cp-text-input-container' $type={type}>
+        <StyledTextInputContainer 
+            testId="qa-input-text"  
+            className="cp-text-input-container"
+        >
+            <StyledTextInputWrapper className="cp-text-input-wrapper" $type={type}>
                 {!noLabel && <StyledTextInputLabel 
                     className="cp-text-input-label"
                     htmlFor={inputName}
                 >{ textLabel }</StyledTextInputLabel>}
-                <StyledTextInputWrapper className='cp-text-input-wrapper'>
-                    <StyledTextInputSideWrapper className='cp-text-input-side-wrapper'>
-                        <StyledInputSideFirst className='cp-text-input-side-first'/>
-                        <StyledInputSideSecond className='cp-text-input-side-second'>
-                            <StyledInputSideSecondInnerLeft $error={error} $type={type} $backgroundColor={backgroundColor} className='cp-text-input-side-second-inner-left'/>
-                        </StyledInputSideSecond>
-                    </StyledTextInputSideWrapper>
-                    <StyledInputTextOuter>
-                        <StyledInputTextInner 
-                            className='cp-text-input-inner' 
-                            $backgroundColor={backgroundColor}
-                            $error={error}
-                        >
-                            <StyledInput
-                                name={inputName}
-                                className='cp-text-input' 
-                                id={`cp-input-text-${inputName}`} 
-                                type='text'
-                                placeholder={placeholder}
-                                $backgroundColor={backgroundColor}
-                                onChange={handleOnChange}
-                            />
-                        </StyledInputTextInner>
-                    </StyledInputTextOuter>
-                    <StyledTextInputSideWrapper className='cp-text-input-side-wrapper'>
-                        <StyledInputSideSecond className='cp-text-input-side-second'>
-                            <StyledInputSideSecondInnerRight $error={error} $type={type} $backgroundColor={backgroundColor} className='cp-text-input-side-second-inner-left'/>
-                        </StyledInputSideSecond>
-                        <StyledInputSideFirst className='cp-text-input-side-first'/>
-                    </StyledTextInputSideWrapper>
-                </StyledTextInputWrapper>
-                {error && <StyledTextInputErrorWrapper>
-                    <StyledTextInputError>{error}</StyledTextInputError>
-                </StyledTextInputErrorWrapper>}
-            </StyledTextInputContainer>
-        </ThemeProvider>
+                <StyledPixelBox
+                    error={error}
+                    type={type}
+                    backgroundColor={backgroundColor}
+                    disabled={disabled}
+                >
+                    <StyledInput
+                        name={inputName}
+                        value={inputValue}
+                        className='cp-text-input' 
+                        id={`cp-input-text-${inputName}`} 
+                        type='text'
+                        placeholder={placeholder}
+                        $backgroundColor={backgroundColor}
+                        disabled={disabled}
+                        $disabled={disabled}
+                        onChange={handleOnChange}
+                        {...props}
+                    />
+                </StyledPixelBox>
+                {helperText && type !== 'inline' && <StyledTextInputHelperTextWrapper className="cp-text-input-helper-text-wrapper">
+                    <StyledTextInputHelperText className="cp-text-input-helper-text">{helperText}</StyledTextInputHelperText>
+                </StyledTextInputHelperTextWrapper>}
+            </StyledTextInputWrapper>
+            {helperText && type === 'inline' && <StyledTextInputHelperTextWrapper className="cp-text-input-helper-text-wrapper">
+                <StyledTextInputHelperText className="cp-text-input-helper-text">{helperText}</StyledTextInputHelperText>
+            </StyledTextInputHelperTextWrapper>}
+        </StyledTextInputContainer>
     );
 };
