@@ -1,7 +1,7 @@
 import Styled, { DefaultTheme } from "styled-components";
-import { InputType } from "./types";
-import { getContrastColor } from "../../Theme/helper";
 import { StyledContainer } from "../SharedComponent/StyledContainer";
+import { TextAreaType } from "./types";
+import { getContrastColor } from "../../Theme/helper";
 
 const handleInputBackgroundColor = (
     backgroundColor: string | undefined,
@@ -29,12 +29,11 @@ const handleFontColor = (
     return getContrastColor(bgColor, darkColor, brightColor);
 };
 
-export const StyledTextInputContainer = Styled(StyledContainer)`
+export const StyledTextAreaContainer = Styled(StyledContainer)`
     flex-direction: column;
 `;
 
-export const StyledInput = Styled.input<{
-    $type?: InputType;
+export const StyledTextArea = Styled.textarea<{
     $backgroundColor?: string;
     $disabled?: boolean;
 }>`
@@ -46,8 +45,6 @@ export const StyledInput = Styled.input<{
             props.disabled,
             props.theme
         )};
-    height: ${(props) => props.theme.textInput.size.free?.height};
-    width: ${(props) => props.theme.textInput.size.free?.width};
     color: ${(props) =>
         handleFontColor(
             props.$backgroundColor
@@ -61,8 +58,7 @@ export const StyledInput = Styled.input<{
     &:focus {
         outline-width: 0;
     }
-
-    &::placeholder {
+     &::placeholder {
         color: ${(props) =>
             handleFontColor(
                 props.$backgroundColor
@@ -75,33 +71,21 @@ export const StyledInput = Styled.input<{
     }
 `;
 
-export const StyledTextInputLabel = Styled.label<{
-    $text?: string;
-}>`
-    display: flex;
-    align-items: center;
-    padding: 5px;
-`;
-
-export const StyledTextInputHelperTextWrapper = Styled.div`
-    display: flex;
-    justify-content: flex-end;
-    width: 100%;
-`;
-
-export const StyledTextInputHelperText = Styled.div<{
-    $error?: boolean;
-    $backgroundColor?: string;
-}>`
-    display: flex;
-    font-size: 12px;
-    color: ${(props) =>
-        props.$error ? "red" : props.theme.general.color.font};
-`;
-
-export const StyledTextInputWrapper = Styled.div<{
-    $type?: InputType;
+export const StyledTextAreaWrapper = Styled.div<{
+    $type: TextAreaType;
 }>`
     display: flex;
     flex-direction: ${(props) => (props.$type === "main" ? "column" : "row")};
+`;
+export const StyledTextAreaHelperTextWrapper = Styled.div`
+    display: flex;
+    justify-content: flex-end;
+`;
+
+export const StyledTextAreaHelperText = Styled.div<{
+    $error?: boolean;
+    $backgroundColor?: string;
+}>`
+    color: ${(props) =>
+        props.$error ? "red" : props.theme.general.color.font};
 `;
