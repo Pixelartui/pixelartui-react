@@ -6,6 +6,7 @@ import {
     handleCustomColor,
 } from "../../Theme/helper";
 import { DefaultTheme } from "styled-components/dist/types";
+import { StyledLabel } from "../SharedComponent/StyledLabel";
 
 const handleBackgroundColor = (
     backgroundColor: string | undefined,
@@ -156,7 +157,7 @@ export const StyledSelectOption = Styled.div<{
     }
 `;
 
-export const StyledSelectLabel = Styled.label<{
+export const StyledSelectLabel = Styled(StyledLabel)<{
     $type: "main" | "inline";
 }>`
     display: flex;

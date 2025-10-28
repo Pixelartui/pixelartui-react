@@ -89,10 +89,14 @@ export const StyledTextInputHelperTextWrapper = Styled.div`
     width: 100%;
 `;
 
-export const StyledTextInputHelperText = Styled.div`
+export const StyledTextInputHelperText = Styled.div<{
+    $error?: boolean;
+    $backgroundColor?: string;
+}>`
     display: flex;
     font-size: 12px;
-    color: red;
+    color: ${(props) =>
+        props.$error ? "red" : props.theme.general.color.font};
 `;
 
 export const StyledTextInputWrapper = Styled.div<{
