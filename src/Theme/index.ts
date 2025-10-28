@@ -1,17 +1,15 @@
-import { DefaultTheme, createGlobalStyle } from 'styled-components';
-import PixelifyRegular from '../fonts/PixelifySans-Regular.ttf';
-import { adjust } from './helper';
+import { DefaultTheme, createGlobalStyle } from "styled-components";
+import PixelifyRegular from "../fonts/PixelifySans-Regular.ttf";
+import { adjust } from "./helper";
 
-
-const mainPrimaryColor = '#04A1E1';
+const mainPrimaryColor = "#04A1E1";
 const mainSecondaryColor = adjust(mainPrimaryColor, 40);
 const mainTertiaryColor = adjust(mainPrimaryColor, -30);
-const mainFontColor = '#1C2924';
-const mainFontColorContrast = '#ffffff';
-const mainBorderColor = '#1C2924';
-const outlinePrimaryColor = '#ffffff00';
-const disableColor = '#ECDDF7';
-
+const mainFontColor = "#1C2924";
+const mainFontColorContrast = "#ffffff";
+const mainBorderColor = "#1C2924";
+const outlinePrimaryColor = "#ffffff00";
+const disableColor = "#ECDDF7";
 
 export const GlobalStyle = createGlobalStyle`
     @font-face {
@@ -32,11 +30,11 @@ export const theme: DefaultTheme = {
             tertiary: mainTertiaryColor,
             font: mainFontColor,
             fontContrast: mainFontColorContrast,
-            fontDisabled: '#d7d0d0',
+            fontDisabled: "#d7d0d0",
             disabled: disableColor,
-            white: '#ffffff',
-            black: '#000000'
-        }
+            white: "#ffffff",
+            black: "#000000",
+        },
     },
     button: {
         color: {
@@ -60,7 +58,7 @@ export const theme: DefaultTheme = {
                         dark: mainFontColorContrast,
                     },
                     border: mainBorderColor,
-                }
+                },
             },
             outline: {
                 normal: {
@@ -74,7 +72,7 @@ export const theme: DefaultTheme = {
                     border: mainBorderColor,
                 },
                 hover: {
-                    primary: '#96969669',
+                    primary: "#96969669",
                     secondary: mainSecondaryColor,
                     tertiary: mainTertiaryColor,
                     font: {
@@ -82,59 +80,83 @@ export const theme: DefaultTheme = {
                         dark: mainFontColorContrast,
                     },
                     border: mainBorderColor,
-                }
-            }
+                },
+            },
         },
         size: {
             small: {
-                width: '60px',
-                height: '30px',
-                fontSize: '20px',
+                width: "60px",
+                height: "30px",
+                fontSize: "20px",
             },
             medium: {
-                width: '100px',
-                height: '35px',
-                fontSize: '24px',
+                width: "100px",
+                height: "35px",
+                fontSize: "24px",
             },
             large: {
-                width: '150px',
-                height: '40px',
-                fontSize: '28px',
+                width: "150px",
+                height: "40px",
+                fontSize: "28px",
             },
-        }
+        },
     },
     textInput: {
         color: {
-            primary: mainPrimaryColor,
-            secondary: mainSecondaryColor,
-            tertiary: mainTertiaryColor,
-            font: {
-                bright: mainFontColor,
-                dark: mainFontColorContrast,
+            main: {
+                normal: {
+                    primary: mainPrimaryColor,
+                    secondary: mainSecondaryColor,
+                    tertiary: mainTertiaryColor,
+                    font: {
+                        bright: mainFontColor,
+                        dark: mainFontColorContrast,
+                    },
+                    border: mainBorderColor,
+                },
             },
-            border: mainBorderColor,
+            inline: {},
         },
         size: {
-            width: '140px',
-            height: '30px',
-            fontSize: '20px',
-        }
+            free: {
+                width: "140px",
+                height: "30px",
+                fontSize: "20px",
+            },
+        },
     },
     select: {
         color: {
-            primary: mainPrimaryColor,
-            secondary: mainSecondaryColor,
-            tertiary: mainTertiaryColor,
-            font: {
-                bright: mainFontColor,
-                dark: mainFontColorContrast,
+            main: {
+                normal: {
+                    primary: mainPrimaryColor,
+                    secondary: mainSecondaryColor,
+                    tertiary: mainTertiaryColor,
+                    font: {
+                        bright: mainFontColor,
+                        dark: mainFontColorContrast,
+                    },
+                    border: mainBorderColor,
+                },
+                hover: {
+                    primary: mainPrimaryColor,
+                    secondary: mainSecondaryColor,
+                    tertiary: mainTertiaryColor,
+                    font: {
+                        bright: mainFontColor,
+                        dark: mainFontColorContrast,
+                    },
+                    border: mainBorderColor,
+                },
             },
-            border: mainBorderColor,
+            inline: {},
         },
         size: {
-            width: '130px',
-            height: '30px',
-            fontSize: '20px',
-        }
-    }
-}
+            free: {
+                width: "130px",
+                height: "30px",
+                fontSize: "20px",
+            },
+        },
+    },
+};

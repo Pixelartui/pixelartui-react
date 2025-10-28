@@ -1,9 +1,17 @@
-import Styled from 'styled-components';
-import { StyledContainer } from '../SharedComponent/StyledContainer';
-import { adjust, getContrastColor, handleCustomColor } from '../../Theme/helper';
-import { DefaultTheme } from 'styled-components/dist/types';
+import Styled from "styled-components";
+import { StyledContainer } from "../SharedComponent/StyledContainer";
+import {
+    adjust,
+    getContrastColor,
+    handleCustomColor,
+} from "../../Theme/helper";
+import { DefaultTheme } from "styled-components/dist/types";
 
-const handleBackgroundColor = (backgroundColor: string | undefined, disabled: boolean | undefined, theme: DefaultTheme) => {
+const handleBackgroundColor = (
+    backgroundColor: string | undefined,
+    disabled: boolean | undefined,
+    theme: DefaultTheme
+) => {
     if (disabled) {
         return theme.general.color.disabled;
     }
@@ -13,15 +21,25 @@ const handleBackgroundColor = (backgroundColor: string | undefined, disabled: bo
     }
 
     return theme.general.color.white;
-}
+};
+
+const handleFontColor = (
+    bgColor: string | undefined,
+    darkColor: string | undefined,
+    brightColor: string | undefined
+) => {
+    if (!bgColor || !darkColor || !brightColor) return;
+
+    return getContrastColor(bgColor, darkColor, brightColor);
+};
 
 export const StyledSelectContainer = Styled(StyledContainer)<{
-    $type: 'main' | 'inline';
+    $type: "main" | "inline";
     $disabled?: boolean;
 }>`
     display: flex;
-    cursor: ${props => props.$disabled ? 'not-allowed' : 'pointer'};
-    flex-direction: ${props => props.$type === 'main' ? 'column' : 'row'};
+    cursor: ${(props) => (props.$disabled ? "not-allowed" : "pointer")};
+    flex-direction: ${(props) => (props.$type === "main" ? "column" : "row")};
 
 `;
 
@@ -43,17 +61,27 @@ export const StyleSelectDisplay = Styled.div<{
     }
 
     .cp-pixel-box-content-inner {
-        width: ${props => props.theme.select.size.width};
-        height: ${props => props.theme.select.size.height};
+        width: ${(props) => props.theme.select.size.free?.width};
+        height: ${(props) => props.theme.select.size.free?.height};
         align-items: center;
         padding: 0 5px;
         text-wrap-mode: nowrap;
-        background: ${props => handleBackgroundColor(props.$backgroundColor, props.$disabled, props.theme)};
-        color: ${props => props.$disabled ? props.theme.general.color.fontDisabled : getContrastColor(
-            props.$backgroundColor ? props.$backgroundColor : props.theme.general.color.white,
-            props.theme.textInput.color.font.dark,
-            props.theme.textInput.color.font.bright,
-        )};
+        background: ${(props) =>
+            handleBackgroundColor(
+                props.$backgroundColor,
+                props.$disabled,
+                props.theme
+            )};
+        color: ${(props) =>
+            props.$disabled
+                ? props.theme.general.color.fontDisabled
+                : handleFontColor(
+                      props.$backgroundColor
+                          ? props.$backgroundColor
+                          : props.theme.general.color.white,
+                      props.theme.textInput.color.main?.normal?.font.dark,
+                      props.theme.textInput.color.main?.normal?.font.bright
+                  )};
         justify-content: space-between;
     }   
 `;
@@ -67,7 +95,7 @@ export const StyleSelectDropdown = Styled.div<{
     $backgroundColor?: string;
     $disabled?: boolean;
 }>`
-    visibility: ${props => props.$open ? 'visible' : 'hidden'};
+    visibility: ${(props) => (props.$open ? "visible" : "hidden")};
     transition: visibility .3s ease-out;
     display: flex;
     .cp-pixel-box-wrapper,
@@ -77,15 +105,23 @@ export const StyleSelectDropdown = Styled.div<{
     }
 
     .cp-pixel-box-content-inner {
-        width: ${props => props.theme.select.size.width};
-        min-height: ${props => props.theme.select.size.height};
+        width: ${(props) => props.theme.select.size.free?.width};
+        min-height: ${(props) => props.theme.select.size.free?.height};
         width: 100%;
-        background: ${props => handleBackgroundColor(props.$backgroundColor, props.$disabled, props.theme)};
-        color: ${props => getContrastColor(
-            props.$backgroundColor ? props.$backgroundColor : props.theme.general.color.white,
-            props.theme.textInput.color.font.dark,
-            props.theme.textInput.color.font.bright,
-        )}
+        background: ${(props) =>
+            handleBackgroundColor(
+                props.$backgroundColor,
+                props.$disabled,
+                props.theme
+            )};
+        color: ${(props) =>
+            handleFontColor(
+                props.$backgroundColor
+                    ? props.$backgroundColor
+                    : props.theme.general.color.white,
+                props.theme.textInput.color.main?.normal?.font.dark,
+                props.theme.textInput.color.main?.normal?.font.bright
+            )}
     }   
 `;
 
@@ -103,28 +139,30 @@ export const StyledSelectOption = Styled.div<{
 }>`
     padding: 5px;
     cursor: pointer;
-    background: ${
-        props => props.$backgroundColor ? 
-            props.$selectedOption === props.$value ? adjust(props.$backgroundColor, 40) : 
-            props.$backgroundColor :
-            props.$selectedOption === props.$value ? props.theme.select.color.secondary : props.theme.general.color.white 
-    };
+    background: ${(props) =>
+        props.$backgroundColor
+            ? props.$selectedOption === props.$value
+                ? adjust(props.$backgroundColor, 40)
+                : props.$backgroundColor
+            : props.$selectedOption === props.$value
+            ? props.theme.select.color.main?.normal?.secondary
+            : props.theme.general.color.white};
 
     &:hover {
-        background: ${
-            props => props.$backgroundColor ? 
-                handleCustomColor(props.$backgroundColor).customSecondaryColor :
-                props.theme.select.color.secondary 
-        }
+        background: ${(props) =>
+            props.$backgroundColor
+                ? handleCustomColor(props.$backgroundColor).customSecondaryColor
+                : props.theme.select.color.main?.hover?.secondary}
     }
 `;
 
 export const StyledSelectLabel = Styled.label<{
-    $type: 'main' | 'inline';
+    $type: "main" | "inline";
 }>`
     display: flex;
-    align-items: ${props => props.$type === 'main' ? 'center' : 'flex-start'};
-    padding: ${props => props.$type === 'main' ? '5px' : '10px 5px'};;
+    align-items: ${(props) =>
+        props.$type === "main" ? "center" : "flex-start"};
+    padding: ${(props) => (props.$type === "main" ? "5px" : "10px 5px")};;
 `;
 
 export const StyledSelectIconContainer = Styled.div<{
@@ -134,7 +172,7 @@ export const StyledSelectIconContainer = Styled.div<{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    transform: ${props => props.$open ? 'rotate(180deg)' : 'rotate(0)'};
+    transform: ${(props) => (props.$open ? "rotate(180deg)" : "rotate(0)")};
     transition: transform .4s ease;
 `;
 
@@ -147,7 +185,5 @@ export const StyledSelectIconRow = Styled.div`
 export const StyledSelectIconPixel = Styled.div`
     width: 3px;
     height: 3px;
-    background: ${props => props.theme.select.color.border};
-`
-
-
+    background: ${(props) => props.theme.select.color.main?.normal?.border};
+`;

@@ -1,11 +1,13 @@
-import 'styled-components';
+import "styled-components";
+import { ButtonType } from "../components/Button/types";
+import { SelectType } from "../components/Select/types";
 
 interface FontColor {
     bright: string;
     dark: string;
 }
 
-interface ComponentColorGroup {
+interface ComponentColorProp {
     primary: string;
     secondary: string;
     tertiary: string;
@@ -13,50 +15,50 @@ interface ComponentColorGroup {
     border: string;
 }
 
-interface ComponentSizeGroup {
+interface ComponentSizeProp {
     width: string;
     height: string;
     fontSize: string;
 }
-declare module 'styled-components' {
-  export interface DefaultTheme {
-    general: {
-        color: {
-            primary: string;
-            secondary: string;
-            tertiary: string;
-            disabled: string;
-            font: string;
-            fontContrast: string;
-            fontDisabled: string;
-            white: string;
-            black: string;
-        }
+
+interface ComponentSizes {
+    small?: ComponentSizeProp;
+    medium?: ComponentSizeProp;
+    large?: ComponentSizeProp;
+    free?: ComponentSizeProp;
+}
+
+type ComponentTypes = ButtonType | SelectType;
+type ComponentStates = "normal" | "hover";
+type ComponentStateProps = {
+    [key in ComponentStates]?: ComponentColorProp;
+};
+
+type ColorSpec = {
+    [key in ComponentTypes]?: ComponentStateProps;
+};
+
+interface ComponentSpec {
+    color: ColorSpec;
+    size: ComponentSizes;
+}
+declare module "styled-components" {
+    export interface DefaultTheme {
+        general: {
+            color: {
+                primary: string;
+                secondary: string;
+                tertiary: string;
+                disabled: string;
+                font: string;
+                fontContrast: string;
+                fontDisabled: string;
+                white: string;
+                black: string;
+            };
+        };
+        button: ComponentSpec;
+        textInput: ComponentSpec;
+        select: ComponentSpec;
     }
-    button: {
-        color: {
-            main: {
-                normal: ComponentColorGroup,
-                hover: ComponentColorGroup
-            },
-            outline: {
-                normal: ComponentColorGroup,
-                hover: ComponentColorGroup
-            },
-        },
-        size: {
-            small: ComponentSizeGroup,
-            medium: ComponentSizeGroup,
-            large: ComponentSizeGroup,
-        }
-    },
-    textInput: {
-        color: ComponentColorGroup,
-        size: ComponentSizeGroup,
-    },
-    select: {
-        color: ComponentColorGroup,
-        size: ComponentSizeGroup,
-    }
-  }
 }
