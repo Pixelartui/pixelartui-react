@@ -1,0 +1,20 @@
+import React from "react";
+import { StyledLabelProps } from "./types";
+import { StyledTextInputLabel } from "./styled";
+
+export const StyledLabel: React.FC<StyledLabelProps> = ({
+    text,
+    noLabel,
+    name,
+}) => {
+    return (
+        !noLabel && (
+            <StyledTextInputLabel
+                className="cp-text-input-label"
+                htmlFor={name}
+            >
+                {text}
+            </StyledTextInputLabel>
+        )
+    );
+};
