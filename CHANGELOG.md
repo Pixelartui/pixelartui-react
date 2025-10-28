@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.4.16](https://github.com/muyaszed/pixelartui/compare/v0.4.15...v0.4.16) (2025-10-28)
+
+
+### Features
+
+* added storybook and test ([5f66442](https://github.com/muyaszed/pixelartui/commit/5f66442d0c134649e349875c0afbb75f44332774))
+* aded reusable component label ([afdb445](https://github.com/muyaszed/pixelartui/commit/afdb4455e9ec33240d00dd158f0ff16db31f7c22))
+* fix button outline background ([9014604](https://github.com/muyaszed/pixelartui/commit/90146043c84034638dd72b6095a6056cf3f5c5b6))
+* re configyre circleci ([75abe98](https://github.com/muyaszed/pixelartui/commit/75abe986c5b910a4350c6ab4ec8c24ae52a04579))
+* refactor theme typing ([102c480](https://github.com/muyaszed/pixelartui/commit/102c480975457977e6f251a1d76b6fae934de672))
+* text area component ([76ce9c1](https://github.com/muyaszed/pixelartui/commit/76ce9c1b29c07333d98e6ac6a5de94d02c926aa2))
+* update circle ci config ([62582d5](https://github.com/muyaszed/pixelartui/commit/62582d56f3ba63a93aea26676f27fedbd1c30708))
+
 ### [0.4.15](https://github.com/muyaszed/pixelartui/compare/v0.4.14...v0.4.15) (2025-10-21)
 
 
