@@ -1,0 +1,121 @@
+version: 2.1
+
+orbs:
+    node: circleci/node@5.0.2
+
+jobs:
+    lint_code:
+        executor:
+            name: node/default
+            tag: "18.20.5"
+        description: Lint code
+        steps:
+            - checkout
+            - node/install-packages
+            - run:
+                  name: Install dependencies
+                  command: npm install
+            - run:
+                  name: Lint code
+                  command: npm run lint:fix
+            - persist_to_workspace:
+                  root: .
+                  paths:
+                      - node_modules
+                      - package-lock.json
+                      - package.json
+                      - src
+                      - .eslintrc.js
+                      - .prettierrc.js
+                      - .gitignore
+                      - .npmignore
+                      - .nvmrc
+                      - .circleci
+                      - rollup.config.mjs
+                      - commitlint.config.js
+                      - tsconfig.json
+                      - .husky
+                      - babel.config.json
+                      - __mocks__
+                      - README.md
+    run_tests:
+        executor:
+            name: node/default
+            tag: "18.20.5"
+        description: Run tests
+        steps:
+            - attach_workspace:
+                  at: .
+            - run:
+                  name: Run tests
+                  command: npm run test
+    build:
+        executor: node/default
+        description: Build
+        steps:
+            - attach_workspace:
+                  at: .
+            - run:
+                  name: Build
+                  command: npm run build
+            - persist_to_workspace:
+                  root: .
+                  paths:
+                      - dist
+                      - README.md
+    publish_to_npm:
+        executor: node/default
+        description: Publish to npm
+        steps:
+            - attach_workspace:
+                  at: .
+            - run:
+                  name: Login to NPM
+                  command: echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
+            - run:
+                  name: Publish to NPM
+                  command: npm publish
+                  environment:
+                      NPM_TOKEN: $NPM_TOKEN
+workflows:
+    build_app:
+        jobs:
+            - lint_code
+            - run_tests:
+                  requires:
+                      - lint_code
+            - build:
+                  requires:
+                      - run_tests
+    build_release:
+        jobs:
+            - lint_code:
+                  filters:
+                      tags:
+                          only: /^v.*/
+                      branches:
+                          ignore: /.*/
+            - run_tests:
+                  requires:
+                      - lint_code
+                  filters:
+                      tags:
+                          only: /^v.*/
+                      branches:
+                          ignore: /.*/
+            - build:
+                  requires:
+                      - run_tests
+                  filters:
+                      tags:
+                          only: /^v.*/
+                      branches:
+                          ignore: /.*/
+            - publish_to_npm:
+                  requires:
+                      - build
+                  filters:
+                      tags:
+                          only: /^v.*/
+                      branches:
+                          ignore: /.*/
