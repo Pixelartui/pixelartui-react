@@ -147,6 +147,7 @@ export const StyledTextContainer = Styled.div<{
     $type?: ButtonType;
     $fullwidth?: boolean;
     $backgroundColor?: string;
+    $disabled?: boolean;
 }>`
     ${(props) => (props.$fullwidth ? "width: 100%;" : "")}
     display: flex;
@@ -158,7 +159,12 @@ export const StyledTextContainer = Styled.div<{
                       ?.customPrimaryColor
                 : handleButtonColour(props.$type || "main", props.theme)
                       ?.primary,
-            handleButtonColour(props.$type || "main", props.theme)?.font
+            props.$disabled
+                ? {
+                      dark: props.theme.general.color.fontContrast,
+                      bright: props.theme.general.color.fontContrast,
+                  }
+                : handleButtonColour(props.$type || "main", props.theme)?.font
         )};
 
     min-width: ${(props) =>
