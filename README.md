@@ -1,4 +1,4 @@
-# Pixelart UI
+# Pixelart UI React
 
 This is an open-source React component library that is based on pixel art design
 
@@ -8,17 +8,19 @@ This is an open-source React component library that is based on pixel art design
 
 Run the following code
 
-    npm install pixelartui
+    npm install pixelartui-react
 
 ## Peer dependencies
+
 Please make sure to install these dependencies in order for the component to be working properly
 
     "peerDependencies": {
-	   "react": "^19.1.0",
+       "react": "^19.1.0",
        "react-dom": "^19.1.0"
     }
 
 ## Default font
+
 Pixelartui uses [Pixelify Sans](https://fonts.google.com/specimen/Pixelify+Sans) for our default font. So we recommend it to be installed via [Fontsource](https://fontsource.org/)
 
     npm install @fontsource/pixelify-sans
