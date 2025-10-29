@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.4.18](https://github.com/Pixelartui/pixelartui-react/compare/v0.4.17...v0.4.18) (2025-10-29)
+
+
+### Features
+
+* modal storybook ([88bfa51](https://github.com/Pixelartui/pixelartui-react/commit/88bfa519320a6f17ac070fdf349f131f10f3b86e))
+* modal unit test ([d12246e](https://github.com/Pixelartui/pixelartui-react/commit/d12246e96862716a5a90e1aacf66175334c31cee))
+* switch storybook ([62d6b57](https://github.com/Pixelartui/pixelartui-react/commit/62d6b5772f4a713b1fb40e0fa4a7675daa6f7a13))
+* switch tests ([e797ff4](https://github.com/Pixelartui/pixelartui-react/commit/e797ff41f01a7a83a3831eccec9c8e8bd86b637e))
+* update readme ([5bfccd0](https://github.com/Pixelartui/pixelartui-react/commit/5bfccd0f97ce9a65c173bac1a6ce1b51b5f7e05e))
+
 ### [0.4.17](https://github.com/Pixelartui/pixelartui-react/compare/v0.4.16...v0.4.17) (2025-10-28)
 
 
