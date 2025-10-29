@@ -9,7 +9,7 @@ export interface ModalProps {
     backgroundColor?: string;
     open: boolean;
     header?: string;
-    customHeader: ReactNode;
+    customHeader?: ReactNode;
     actionButtons?: ActionText;
     customAction?: ReactNode;
     children?: ReactNode;

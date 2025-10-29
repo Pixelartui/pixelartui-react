@@ -53,7 +53,7 @@ export const Modal: React.FC<ModalProps> = ({
         openModal &&
         createPortal(
             <StyledBackdrop>
-                <StyledModalContainer {...props} testId="qa-text-area">
+                <StyledModalContainer {...props} testId="qa-modal">
                     <StyledPixelBox backgroundColor={backgroundColor}>
                         <StyledModalContent
                             $backgroundColor={backgroundColor}
