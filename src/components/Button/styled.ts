@@ -201,7 +201,6 @@ export const StyledTextContainerSecondLayer = Styled.div<{
             props.$backgroundColor,
             props.$type
         )};
-    mix-blend-mode: difference;
 
     ${StyledButtonContainer}:hover & {
             background:  ${(props) =>
