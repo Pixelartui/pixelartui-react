@@ -28,7 +28,7 @@ export const Switch: React.FC<SwitchProps> = ({
         }
     };
     return (
-        <StyledSwitchContainer $type={type} testId="qa-text-area">
+        <StyledSwitchContainer $type={type} testId="qa-switch">
             {!noLabel && <StyledLabel name={name} text={label} />}
             <StyledPixelBox
                 {...(isOn
