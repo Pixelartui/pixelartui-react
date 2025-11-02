@@ -2,6 +2,9 @@ import type { Meta } from "@storybook/react-vite";
 import styled from "styled-components";
 import { Modal } from ".";
 import { Button } from "../Button";
+import { useState } from "react";
+import { ModalProps } from "./types";
+import { fn } from "storybook/test";
 
 const StyledContent = styled.div`
     display: flex;
@@ -20,13 +23,42 @@ export default meta;
 
 export const ModalMain = {
     args: {
-        open: true,
         header: "Attention",
         actionButtons: {
             left: "Cancel",
             right: "OK",
         },
         children: <StyledContent>This is a content</StyledContent>,
+        onClickButtonRight: fn(),
+        onClickButtonLeft: fn(),
+    },
+    render: (arg: ModalProps) => {
+        const [open, setOpen] = useState(false);
+        return (
+            <div
+                style={{
+                    cursor: "pointer",
+                    display: "flex",
+                    width: "100vw",
+                    height: "100vh",
+                    justifyContent: "center",
+                    alignItems: "center",
+                }}
+            >
+                <Button
+                    buttonSize="medium"
+                    buttonType="main"
+                    text="Open Modal"
+                    onClick={() => setOpen(true)}
+                />
+
+                <Modal
+                    {...arg}
+                    open={open}
+                    handleClose={() => setOpen(false)}
+                />
+            </div>
+        );
     },
 };
 

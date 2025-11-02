@@ -20,4 +20,5 @@ export interface ModalProps {
     onClickButtonRight?: (
         e: React.MouseEvent<HTMLDivElement, MouseEvent>
     ) => void;
+    handleClose?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
 }

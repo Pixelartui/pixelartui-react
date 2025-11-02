@@ -14,6 +14,7 @@ const props = {
     children: <div>This is the children</div>,
     onClickButtonLeft: jest.fn(),
     onClickButtonRight: jest.fn(),
+    handleClose: jest.fn(),
 };
 
 describe("Modal component", () => {
@@ -85,12 +86,11 @@ describe("Modal component", () => {
         expect(customButton).toBeInTheDocument();
     });
 
-    it("close when intended", () => {
-        const { getByText, queryByTestId } = render(<Modal {...props} />);
+    it("invoke the right function when close", () => {
+        const { getByText } = render(<Modal {...props} />);
         const closeButton = getByText("X");
         fireEvent.click(closeButton);
-        const modal = queryByTestId("qa-modal");
-        expect(modal).not.toBeInTheDocument();
+        expect(props.handleClose).toHaveBeenCalledTimes(1);
     });
 
     it("renders the correct custom background color", () => {

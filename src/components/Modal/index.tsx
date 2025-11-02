@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { ModalProps } from "./types";
 import { createPortal } from "react-dom";
 import { StyledPixelBox } from "../SharedComponent/StyledPixelBox";
@@ -26,16 +26,22 @@ export const Modal: React.FC<ModalProps> = ({
     disabled,
     onClickButtonLeft,
     onClickButtonRight,
+    handleClose,
     ...props
 }) => {
-    const [openModal, setOpen] = useState(open);
-    const handleClose = () => {
-        setOpen(false);
+    const handleModalClose = (
+        e: React.MouseEvent<HTMLDivElement, MouseEvent>
+    ) => {
+        if (handleClose) {
+            handleClose(e);
+        }
     };
     const handleLeftButtonClick = (
         e: React.MouseEvent<HTMLDivElement, MouseEvent>
     ) => {
-        handleClose();
+        if (handleClose) {
+            handleModalClose(e);
+        }
         if (onClickButtonLeft) {
             onClickButtonLeft(e);
         }
@@ -43,14 +49,16 @@ export const Modal: React.FC<ModalProps> = ({
     const handleRightButtonClick = (
         e: React.MouseEvent<HTMLDivElement, MouseEvent>
     ) => {
-        handleClose();
+        if (handleClose) {
+            handleModalClose(e);
+        }
         if (onClickButtonRight) {
             onClickButtonRight(e);
         }
     };
 
     return (
-        openModal &&
+        open &&
         createPortal(
             <StyledBackdrop>
                 <StyledModalContainer {...props} testId="qa-modal">
@@ -63,7 +71,7 @@ export const Modal: React.FC<ModalProps> = ({
                                 text="X"
                                 buttonSize="small"
                                 buttonType="main"
-                                onClick={handleClose}
+                                onClick={handleModalClose}
                                 backgroundColor={backgroundColor}
                                 round
                             />
