@@ -1,4 +1,4 @@
-export type InputType = 'main' | 'inline';
+export type InputType = "main" | "inline";
 
 export interface TextInputProps {
     inputName: string;
@@ -10,5 +10,6 @@ export interface TextInputProps {
     error?: boolean;
     helperText?: string;
     disabled?: boolean;
+    value?: string;
     onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }

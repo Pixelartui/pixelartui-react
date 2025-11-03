@@ -6,5 +6,6 @@ export interface SwitchProps {
     defaultChecked?: boolean;
     noLabel?: boolean;
     backgroundColor?: string;
+    checked?: boolean;
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }

@@ -20,12 +20,11 @@ export const TextInput: React.FC<TextInputProps> = ({
     error,
     helperText,
     disabled,
+    value,
     onChange,
     ...props
 }) => {
-    const [inputValue, setInputValue] = useState("");
     const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setInputValue(event.currentTarget.value);
         if (onChange) {
             onChange(event);
         }
@@ -52,7 +51,7 @@ export const TextInput: React.FC<TextInputProps> = ({
                 >
                     <StyledInput
                         name={inputName}
-                        value={inputValue}
+                        value={value}
                         className="cp-text-input"
                         id={`cp-input-text-${inputName}`}
                         type="text"

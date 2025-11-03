@@ -20,12 +20,11 @@ export const TextArea: React.FC<TextAreaProps> = ({
     label,
     noLabel,
     type,
+    value,
     onChange,
     ...props
 }) => {
-    const [inputValue, setInputValue] = useState("");
     const handleOnChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-        setInputValue(event.currentTarget.value);
         if (onChange) {
             onChange(event);
         }
@@ -44,7 +43,7 @@ export const TextArea: React.FC<TextAreaProps> = ({
                 >
                     <StyledTextArea
                         name={inputName}
-                        value={inputValue}
+                        value={value}
                         className="cp-text-area"
                         id={`cp-text-area-${inputName}`}
                         placeholder={placeholder}

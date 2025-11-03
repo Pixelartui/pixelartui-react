@@ -18,6 +18,7 @@ export const Switch: React.FC<SwitchProps> = ({
     defaultChecked,
     noLabel,
     backgroundColor,
+    checked,
     onChange,
 }) => {
     const [isOn, setIsOn] = useState(defaultChecked);
@@ -52,7 +53,7 @@ export const Switch: React.FC<SwitchProps> = ({
                         id={`cp-switch-${name}`}
                         type="checkbox"
                         onChange={handleOnChange}
-                        checked={isOn}
+                        checked={checked}
                     />
 
                     <Button
