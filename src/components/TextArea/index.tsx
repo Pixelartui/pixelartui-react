@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { TextAreaProps } from "./types";
 import { StyledPixelBox } from "../SharedComponent/StyledPixelBox";
 import {
