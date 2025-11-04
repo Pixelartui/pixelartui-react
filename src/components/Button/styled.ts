@@ -88,6 +88,7 @@ export const StyledTextContainerSecondLayer = Styled.button<{
     $disabled?: boolean;
     $size?: ButtonSize;
 }>`
+    cursor: pointer;
     color: ${(props) =>
         handleFontColor(
             props.$backgroundColor
