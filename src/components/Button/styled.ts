@@ -132,7 +132,7 @@ export const StyledButtonContainer = Styled.div<{
     font-family: 'Pixelify Sans';
     display: flex;
     cursor: ${(props) => (props.$disabled ? "not-allowed" : "pointer")};
-    width: ${(props) => (props.$fullwidth ? "width: 100%;" : "fit-content")};
+    width: ${(props) => (props.$fullwidth ? "100%" : "fit-content")};
 `;
 
 export const StyledButtonSideContainer = Styled.div<{
