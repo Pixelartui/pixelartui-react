@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.4.22](https://github.com/Pixelartui/pixelartui-react/compare/v0.4.21...v0.4.22) (2025-11-04)
+
+
+### Bug Fixes
+
+* button fullwidth ([83abb5a](https://github.com/Pixelartui/pixelartui-react/commit/83abb5a5896b14f14508e8f1510832e0fe844025))
+* button sizing ([bb9fbf9](https://github.com/Pixelartui/pixelartui-react/commit/bb9fbf9664643cdf8855a14a9a17df4235459004))
+
 ### [0.4.21](https://github.com/Pixelartui/pixelartui-react/compare/v0.4.20...v0.4.21) (2025-11-03)
 
 
