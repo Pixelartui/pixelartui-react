@@ -1,6 +1,27 @@
 import Styled, { DefaultTheme } from "styled-components";
 import { adjust, handleCustomColor } from "../../../Theme/helper";
 
+const handlePrimaryColor = (arg: {
+    error: boolean | undefined;
+    backgroundColor: string | undefined;
+    theme: DefaultTheme;
+    disabled?: boolean;
+}) => {
+    if (arg.disabled) {
+        return arg.theme.general.color.disabled;
+    }
+
+    if (arg.error) {
+        const errorColor = "#ff0000";
+        return errorColor;
+    }
+
+    if (arg.backgroundColor) {
+        return handleCustomColor(arg.backgroundColor).customPrimaryColor;
+    }
+
+    return arg.theme.textInput.color.main?.normal?.primary;
+};
 const handleSecondaryColor = (arg: {
     error: boolean | undefined;
     backgroundColor: string | undefined;
@@ -45,8 +66,24 @@ const handleTertiaryColor = (arg: {
     return arg.theme.textInput.color.main?.normal?.tertiary;
 };
 
-export const StyledPixelBoxWrapper = Styled.div`
+export const StyledPixelBoxWrapper = Styled.div<{
+    $minHeight?: string;
+    $minWidth?: string;
+    $width?: string;
+    $height?: string;
+    $fullwidth?: boolean;
+}>`
     display: flex;
+    ${(props) =>
+        props.$height
+            ? `height: ${props.$height}`
+            : `min-height: ${props.$minHeight}`};
+    ${(props) =>
+        props.$fullwidth
+            ? "width: 100%"
+            : props.$width
+            ? `width: ${props.$width}`
+            : `min-width: ${props.$minWidth}`};
 `;
 
 export const StyledPixelBoxSideWrapper = Styled.div`
@@ -61,6 +98,10 @@ export const StyledPixelBoxSideFirst = Styled.div`
     height: calc(100% - 12px);
 `;
 
+export const StyledPixelBoxSideRoundFirst = Styled(StyledPixelBoxSideFirst)`
+    height: calc(100% - 18px);
+`;
+
 export const StyledPixelBoxSideSecond = Styled.div`
     display: flex;
     width: 3px;
@@ -69,6 +110,16 @@ export const StyledPixelBoxSideSecond = Styled.div`
         props.theme.textInput.color.main?.normal?.border};
     border-bottom: 3px solid ${(props) =>
         props.theme.textInput.color.main?.normal?.border};
+`;
+
+export const StyledPixelBoxSideRoundThird = Styled(StyledPixelBoxSideSecond)`
+    
+`;
+
+export const StyledPixelBoxSideRoundSecond = Styled(StyledPixelBoxSideSecond)`
+   
+    height: calc(100% - 18px);
+    
 `;
 
 export const StyledPixelBoxSideSecondInnerLeft = Styled.div<{
@@ -88,6 +139,30 @@ export const StyledPixelBoxSideSecondInnerLeft = Styled.div<{
         })};
     background: ${(props) =>
         handleSecondaryColor({
+            error: props.$error,
+            backgroundColor: props.$backgroundColor,
+            theme: props.theme,
+            disabled: props.$disabled,
+        })};
+`;
+
+export const StyledPixelBoxSideRoundThirdInnerLeft = Styled(
+    StyledPixelBoxSideSecondInnerLeft
+)<{
+    $type?: string;
+    $backgroundColor?: string;
+    $error?: boolean;
+    $disabled?: boolean;
+}>`
+    border-top: 3px solid ${(props) =>
+        handleSecondaryColor({
+            error: props.$error,
+            backgroundColor: props.$backgroundColor,
+            theme: props.theme,
+            disabled: props.$disabled,
+        })};
+    background: ${(props) =>
+        handlePrimaryColor({
             error: props.$error,
             backgroundColor: props.$backgroundColor,
             theme: props.theme,
@@ -119,12 +194,39 @@ export const StyledPixelBoxSideSecondInnerRight = Styled.div<{
         })};
 `;
 
+export const StyledPixelBoxSideRoundThirdInnerRight = Styled(
+    StyledPixelBoxSideSecondInnerRight
+)<{
+    $type?: string;
+    $backgroundColor?: string;
+    $error?: boolean;
+    $disabled?: boolean;
+}>`
+    display: flex;
+    width: 100%;
+    border-bottom: 3px solid ${(props) =>
+        handleTertiaryColor({
+            error: props.$error,
+            backgroundColor: props.$backgroundColor,
+            theme: props.theme,
+            disabled: props.$disabled,
+        })};
+    background: ${(props) =>
+        handlePrimaryColor({
+            error: props.$error,
+            backgroundColor: props.$backgroundColor,
+            theme: props.theme,
+            disabled: props.$disabled,
+        })};
+`;
+
 export const StyledPixelBoxContentOuter = Styled.div`
     display: flex;
     border-top: 3px solid ${(props) =>
         props.theme.textInput.color.main?.normal?.border};
     border-bottom: 3px solid ${(props) =>
         props.theme.textInput.color.main?.normal?.border};
+    width: 100%;
 `;
 
 export const StyledPixelBoxContentInner = Styled.div<{
@@ -147,4 +249,6 @@ export const StyledPixelBoxContentInner = Styled.div<{
             theme: props.theme,
             disabled: props.$disabled,
         })};
+    width: 100%;
+
 `;
