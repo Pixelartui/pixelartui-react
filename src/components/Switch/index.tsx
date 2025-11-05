@@ -61,7 +61,8 @@ export const Switch: React.FC<SwitchProps> = ({
                         buttonType="main"
                         text=""
                         onClick={() => {}}
-                        round
+                        width="26px"
+                        height="26px"
                         {...(isOn
                             ? {
                                   backgroundColor: backgroundColor

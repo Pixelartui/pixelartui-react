@@ -21,16 +21,9 @@ export const StyledSwitchWrapper = Styled.div<{
                 : props.theme.general.color.primary
             : props.theme.general.color.disabled};
 
-    .cp-button-text-container {
-        min-width: 10px;
-        height: 23px;
-    }
-
     .cp-switch-input-check:checked ~ .cp-button-container {
       margin-left: 27px;
     }
-    
-    
 `;
 
 export const StyledSwitch = Styled.input`
