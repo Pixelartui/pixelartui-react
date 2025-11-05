@@ -5,7 +5,6 @@ import { StyledPixelBox } from "../SharedComponent/StyledPixelBox";
 import {
     StyledBackdrop,
     StyledCloseButton,
-    StyledModalContainer,
     StyledModalContent,
     StyledModalContentActions,
     StyledModalContentBody,
@@ -14,6 +13,7 @@ import {
 import { Button } from "../Button";
 import { theme } from "../../Theme";
 import { adjust } from "../../Theme/helper";
+import { StyledContainer } from "../SharedComponent/StyledContainer";
 
 export const Modal: React.FC<ModalProps> = ({
     backgroundColor,
@@ -61,8 +61,12 @@ export const Modal: React.FC<ModalProps> = ({
         open &&
         createPortal(
             <StyledBackdrop>
-                <StyledModalContainer {...props} testId="qa-modal">
-                    <StyledPixelBox backgroundColor={backgroundColor}>
+                <StyledContainer {...props} testId="qa-modal">
+                    <StyledPixelBox
+                        height="400px"
+                        width="400px"
+                        backgroundColor={backgroundColor}
+                    >
                         <StyledModalContent
                             $backgroundColor={backgroundColor}
                             className="cp-modal-content"
@@ -74,6 +78,8 @@ export const Modal: React.FC<ModalProps> = ({
                                 onClick={handleModalClose}
                                 backgroundColor={backgroundColor}
                                 round
+                                width="12px"
+                                height="30px"
                             />
                             {customHeader
                                 ? customHeader
@@ -127,7 +133,7 @@ export const Modal: React.FC<ModalProps> = ({
                             </StyledModalContentActions>
                         </StyledModalContent>
                     </StyledPixelBox>
-                </StyledModalContainer>
+                </StyledContainer>
             </StyledBackdrop>,
             document.body
         )
