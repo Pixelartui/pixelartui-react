@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.4.23](https://github.com/Pixelartui/pixelartui-react/compare/v0.4.22...v0.4.23) (2025-11-05)
+
+
+### Bug Fixes
+
+* button cursor ([b89a8b8](https://github.com/Pixelartui/pixelartui-react/commit/b89a8b819204a0b3b352c871ef848dbaab498a85))
+* modal buttons ([2130eb8](https://github.com/Pixelartui/pixelartui-react/commit/2130eb89ebb8f2b1ec91e04cfde97424dc52db4b))
+* swicth button ([f22091f](https://github.com/Pixelartui/pixelartui-react/commit/f22091f543e2d5fbe367086cb73a058e33d1672f))
+
 ### [0.4.22](https://github.com/Pixelartui/pixelartui-react/compare/v0.4.21...v0.4.22) (2025-11-04)
 
 
