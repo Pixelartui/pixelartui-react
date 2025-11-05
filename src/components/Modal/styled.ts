@@ -1,5 +1,4 @@
 import Styled from "styled-components";
-import { StyledContainer } from "../SharedComponent/StyledContainer";
 import { getContrastColor } from "../../Theme/helper";
 import { Button } from "../Button";
 
@@ -17,19 +16,8 @@ export const StyledBackdrop = Styled.div`
 
 export const StyledCloseButton = Styled(Button)`
     position: absolute;
-    right: 8px;
+    right: 25px;
     top: 8px;
-
-     .cp-button-text-container {
-        background: black;
-        min-width: 20px;
-    }
-`;
-export const StyledModalContainer = Styled(StyledContainer)`
-    .cp-pixel-box-content-inner {
-        min-width: 400px;
-        height: 400px;
-    }
 `;
 
 export const StyledModalContent = Styled.div<{
