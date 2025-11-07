@@ -14,6 +14,7 @@ export interface ModalProps {
     customAction?: ReactNode;
     children?: ReactNode;
     disabled?: boolean;
+    name: string;
     onClickButtonLeft?: (
         e: React.MouseEvent<HTMLDivElement, MouseEvent>
     ) => void;

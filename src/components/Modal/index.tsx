@@ -24,6 +24,7 @@ export const Modal: React.FC<ModalProps> = ({
     customHeader,
     customAction,
     disabled,
+    name,
     onClickButtonLeft,
     onClickButtonRight,
     handleClose,
@@ -60,8 +61,12 @@ export const Modal: React.FC<ModalProps> = ({
     return (
         open &&
         createPortal(
-            <StyledBackdrop>
-                <StyledContainer {...props} testId="qa-modal">
+            <StyledBackdrop id={`cp-modal-backdrop-${name}`}>
+                <StyledContainer
+                    {...props}
+                    testId="qa-modal"
+                    className={`cp-modal-container-${name}`}
+                >
                     <StyledPixelBox
                         height="400px"
                         width="400px"

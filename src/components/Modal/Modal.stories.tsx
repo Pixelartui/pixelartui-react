@@ -28,6 +28,7 @@ export const ModalMain = {
             left: "Cancel",
             right: "OK",
         },
+        name: "story-modal",
         children: <StyledContent>This is a content</StyledContent>,
         onClickButtonRight: fn(),
         onClickButtonLeft: fn(),
@@ -72,6 +73,7 @@ export const ModalCustomBackgroundColor = {
         },
         children: <StyledContent>This is a content</StyledContent>,
         backgroundColor: "#b13737",
+        name: "story-modal",
     },
 };
 
@@ -79,6 +81,7 @@ export const ModalNoHeaderAndActions = {
     args: {
         open: true,
         children: <StyledContent>This is a content</StyledContent>,
+        name: "story-modal",
     },
 };
 
@@ -87,6 +90,7 @@ export const ModalCustomHeader = {
         open: true,
         children: <StyledContent>This is a content</StyledContent>,
         customHeader: <StyledHeader>This is a custom Header</StyledHeader>,
+        name: "story-modal",
     },
 };
 
@@ -94,6 +98,7 @@ export const ModalCustomAction = {
     args: {
         open: true,
         children: <StyledContent>This is a content</StyledContent>,
+        name: "story-modal",
         customAction: (
             <Button
                 text={"Custom Action"}
@@ -115,5 +120,6 @@ export const ModalCustomButtonDisabled = {
         },
         disabled: " true",
         children: <StyledContent>This is a content</StyledContent>,
+        name: "story-modal",
     },
 };
