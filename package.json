@@ -1,6 +1,6 @@
 {
     "name": "pixelartui-react",
-    "version": "0.4.26",
+    "version": "0.4.27",
     "description": "Pixel Art Component library for react",
     "main": "dist/cjs/index.js",
     "module": "dist/esm/index.js",
