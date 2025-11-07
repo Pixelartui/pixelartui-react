@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.4.24](https://github.com/Pixelartui/pixelartui-react/compare/v0.4.23...v0.4.24) (2025-11-07)
+
+
+### Features
+
+* add box component ([289c279](https://github.com/Pixelartui/pixelartui-react/commit/289c279098b7df0708bfc93e4f327853b94e04b9))
+
 ### [0.4.23](https://github.com/Pixelartui/pixelartui-react/compare/v0.4.22...v0.4.23) (2025-11-05)
 
 
