@@ -10,3 +10,5 @@ export { Switch } from "./components/Switch";
 export { SwitchProps } from "./components/Switch/types";
 export { Modal } from "./components/Modal";
 export { ModalProps } from "./components/Modal/types";
+export { Box } from "./components/Box";
+export { BoxProps } from "./components/Box/types";
