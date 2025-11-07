@@ -5,7 +5,6 @@ import {
     StyledSwitch,
     StyledSwitchContainer,
     StyledSwitchWrapper,
-    // StyledSwitchSliderContainerTest,
 } from "./styled";
 import { StyledLabel } from "../SharedComponent/StyledLabel";
 import { Button } from "../Button";

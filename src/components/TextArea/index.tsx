@@ -30,7 +30,10 @@ export const TextArea: React.FC<TextAreaProps> = ({
         }
     };
     return (
-        <StyledTextAreaContainer testId="qa-text-area">
+        <StyledTextAreaContainer
+            testId="qa-text-area"
+            className="cp-text-area-container"
+        >
             <StyledTextAreaWrapper
                 $type={type}
                 className="cp-text-area-wrapper"
