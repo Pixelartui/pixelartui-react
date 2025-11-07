@@ -96,9 +96,8 @@ export const StyleSelectDropdown = Styled.div<{
     $backgroundColor?: string;
     $disabled?: boolean;
 }>`
-    visibility: ${(props) => (props.$open ? "visible" : "hidden")};
+    display: ${(props) => (props.$open ? "block" : "none")};
     transition: visibility .3s ease-out;
-    display: flex;
     .cp-pixel-box-wrapper,
     .cp-pixel-box-outer,
     .cp-pixel-box-content-inner {
