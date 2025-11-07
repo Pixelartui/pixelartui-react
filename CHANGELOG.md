@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.4.26](https://github.com/Pixelartui/pixelartui-react/compare/v0.4.25...v0.4.26) (2025-11-07)
+
+
+### Bug Fixes
+
+* select hidden dropdown ([2480358](https://github.com/Pixelartui/pixelartui-react/commit/2480358d824695f454828effea758cc3429ffc19))
+
 ### [0.4.25](https://github.com/Pixelartui/pixelartui-react/compare/v0.4.24...v0.4.25) (2025-11-07)
 
 
