@@ -38,6 +38,7 @@ export const StyledPixelBox: React.FC<StyledPixelBoxProps> = ({
             $width={width}
             $fullwidth={fullwidth}
             className="cp-pixel-box-wrapper"
+            {...props}
         >
             <StyledPixelBoxSideWrapper className="cp-pixel-box-side-wrapper">
                 {round ? (

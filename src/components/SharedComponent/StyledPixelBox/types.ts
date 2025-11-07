@@ -10,4 +10,5 @@ export interface StyledPixelBoxProps {
     height?: string;
     width?: string;
     fullwidth?: boolean;
+    className?: string;
 }

@@ -68,9 +68,10 @@ export const Modal: React.FC<ModalProps> = ({
                     className={`cp-modal-container-${name}`}
                 >
                     <StyledPixelBox
-                        height="400px"
-                        width="400px"
+                        className={`cp-modal-box-${name}`}
                         backgroundColor={backgroundColor}
+                        width="400px"
+                        height="400px"
                     >
                         <StyledModalContent
                             $backgroundColor={backgroundColor}
