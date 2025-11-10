@@ -10,5 +10,6 @@ export interface TextAreaProps {
     noLabel?: boolean;
     type: TextAreaType;
     value?: string;
+    className?: string;
     onChange?: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
 }

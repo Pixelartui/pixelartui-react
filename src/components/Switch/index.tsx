@@ -19,6 +19,7 @@ export const Switch: React.FC<SwitchProps> = ({
     backgroundColor,
     checked,
     onChange,
+    ...props
 }) => {
     const [isOn, setIsOn] = useState(defaultChecked);
     const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -28,7 +29,12 @@ export const Switch: React.FC<SwitchProps> = ({
         }
     };
     return (
-        <StyledSwitchContainer $type={type} testId="qa-switch">
+        <StyledSwitchContainer
+            $type={type}
+            testId="qa-switch"
+            className="cp-swicth-container"
+            {...props}
+        >
             {!noLabel && <StyledLabel name={name} text={label} />}
             <StyledPixelBox
                 {...(isOn

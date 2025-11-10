@@ -63,9 +63,9 @@ export const Modal: React.FC<ModalProps> = ({
         createPortal(
             <StyledBackdrop id={`cp-modal-backdrop-${name}`}>
                 <StyledContainer
-                    {...props}
                     testId="qa-modal"
-                    className={`cp-modal-container-${name}`}
+                    className="cp-modal-container"
+                    {...props}
                 >
                     <StyledPixelBox
                         className={`cp-modal-box-${name}`}

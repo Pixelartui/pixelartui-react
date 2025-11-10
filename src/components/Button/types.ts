@@ -13,5 +13,6 @@ export interface ButtonProps {
     disabled?: boolean;
     width?: string;
     height?: string;
+    className?: string;
     onClick: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
 }

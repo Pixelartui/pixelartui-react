@@ -46,6 +46,7 @@ export const Select: React.FC<SelectProps> = ({
     disabled,
     error,
     onChange,
+    ...props
 }) => {
     const ref = useRef<HTMLDivElement>(null);
     const [openDropdown, setOpenDropdown] = useState(false);
@@ -82,6 +83,8 @@ export const Select: React.FC<SelectProps> = ({
             ref={ref}
             $disabled={disabled}
             testId="qa-select"
+            className="cp-select-container"
+            {...props}
         >
             {!noLabel && (
                 <StyledSelectLabel

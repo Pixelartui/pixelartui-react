@@ -16,6 +16,7 @@ export interface SelectProps {
     noLabel?: boolean;
     disabled?: boolean;
     error?: boolean;
+    className?: string;
     helperText?: FunctionStringCallback;
     onChange?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
 }

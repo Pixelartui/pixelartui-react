@@ -11,5 +11,6 @@ export interface TextInputProps {
     helperText?: string;
     disabled?: boolean;
     value?: string;
+    className?: string;
     onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }

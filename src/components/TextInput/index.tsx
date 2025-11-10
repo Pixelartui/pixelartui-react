@@ -33,6 +33,7 @@ export const TextInput: React.FC<TextInputProps> = ({
         <StyledTextInputContainer
             testId="qa-input-text"
             className="cp-text-input-container"
+            {...props}
         >
             <StyledTextInputWrapper
                 className="cp-text-input-wrapper"
