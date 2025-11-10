@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.4.29](https://github.com/Pixelartui/pixelartui-react/compare/v0.4.28...v0.4.29) (2025-11-10)
+
+
+### Bug Fixes
+
+* component class name ([00b7c9f](https://github.com/Pixelartui/pixelartui-react/commit/00b7c9f14f6bdeb2e67e7352232f52509ea55e14))
+
 ### [0.4.28](https://github.com/Pixelartui/pixelartui-react/compare/v0.4.27...v0.4.28) (2025-11-07)
 
 
