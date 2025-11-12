@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.4.30](https://github.com/Pixelartui/pixelartui-react/compare/v0.4.29...v0.4.30) (2025-11-12)
+
+
+### Bug Fixes
+
+* component alternative border color ([6c5a058](https://github.com/Pixelartui/pixelartui-react/commit/6c5a0581066a671b06090d4b060011a9850e4609))
+
 ### [0.4.29](https://github.com/Pixelartui/pixelartui-react/compare/v0.4.28...v0.4.29) (2025-11-10)
 
 
