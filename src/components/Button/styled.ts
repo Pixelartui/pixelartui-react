@@ -35,7 +35,7 @@ const handleFontColor = (
     color: FontColor | undefined
 ) => {
     if (!backgroundColor || !color) return;
-    return getContrastColor(backgroundColor, color.dark, color.bright);
+    return getContrastColor(backgroundColor, color.bright, color.dark);
 };
 
 const handleSecondLayerBackground = (
@@ -74,13 +74,13 @@ const handleSecondLayerBackgroundHover = (
     return handleHoverColour(type || "main", theme)?.primary;
 };
 
-export const StyledButtonContainer = Styled.div<{
-    $disabled?: boolean;
-}>`
-    font-family: 'Pixelify Sans';
-    display: flex;
-    cursor: ${(props) => (props.$disabled ? "not-allowed" : "pointer")};
-`;
+// export const StyledButtonContainer = Styled.div<{
+//     $disabled?: boolean;
+// }>`
+//     font-family: 'Pixelify Sans';
+//     display: flex;
+//     cursor: ${(props) => (props.$disabled ? "not-allowed" : "pointer")};
+// `;
 
 export const StyledTextContainerSecondLayer = Styled.button<{
     $type?: ButtonType;
@@ -98,8 +98,8 @@ export const StyledTextContainerSecondLayer = Styled.button<{
                       ?.primary,
             props.$disabled
                 ? {
-                      dark: props.theme.general.color.fontContrast,
-                      bright: props.theme.general.color.fontContrast,
+                      dark: props.theme.general.color.fontLight,
+                      bright: props.theme.general.color.fontLight,
                   }
                 : handleButtonColour(props.$type || "main", props.theme)?.font
         )};
@@ -117,7 +117,7 @@ export const StyledTextContainerSecondLayer = Styled.button<{
             props.$type
         )};
 
-    ${StyledButtonContainer}:hover & {
+    &:hover {
             background:  ${(props) =>
                 handleSecondLayerBackgroundHover(
                     props.$disabled,

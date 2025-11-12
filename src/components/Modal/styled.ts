@@ -1,8 +1,11 @@
 import Styled from "styled-components";
 import { getContrastColor } from "../../Theme/helper";
 import { Button } from "../Button";
+import { StyledPixelBoxType } from "../SharedComponent/StyledPixelBox/types";
 
-export const StyledBackdrop = Styled.div`
+export const StyledBackdrop = Styled.div<{
+    $modalStyle?: StyledPixelBoxType;
+}>`
     position: absolute;
     top: 0;
     left: 0;
@@ -11,7 +14,8 @@ export const StyledBackdrop = Styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #1c29246e;
+    background: ${(props) =>
+        props.$modalStyle === "dark" ? "#1c29246e" : "#1c2924f2"};
 `;
 
 export const StyledCloseButton = Styled(Button)`
@@ -37,7 +41,7 @@ export const StyledModalContent = Styled.div<{
             props.$backgroundColor
                 ? props.$backgroundColor
                 : props.theme.general.color.primary,
-            props.theme.general.color.fontContrast,
+            props.theme.general.color.fontLight,
             props.theme.general.color.font
         )}
 `;

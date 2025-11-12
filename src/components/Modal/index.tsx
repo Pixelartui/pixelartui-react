@@ -12,7 +12,7 @@ import {
 } from "./styled";
 import { Button } from "../Button";
 import { theme } from "../../Theme";
-import { adjust } from "../../Theme/helper";
+import { adjust, getContrastColor } from "../../Theme/helper";
 import { StyledContainer } from "../SharedComponent/StyledContainer";
 
 export const Modal: React.FC<ModalProps> = ({
@@ -25,6 +25,7 @@ export const Modal: React.FC<ModalProps> = ({
     customAction,
     disabled,
     name,
+    modalStyle = "dark",
     onClickButtonLeft,
     onClickButtonRight,
     handleClose,
@@ -61,7 +62,10 @@ export const Modal: React.FC<ModalProps> = ({
     return (
         open &&
         createPortal(
-            <StyledBackdrop id={`cp-modal-backdrop-${name}`}>
+            <StyledBackdrop
+                $modalStyle={modalStyle}
+                id={`cp-modal-backdrop-${name}`}
+            >
                 <StyledContainer
                     testId="qa-modal"
                     className="cp-modal-container"
@@ -72,6 +76,7 @@ export const Modal: React.FC<ModalProps> = ({
                         backgroundColor={backgroundColor}
                         width="400px"
                         height="400px"
+                        type={modalStyle}
                     >
                         <StyledModalContent
                             $backgroundColor={backgroundColor}
@@ -86,6 +91,17 @@ export const Modal: React.FC<ModalProps> = ({
                                 round
                                 width="12px"
                                 height="30px"
+                                buttonStyle={
+                                    backgroundColor
+                                        ? getContrastColor(
+                                              backgroundColor!,
+                                              "white",
+                                              "black"
+                                          ) === "black"
+                                            ? "dark"
+                                            : "light"
+                                        : "dark"
+                                }
                             />
                             {customHeader
                                 ? customHeader
@@ -115,6 +131,17 @@ export const Modal: React.FC<ModalProps> = ({
                                                           : theme.general.color
                                                                 .primary
                                                   }
+                                                  buttonStyle={
+                                                      backgroundColor
+                                                          ? getContrastColor(
+                                                                backgroundColor!,
+                                                                "white",
+                                                                "black"
+                                                            ) === "black"
+                                                              ? "dark"
+                                                              : "light"
+                                                          : "dark"
+                                                  }
                                               />
                                               <Button
                                                   text={actionButtons!.right}
@@ -132,6 +159,17 @@ export const Modal: React.FC<ModalProps> = ({
                                                             )
                                                           : theme.general.color
                                                                 .secondary
+                                                  }
+                                                  buttonStyle={
+                                                      backgroundColor
+                                                          ? getContrastColor(
+                                                                backgroundColor!,
+                                                                "white",
+                                                                "black"
+                                                            ) === "black"
+                                                              ? "dark"
+                                                              : "light"
+                                                          : "dark"
                                                   }
                                               />
                                           </>

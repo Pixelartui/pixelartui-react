@@ -21,6 +21,7 @@ export const TextInput: React.FC<TextInputProps> = ({
     helperText,
     disabled,
     value,
+    inputStyle = "dark",
     onChange,
     ...props
 }) => {
@@ -46,7 +47,7 @@ export const TextInput: React.FC<TextInputProps> = ({
                 />
                 <StyledPixelBox
                     error={error}
-                    type={type}
+                    type={inputStyle}
                     backgroundColor={backgroundColor}
                     disabled={disabled}
                 >

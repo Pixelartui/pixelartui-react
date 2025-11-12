@@ -21,6 +21,7 @@ export const TextArea: React.FC<TextAreaProps> = ({
     noLabel,
     type,
     value,
+    textAreaStyle = "dark",
     onChange,
     ...props
 }) => {
@@ -44,6 +45,7 @@ export const TextArea: React.FC<TextAreaProps> = ({
                     error={error}
                     backgroundColor={backgroundColor}
                     disabled={disabled}
+                    type={textAreaStyle}
                 >
                     <StyledTextArea
                         name={inputName}

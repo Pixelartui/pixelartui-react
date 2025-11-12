@@ -1,4 +1,7 @@
+import { StyledPixelBoxType } from "../SharedComponent/StyledPixelBox/types";
+
 export type TextAreaType = "main" | "inline";
+export type TextAreaStyle = StyledPixelBoxType;
 export interface TextAreaProps {
     inputName: string;
     placeholder?: string;
@@ -11,5 +14,6 @@ export interface TextAreaProps {
     type: TextAreaType;
     value?: string;
     className?: string;
+    textAreaStyle?: TextAreaStyle;
     onChange?: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
 }

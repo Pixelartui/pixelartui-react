@@ -20,7 +20,7 @@ export const StyledPixelBox: React.FC<StyledPixelBoxProps> = ({
     children,
     error,
     backgroundColor,
-    type,
+    type = "dark",
     disabled,
     round,
     minHeight,
@@ -43,8 +43,14 @@ export const StyledPixelBox: React.FC<StyledPixelBoxProps> = ({
             <StyledPixelBoxSideWrapper className="cp-pixel-box-side-wrapper">
                 {round ? (
                     <>
-                        <StyledPixelBoxSideRoundFirst className="cp-pixel-box-side-roundfirst" />
-                        <StyledPixelBoxSideRoundSecond className="cp-pixel-box-side-round-second">
+                        <StyledPixelBoxSideRoundFirst
+                            $type={type}
+                            className="cp-pixel-box-side-roundfirst"
+                        />
+                        <StyledPixelBoxSideRoundSecond
+                            $type={type}
+                            className="cp-pixel-box-side-round-second"
+                        >
                             <StyledPixelBoxSideSecondInnerLeft
                                 $error={error}
                                 $type={type}
@@ -53,7 +59,10 @@ export const StyledPixelBox: React.FC<StyledPixelBoxProps> = ({
                                 className="cp-pixel-box-side-second-inner-left"
                             />
                         </StyledPixelBoxSideRoundSecond>
-                        <StyledPixelBoxSideRoundThird className="cp-pixel-box-side-round-third">
+                        <StyledPixelBoxSideRoundThird
+                            $type={type}
+                            className="cp-pixel-box-side-round-third"
+                        >
                             <StyledPixelBoxSideRoundThirdInnerLeft
                                 $error={error}
                                 $type={type}
@@ -65,8 +74,14 @@ export const StyledPixelBox: React.FC<StyledPixelBoxProps> = ({
                     </>
                 ) : (
                     <>
-                        <StyledPixelBoxSideFirst className="cp-pixel-box-side-first" />
-                        <StyledPixelBoxSideSecond className="cp-pixel-box-side-second">
+                        <StyledPixelBoxSideFirst
+                            $type={type}
+                            className="cp-pixel-box-side-first"
+                        />
+                        <StyledPixelBoxSideSecond
+                            $type={type}
+                            className="cp-pixel-box-side-second"
+                        >
                             <StyledPixelBoxSideSecondInnerLeft
                                 $error={error}
                                 $type={type}
@@ -78,7 +93,10 @@ export const StyledPixelBox: React.FC<StyledPixelBoxProps> = ({
                     </>
                 )}
             </StyledPixelBoxSideWrapper>
-            <StyledPixelBoxContentOuter className="cp-pixel-box-outer">
+            <StyledPixelBoxContentOuter
+                $type={type}
+                className="cp-pixel-box-outer"
+            >
                 <StyledPixelBoxContentInner
                     className="cp-pixel-box-content-inner"
                     $backgroundColor={backgroundColor}
@@ -92,7 +110,10 @@ export const StyledPixelBox: React.FC<StyledPixelBoxProps> = ({
             <StyledPixelBoxSideWrapper className="cp-pixel-box-side-wrapper">
                 {round ? (
                     <>
-                        <StyledPixelBoxSideRoundThird className="cp-pixel-box-side-round-third">
+                        <StyledPixelBoxSideRoundThird
+                            $type={type}
+                            className="cp-pixel-box-side-round-third"
+                        >
                             <StyledPixelBoxSideRoundThirdInnerRight
                                 $error={error}
                                 $type={type}
@@ -101,7 +122,10 @@ export const StyledPixelBox: React.FC<StyledPixelBoxProps> = ({
                                 className="cp-text-input-side-second-inner-left"
                             />
                         </StyledPixelBoxSideRoundThird>
-                        <StyledPixelBoxSideRoundSecond className="cp-pixel-box-side-round-second">
+                        <StyledPixelBoxSideRoundSecond
+                            $type={type}
+                            className="cp-pixel-box-side-round-second"
+                        >
                             <StyledPixelBoxSideSecondInnerRight
                                 $error={error}
                                 $type={type}
@@ -110,11 +134,17 @@ export const StyledPixelBox: React.FC<StyledPixelBoxProps> = ({
                                 className="cp-text-input-side-second-inner-left"
                             />
                         </StyledPixelBoxSideRoundSecond>
-                        <StyledPixelBoxSideRoundFirst className="cp-pixel-box-side-roundfirst" />
+                        <StyledPixelBoxSideRoundFirst
+                            $type={type}
+                            className="cp-pixel-box-side-roundfirst"
+                        />
                     </>
                 ) : (
                     <>
-                        <StyledPixelBoxSideSecond className="cp-pixel-box-side-second">
+                        <StyledPixelBoxSideSecond
+                            $type={type}
+                            className="cp-pixel-box-side-second"
+                        >
                             <StyledPixelBoxSideSecondInnerRight
                                 $error={error}
                                 $type={type}
@@ -123,7 +153,10 @@ export const StyledPixelBox: React.FC<StyledPixelBoxProps> = ({
                                 className="cp-text-input-side-second-inner-left"
                             />
                         </StyledPixelBoxSideSecond>
-                        <StyledPixelBoxSideFirst className="cp-pixel-box-side-first" />
+                        <StyledPixelBoxSideFirst
+                            $type={type}
+                            className="cp-pixel-box-side-first"
+                        />
                     </>
                 )}
             </StyledPixelBoxSideWrapper>

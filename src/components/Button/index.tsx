@@ -1,12 +1,10 @@
 import React from "react";
-import { DefaultTheme, ThemeProvider } from "styled-components";
-import {
-    StyledButtonContainer,
-    StyledTextContainerSecondLayer,
-} from "./styled";
+import { DefaultTheme } from "styled-components";
+import { StyledTextContainerSecondLayer } from "./styled";
 import { ButtonProps, ButtonSize } from "./types";
-import { GlobalStyle, theme } from "../../Theme";
+import { theme } from "../../Theme";
 import { StyledPixelBox } from "../SharedComponent/StyledPixelBox";
+import { StyledContainer } from "../SharedComponent/StyledContainer";
 
 export const Button: React.FC<ButtonProps> = ({
     text,
@@ -19,6 +17,7 @@ export const Button: React.FC<ButtonProps> = ({
     onClick,
     width,
     height,
+    buttonStyle = "dark",
     ...props
 }) => {
     const handleOnClick = (
@@ -42,35 +41,33 @@ export const Button: React.FC<ButtonProps> = ({
     };
 
     return (
-        <ThemeProvider theme={theme}>
-            <GlobalStyle />
-            <StyledButtonContainer
-                className="cp-button-container"
-                onClick={handleOnClick}
-                $disabled={disabled}
-                {...props}
+        <StyledContainer
+            testId="qa-button"
+            className="cp-button-container"
+            onClick={handleOnClick}
+            {...props}
+        >
+            <StyledPixelBox
+                disabled={disabled}
+                backgroundColor={backgroundColor}
+                round={round}
+                minHeight={handleButtonSize(buttonSize, theme)?.height}
+                minWidth={handleButtonSize(buttonSize, theme)?.width}
+                width={width}
+                height={height}
+                fullwidth={fullwidth}
+                type={buttonStyle}
             >
-                <StyledPixelBox
-                    disabled={disabled}
-                    backgroundColor={backgroundColor}
-                    round={round}
-                    minHeight={handleButtonSize(buttonSize, theme)?.height}
-                    minWidth={handleButtonSize(buttonSize, theme)?.width}
-                    width={width}
-                    height={height}
-                    fullwidth={fullwidth}
+                <StyledTextContainerSecondLayer
+                    className="cp-button-text-container-second-layer"
+                    $type={buttonType}
+                    $backgroundColor={backgroundColor}
+                    $disabled={disabled}
+                    $size={buttonSize}
                 >
-                    <StyledTextContainerSecondLayer
-                        className="cp-button-text-container-second-layer"
-                        $type={buttonType}
-                        $backgroundColor={backgroundColor}
-                        $disabled={disabled}
-                        $size={buttonSize}
-                    >
-                        {text}
-                    </StyledTextContainerSecondLayer>
-                </StyledPixelBox>
-            </StyledButtonContainer>
-        </ThemeProvider>
+                    {text}
+                </StyledTextContainerSecondLayer>
+            </StyledPixelBox>
+        </StyledContainer>
     );
 };

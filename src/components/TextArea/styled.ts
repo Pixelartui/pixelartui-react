@@ -50,8 +50,8 @@ export const StyledTextArea = Styled.textarea<{
             props.$backgroundColor
                 ? props.$backgroundColor
                 : props.theme.general.color.white,
-            props.theme.textInput.color.main?.normal?.font.dark,
-            props.theme.textInput.color.main?.normal?.font.bright
+            props.theme.textInput.color.main?.normal?.font.bright,
+            props.theme.textInput.color.main?.normal?.font.dark
         )};
     cursor: ${(props) => (props.$disabled ? "not-allowed" : "")};
 
@@ -64,8 +64,8 @@ export const StyledTextArea = Styled.textarea<{
                 props.$backgroundColor
                     ? props.$backgroundColor
                     : props.theme.general.color.white,
-                props.theme.textInput.color.main?.normal?.font.dark,
-                props.theme.textInput.color.main?.normal?.font.bright
+                props.theme.textInput.color.main?.normal?.font.bright,
+                props.theme.textInput.color.main?.normal?.font.dark
             )};
         font-style: italic;
     }

@@ -1,9 +1,12 @@
 import { ReactNode } from "react";
+import { StyledPixelBoxType } from "../SharedComponent/StyledPixelBox/types";
 
 export interface ActionText {
     left: string;
     right: string;
 }
+
+export type ModalStyle = StyledPixelBoxType;
 
 export interface ModalProps {
     backgroundColor?: string;
@@ -16,6 +19,7 @@ export interface ModalProps {
     disabled?: boolean;
     name: string;
     className?: string;
+    modalStyle?: ModalStyle;
     onClickButtonLeft?: (
         e: React.MouseEvent<HTMLDivElement, MouseEvent>
     ) => void;

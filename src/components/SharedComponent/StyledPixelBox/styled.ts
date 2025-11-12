@@ -1,5 +1,6 @@
 import Styled, { DefaultTheme } from "styled-components";
 import { adjust, handleCustomColor } from "../../../Theme/helper";
+import { StyledPixelBoxType } from "./types";
 
 const handlePrimaryColor = (arg: {
     error: boolean | undefined;
@@ -91,10 +92,15 @@ export const StyledPixelBoxSideWrapper = Styled.div`
     align-items: center;
 `;
 
-export const StyledPixelBoxSideFirst = Styled.div`
+export const StyledPixelBoxSideFirst = Styled.div<{
+    $type: StyledPixelBoxType;
+}>`
     display: flex;
     width: 3px;
-    background: black;
+    background: ${(props) =>
+        props.$type === "dark"
+            ? props.theme.general.color.dark
+            : props.theme.general.color.light};
     height: calc(100% - 12px);
 `;
 
@@ -102,14 +108,20 @@ export const StyledPixelBoxSideRoundFirst = Styled(StyledPixelBoxSideFirst)`
     height: calc(100% - 18px);
 `;
 
-export const StyledPixelBoxSideSecond = Styled.div`
+export const StyledPixelBoxSideSecond = Styled.div<{
+    $type: StyledPixelBoxType;
+}>`
     display: flex;
     width: 3px;
     height: calc(100% - 12px);
     border-top: 3px solid ${(props) =>
-        props.theme.textInput.color.main?.normal?.border};
+        props.$type === "dark"
+            ? props.theme.general.color.dark
+            : props.theme.general.color.light};
     border-bottom: 3px solid ${(props) =>
-        props.theme.textInput.color.main?.normal?.border};
+        props.$type === "dark"
+            ? props.theme.general.color.dark
+            : props.theme.general.color.light};
 `;
 
 export const StyledPixelBoxSideRoundThird = Styled(StyledPixelBoxSideSecond)`
@@ -220,12 +232,18 @@ export const StyledPixelBoxSideRoundThirdInnerRight = Styled(
         })};
 `;
 
-export const StyledPixelBoxContentOuter = Styled.div`
+export const StyledPixelBoxContentOuter = Styled.div<{
+    $type: StyledPixelBoxType;
+}>`
     display: flex;
     border-top: 3px solid ${(props) =>
-        props.theme.textInput.color.main?.normal?.border};
+        props.$type === "dark"
+            ? props.theme.general.color.dark
+            : props.theme.general.color.light};
     border-bottom: 3px solid ${(props) =>
-        props.theme.textInput.color.main?.normal?.border};
+        props.$type === "dark"
+            ? props.theme.general.color.dark
+            : props.theme.general.color.light};
     width: 100%;
 `;
 

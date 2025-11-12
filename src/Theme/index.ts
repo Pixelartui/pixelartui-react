@@ -6,7 +6,7 @@ const mainPrimaryColor = "#04A1E1";
 const mainSecondaryColor = adjust(mainPrimaryColor, 40);
 const mainTertiaryColor = adjust(mainPrimaryColor, -30);
 const mainFontColor = "#1C2924";
-const mainFontColorContrast = "#ffffff";
+const mainFontColorLight = "#ffffff";
 const mainBorderColor = "#1C2924";
 const outlinePrimaryColor = "#ffffff00";
 const disableColor = "#ECDDF7";
@@ -29,8 +29,10 @@ export const theme: DefaultTheme = {
             secondary: mainSecondaryColor,
             tertiary: mainTertiaryColor,
             font: mainFontColor,
-            fontContrast: mainFontColorContrast,
+            fontLight: mainFontColorLight,
             fontDisabled: "#d7d0d0",
+            dark: "#1C2924",
+            light: "#F6F9FC",
             disabled: disableColor,
             white: "#ffffff",
             black: "#000000",
@@ -44,8 +46,8 @@ export const theme: DefaultTheme = {
                     secondary: mainSecondaryColor,
                     tertiary: mainTertiaryColor,
                     font: {
-                        bright: mainFontColor,
-                        dark: mainFontColorContrast,
+                        bright: mainFontColorLight,
+                        dark: mainFontColor,
                     },
                     border: mainBorderColor,
                 },
@@ -54,8 +56,8 @@ export const theme: DefaultTheme = {
                     secondary: mainSecondaryColor,
                     tertiary: mainTertiaryColor,
                     font: {
-                        bright: mainFontColor,
-                        dark: mainFontColorContrast,
+                        bright: mainFontColorLight,
+                        dark: mainFontColor,
                     },
                     border: mainBorderColor,
                 },
@@ -66,8 +68,8 @@ export const theme: DefaultTheme = {
                     secondary: mainSecondaryColor,
                     tertiary: mainTertiaryColor,
                     font: {
-                        bright: mainFontColor,
-                        dark: mainFontColorContrast,
+                        bright: mainFontColorLight,
+                        dark: mainFontColor,
                     },
                     border: mainBorderColor,
                 },
@@ -76,8 +78,8 @@ export const theme: DefaultTheme = {
                     secondary: mainSecondaryColor,
                     tertiary: mainTertiaryColor,
                     font: {
-                        bright: mainFontColor,
-                        dark: mainFontColorContrast,
+                        bright: mainFontColorLight,
+                        dark: mainFontColor,
                     },
                     border: mainBorderColor,
                 },
@@ -109,8 +111,8 @@ export const theme: DefaultTheme = {
                     secondary: mainSecondaryColor,
                     tertiary: mainTertiaryColor,
                     font: {
-                        bright: mainFontColor,
-                        dark: mainFontColorContrast,
+                        bright: mainFontColorLight,
+                        dark: mainFontColor,
                     },
                     border: mainBorderColor,
                 },
@@ -133,8 +135,8 @@ export const theme: DefaultTheme = {
                     secondary: mainSecondaryColor,
                     tertiary: mainTertiaryColor,
                     font: {
-                        bright: mainFontColor,
-                        dark: mainFontColorContrast,
+                        bright: mainFontColorLight,
+                        dark: mainFontColor,
                     },
                     border: mainBorderColor,
                 },
@@ -143,8 +145,8 @@ export const theme: DefaultTheme = {
                     secondary: mainSecondaryColor,
                     tertiary: mainTertiaryColor,
                     font: {
-                        bright: mainFontColor,
-                        dark: mainFontColorContrast,
+                        bright: mainFontColorLight,
+                        dark: mainFontColor,
                     },
                     border: mainBorderColor,
                 },

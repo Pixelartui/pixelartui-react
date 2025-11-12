@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { SelectProps } from "./types";
+import { SelectIconProps, SelectProps } from "./types";
 import { StyledPixelBox } from "../SharedComponent/StyledPixelBox";
 import {
     StyledOptionsWrapper,
@@ -16,20 +16,38 @@ import {
 } from "./styled";
 import { useClickOutsideCompnent } from "../../hooks";
 
-const SelectIcon = ({ open }: { open: boolean }) => {
+const SelectIcon = ({ open, backgroundColor, disabled }: SelectIconProps) => {
     return (
         <StyledSelectIconContainer $open={open}>
             <StyledSelectIconRow>
-                <StyledSelectIconPixel></StyledSelectIconPixel>
-                <StyledSelectIconPixel></StyledSelectIconPixel>
-                <StyledSelectIconPixel></StyledSelectIconPixel>
+                <StyledSelectIconPixel
+                    $disabled={disabled}
+                    $backgroundColor={backgroundColor}
+                ></StyledSelectIconPixel>
+                <StyledSelectIconPixel
+                    $disabled={disabled}
+                    $backgroundColor={backgroundColor}
+                ></StyledSelectIconPixel>
+                <StyledSelectIconPixel
+                    $disabled={disabled}
+                    $backgroundColor={backgroundColor}
+                ></StyledSelectIconPixel>
             </StyledSelectIconRow>
             <StyledSelectIconRow>
-                <StyledSelectIconPixel></StyledSelectIconPixel>
-                <StyledSelectIconPixel></StyledSelectIconPixel>
+                <StyledSelectIconPixel
+                    $disabled={disabled}
+                    $backgroundColor={backgroundColor}
+                ></StyledSelectIconPixel>
+                <StyledSelectIconPixel
+                    $disabled={disabled}
+                    $backgroundColor={backgroundColor}
+                ></StyledSelectIconPixel>
             </StyledSelectIconRow>
             <StyledSelectIconRow>
-                <StyledSelectIconPixel></StyledSelectIconPixel>
+                <StyledSelectIconPixel
+                    $disabled={disabled}
+                    $backgroundColor={backgroundColor}
+                ></StyledSelectIconPixel>
             </StyledSelectIconRow>
         </StyledSelectIconContainer>
     );
@@ -45,6 +63,7 @@ export const Select: React.FC<SelectProps> = ({
     type,
     disabled,
     error,
+    selectStyle = "dark",
     onChange,
     ...props
 }) => {
@@ -107,11 +126,16 @@ export const Select: React.FC<SelectProps> = ({
                         backgroundColor={backgroundColor}
                         disabled={disabled}
                         error={error}
+                        type={selectStyle}
                     >
                         <StyledSelectDisplayText className="cp-select-display-text">
                             {selectDisplay}
                         </StyledSelectDisplayText>
-                        <SelectIcon open={openDropdown} />
+                        <SelectIcon
+                            open={openDropdown}
+                            backgroundColor={backgroundColor}
+                            disabled={disabled}
+                        />
                     </StyledPixelBox>
                 </StyleSelectDisplay>
 
@@ -124,6 +148,7 @@ export const Select: React.FC<SelectProps> = ({
                     <StyledPixelBox
                         backgroundColor={backgroundColor}
                         disabled={disabled}
+                        type={selectStyle}
                     >
                         <StyledOptionsWrapper className="cp-select-options-wrapper">
                             {options.map((option) => (

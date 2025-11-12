@@ -9,6 +9,7 @@ import {
 import { StyledLabel } from "../SharedComponent/StyledLabel";
 import { Button } from "../Button";
 import { theme } from "../../Theme";
+import { getContrastColor } from "../../Theme/helper";
 
 export const Switch: React.FC<SwitchProps> = ({
     name,
@@ -18,6 +19,7 @@ export const Switch: React.FC<SwitchProps> = ({
     noLabel,
     backgroundColor,
     checked,
+    switchStyle = "dark",
     onChange,
     ...props
 }) => {
@@ -37,6 +39,7 @@ export const Switch: React.FC<SwitchProps> = ({
         >
             {!noLabel && <StyledLabel name={name} text={label} />}
             <StyledPixelBox
+                type={switchStyle}
                 {...(isOn
                     ? {
                           backgroundColor: backgroundColor
@@ -76,6 +79,22 @@ export const Switch: React.FC<SwitchProps> = ({
                               }
                             : {
                                   backgroundColor: theme.general.color.disabled,
+                              })}
+                        {...(isOn
+                            ? {
+                                  buttonStyle:
+                                      getContrastColor(
+                                          backgroundColor
+                                              ? backgroundColor
+                                              : theme.general.color.primary,
+                                          "white",
+                                          "black"
+                                      ) === "white"
+                                          ? "light"
+                                          : "dark",
+                              }
+                            : {
+                                  buttonStyle: "dark",
                               })}
                     ></Button>
                 </StyledSwitchWrapper>

@@ -1,4 +1,8 @@
+import { StyledPixelBoxType } from "../SharedComponent/StyledPixelBox/types";
+
 export type SwitchType = "main" | "inline";
+export type SwitchStyle = StyledPixelBoxType;
+
 export interface SwitchProps {
     label: string;
     type: SwitchType;
@@ -8,5 +12,6 @@ export interface SwitchProps {
     backgroundColor?: string;
     checked?: boolean;
     className?: string;
+    switchStyle?: SwitchStyle;
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }

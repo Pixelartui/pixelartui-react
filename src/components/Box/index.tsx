@@ -6,6 +6,7 @@ import { StyledPixelBox } from "../SharedComponent/StyledPixelBox";
 export const Box: React.FC<BoxProps> = ({
     backgroundColor,
     children,
+    boxStyle = "dark",
     ...props
 }) => {
     return (
@@ -14,7 +15,7 @@ export const Box: React.FC<BoxProps> = ({
             className="cp-box-container"
             {...props}
         >
-            <StyledPixelBox backgroundColor={backgroundColor}>
+            <StyledPixelBox backgroundColor={backgroundColor} type={boxStyle}>
                 {children}
             </StyledPixelBox>
         </StyledContainer>

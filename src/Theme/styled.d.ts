@@ -51,8 +51,10 @@ declare module "styled-components" {
                 tertiary: string;
                 disabled: string;
                 font: string;
-                fontContrast: string;
+                fontLight: string;
                 fontDisabled: string;
+                dark: string;
+                light: string;
                 white: string;
                 black: string;
             };

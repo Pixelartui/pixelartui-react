@@ -1,12 +1,15 @@
 import React from "react";
+import { StyledPixelBoxType } from "../SharedComponent/StyledPixelBox/types";
 
 export type ButtonSize = "small" | "medium" | "large";
 export type ButtonType = "main" | "outline";
+export type ButtonStyle = StyledPixelBoxType;
 
 export interface ButtonProps {
     text: string;
     buttonSize: ButtonSize;
     buttonType: ButtonType;
+    buttonStyle?: ButtonStyle;
     fullwidth?: boolean;
     round?: boolean;
     backgroundColor?: string;

@@ -123,3 +123,17 @@ export const ModalCustomButtonDisabled = {
         name: "story-modal",
     },
 };
+
+export const ModalLightStyle = {
+    args: {
+        open: true,
+        header: "Attention Attention",
+        actionButtons: {
+            left: "Cancel",
+            right: "OK",
+        },
+        children: <StyledContent>This is a content</StyledContent>,
+        name: "story-modal",
+        modalStyle: "light",
+    },
+};

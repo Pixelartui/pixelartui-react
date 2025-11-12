@@ -80,8 +80,8 @@ export const StyleSelectDisplay = Styled.div<{
                       props.$backgroundColor
                           ? props.$backgroundColor
                           : props.theme.general.color.white,
-                      props.theme.textInput.color.main?.normal?.font.dark,
-                      props.theme.textInput.color.main?.normal?.font.bright
+                      props.theme.textInput.color.main?.normal?.font.bright,
+                      props.theme.textInput.color.main?.normal?.font.dark
                   )};
         justify-content: space-between;
     }   
@@ -119,8 +119,8 @@ export const StyleSelectDropdown = Styled.div<{
                 props.$backgroundColor
                     ? props.$backgroundColor
                     : props.theme.general.color.white,
-                props.theme.textInput.color.main?.normal?.font.dark,
-                props.theme.textInput.color.main?.normal?.font.bright
+                props.theme.textInput.color.main?.normal?.font.bright,
+                props.theme.textInput.color.main?.normal?.font.dark
             )}
     }   
 `;
@@ -182,8 +182,20 @@ export const StyledSelectIconRow = Styled.div`
     align-items: center;
 `;
 
-export const StyledSelectIconPixel = Styled.div`
+export const StyledSelectIconPixel = Styled.div<{
+    $backgroundColor?: string;
+    $disabled?: boolean;
+}>`
     width: 3px;
     height: 3px;
-    background: ${(props) => props.theme.select.color.main?.normal?.border};
+    background: ${(props) =>
+        props.$disabled
+            ? props.theme.general.color.disabled
+            : props.$backgroundColor
+            ? getContrastColor(
+                  props.$backgroundColor,
+                  props.theme.general.color.light,
+                  props.theme.general.color.dark
+              )
+            : props.theme.general.color.dark};
 `;

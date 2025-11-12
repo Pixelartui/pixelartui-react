@@ -1,5 +1,6 @@
-import type { Meta } from "@storybook/react-vite";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Switch } from ".";
+import { fn } from "storybook/test";
 
 const meta = {
     title: "Pixel Component/Switch",
@@ -7,10 +8,11 @@ const meta = {
 } satisfies Meta<typeof Switch>;
 
 export default meta;
+type Story = StoryObj<typeof meta>;
 
 export const SwitchMain = {
     args: {
-        inputName: "name",
+        name: "name",
         label: "Note",
         type: "main",
     },
@@ -18,7 +20,7 @@ export const SwitchMain = {
 
 export const SwitchInline = {
     args: {
-        inputName: "name",
+        name: "name",
         label: "Note",
         type: "inline",
     },
@@ -26,7 +28,7 @@ export const SwitchInline = {
 
 export const SwitchDefaultCheckedTrue = {
     args: {
-        inputName: "name",
+        name: "name",
         label: "Note",
         type: "main",
         defaultChecked: true,
@@ -35,7 +37,7 @@ export const SwitchDefaultCheckedTrue = {
 
 export const SwitchNoLabel = {
     args: {
-        inputName: "name",
+        name: "name",
         label: "Note",
         type: "main",
         noLabel: true,
@@ -44,10 +46,29 @@ export const SwitchNoLabel = {
 
 export const SwitchCustomBackground = {
     args: {
-        inputName: "name",
+        name: "name",
         label: "Note",
         type: "main",
         noLabel: true,
         backgroundColor: "#05EB57",
+    },
+};
+
+export const SwitchLightStyle: Story = {
+    decorators: [
+        (Story) => (
+            <div style={{ backgroundColor: "black", padding: "10px" }}>
+                <Story />
+            </div>
+        ),
+    ],
+    args: {
+        name: "name",
+        label: "Note",
+        type: "main",
+        noLabel: true,
+        backgroundColor: "#05EB57",
+        switchStyle: "light",
+        onChange: fn(),
     },
 };

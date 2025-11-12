@@ -1,4 +1,7 @@
+import { StyledPixelBoxType } from "../SharedComponent/StyledPixelBox/types";
+
 export type InputType = "main" | "inline";
+export type InputStyle = StyledPixelBoxType;
 
 export interface TextInputProps {
     inputName: string;
@@ -12,5 +15,6 @@ export interface TextInputProps {
     disabled?: boolean;
     value?: string;
     className?: string;
+    inputStyle?: InputStyle;
     onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
