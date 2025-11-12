@@ -1,9 +1,6 @@
 import React from "react";
-import { DefaultTheme } from "styled-components";
-import { StyledTextContainerSecondLayer } from "./styled";
-import { ButtonProps, ButtonSize } from "./types";
-import { theme } from "../../Theme";
-import { StyledPixelBox } from "../SharedComponent/StyledPixelBox";
+import { StyledButtonBox, StyledTextContainerSecondLayer } from "./styled";
+import { ButtonProps } from "./types";
 import { StyledContainer } from "../SharedComponent/StyledContainer";
 
 export const Button: React.FC<ButtonProps> = ({
@@ -27,18 +24,6 @@ export const Button: React.FC<ButtonProps> = ({
 
         onClick(event);
     };
-    const handleButtonSize = (size: ButtonSize, theme: DefaultTheme) => {
-        switch (size) {
-            case "small":
-                return theme.button.size.small;
-            case "medium":
-                return theme.button.size.medium;
-            case "large":
-                return theme.button.size.large;
-            default:
-                return theme.button.size.medium;
-        }
-    };
 
     return (
         <StyledContainer
@@ -47,12 +32,11 @@ export const Button: React.FC<ButtonProps> = ({
             onClick={handleOnClick}
             {...props}
         >
-            <StyledPixelBox
+            <StyledButtonBox
+                $size={buttonSize}
                 disabled={disabled}
                 backgroundColor={backgroundColor}
                 round={round}
-                minHeight={handleButtonSize(buttonSize, theme)?.height}
-                minWidth={handleButtonSize(buttonSize, theme)?.width}
                 width={width}
                 height={height}
                 fullwidth={fullwidth}
@@ -67,7 +51,7 @@ export const Button: React.FC<ButtonProps> = ({
                 >
                     {text}
                 </StyledTextContainerSecondLayer>
-            </StyledPixelBox>
+            </StyledButtonBox>
         </StyledContainer>
     );
 };

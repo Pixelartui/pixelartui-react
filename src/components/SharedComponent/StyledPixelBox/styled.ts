@@ -68,23 +68,19 @@ const handleTertiaryColor = (arg: {
 };
 
 export const StyledPixelBoxWrapper = Styled.div<{
-    $minHeight?: string;
-    $minWidth?: string;
     $width?: string;
     $height?: string;
     $fullwidth?: boolean;
 }>`
+    height: 100%;
     display: flex;
-    ${(props) =>
-        props.$height
-            ? `height: ${props.$height}`
-            : `min-height: ${props.$minHeight}`};
+    ${(props) => (props.$height ? `height: ${props.$height}` : "")};
     ${(props) =>
         props.$fullwidth
             ? "width: 100%"
             : props.$width
             ? `width: ${props.$width}`
-            : `min-width: ${props.$minWidth}`};
+            : ""};
 `;
 
 export const StyledPixelBoxSideWrapper = Styled.div`

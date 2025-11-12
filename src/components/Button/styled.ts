@@ -2,6 +2,7 @@ import Styled, { DefaultTheme } from "styled-components";
 import { ButtonSize, ButtonType } from "./types";
 import { getContrastColor, handleCustomColor } from "../../Theme/helper";
 import { FontColor } from "../../Theme/styled";
+import { StyledPixelBox } from "../SharedComponent/StyledPixelBox";
 
 const handleButtonColour = (type: ButtonType, theme: DefaultTheme) => {
     switch (type) {
@@ -74,13 +75,27 @@ const handleSecondLayerBackgroundHover = (
     return handleHoverColour(type || "main", theme)?.primary;
 };
 
-// export const StyledButtonContainer = Styled.div<{
-//     $disabled?: boolean;
-// }>`
-//     font-family: 'Pixelify Sans';
-//     display: flex;
-//     cursor: ${(props) => (props.$disabled ? "not-allowed" : "pointer")};
-// `;
+const handleButtonSize = (size: ButtonSize, theme: DefaultTheme) => {
+    switch (size) {
+        case "small":
+            return theme.button.size.small;
+        case "medium":
+            return theme.button.size.medium;
+        case "large":
+            return theme.button.size.large;
+        default:
+            return theme.button.size.medium;
+    }
+};
+
+export const StyledButtonBox = Styled(StyledPixelBox)<{
+    $size?: ButtonSize;
+}>`
+    min-height: ${(props) =>
+        handleButtonSize(props.$size || "medium", props.theme)?.height};
+    min-width: ${(props) =>
+        handleButtonSize(props.$size || "medium", props.theme)?.width};
+`;
 
 export const StyledTextContainerSecondLayer = Styled.button<{
     $type?: ButtonType;
@@ -103,6 +118,9 @@ export const StyledTextContainerSecondLayer = Styled.button<{
                   }
                 : handleButtonColour(props.$type || "main", props.theme)?.font
         )};
+    font-family: inherit;
+    font-size: ${(props) =>
+        handleButtonSize(props.$size || "medium", props.theme)?.fontSize};
     border: none;
     width: 100%;
     height: 100%;

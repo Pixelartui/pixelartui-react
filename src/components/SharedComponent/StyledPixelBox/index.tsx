@@ -23,8 +23,6 @@ export const StyledPixelBox: React.FC<StyledPixelBoxProps> = ({
     type = "dark",
     disabled,
     round,
-    minHeight,
-    minWidth,
     width,
     height,
     fullwidth,
@@ -32,8 +30,6 @@ export const StyledPixelBox: React.FC<StyledPixelBoxProps> = ({
 }) => {
     return (
         <StyledPixelBoxWrapper
-            $minHeight={minHeight}
-            $minWidth={minWidth}
             $height={height}
             $width={width}
             $fullwidth={fullwidth}

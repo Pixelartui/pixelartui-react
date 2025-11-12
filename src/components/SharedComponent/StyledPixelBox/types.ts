@@ -6,8 +6,6 @@ export interface StyledPixelBoxProps {
     disabled?: boolean;
     backgroundColor?: string;
     round?: boolean;
-    minWidth?: string;
-    minHeight?: string;
     height?: string;
     width?: string;
     fullwidth?: boolean;
