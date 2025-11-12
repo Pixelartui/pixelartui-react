@@ -72,7 +72,6 @@ export const StyledPixelBoxWrapper = Styled.div<{
     $height?: string;
     $fullwidth?: boolean;
 }>`
-    height: 100%;
     display: flex;
     ${(props) => (props.$height ? `height: ${props.$height}` : "")};
     ${(props) =>

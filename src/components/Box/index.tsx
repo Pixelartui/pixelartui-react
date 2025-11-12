@@ -10,12 +10,12 @@ export const Box: React.FC<BoxProps> = ({
     ...props
 }) => {
     return (
-        <StyledContainer
-            testId="qa-box"
-            className="cp-box-container"
-            {...props}
-        >
-            <StyledPixelBox backgroundColor={backgroundColor} type={boxStyle}>
+        <StyledContainer testId="qa-box" className="cp-box-container">
+            <StyledPixelBox
+                backgroundColor={backgroundColor}
+                type={boxStyle}
+                {...props}
+            >
                 {children}
             </StyledPixelBox>
         </StyledContainer>
