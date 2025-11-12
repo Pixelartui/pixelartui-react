@@ -91,7 +91,13 @@ export const ButtonCustomColor = {
 export const ButtonLightStyle: Story = {
     decorators: [
         (Story) => (
-            <div style={{ backgroundColor: "black", padding: "10px" }}>
+            <div
+                style={{
+                    backgroundColor: "black",
+                    padding: "10px",
+                    display: "flex",
+                }}
+            >
                 <Story />
             </div>
         ),
