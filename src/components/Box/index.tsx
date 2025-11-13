@@ -13,14 +13,17 @@ export const Box: React.FC<BoxProps> = ({
     ...props
 }) => {
     return (
-        <StyledContainer testId="qa-box" className="cp-box-container">
+        <StyledContainer
+            testId="qa-box"
+            className="cp-box-container"
+            {...props}
+        >
             <StyledPixelBox
                 backgroundColor={backgroundColor}
                 type={boxStyle}
                 width={width}
                 height={height}
                 fullwidth={fullwidth}
-                {...props}
             >
                 {children}
             </StyledPixelBox>
