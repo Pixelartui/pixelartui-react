@@ -17,6 +17,25 @@ export const TextInputMain = {
     },
 };
 
+export const TextInputCustomWidthAndHeight = {
+    args: {
+        inputName: "name",
+        type: "main",
+        textLabel: "The Label",
+        width: "400px",
+        height: "200px",
+    },
+};
+
+export const TextInputFullwidth = {
+    args: {
+        inputName: "name",
+        type: "main",
+        textLabel: "The Label",
+        fullwidth: true,
+    },
+};
+
 export const TextInputPlaceholder = {
     args: {
         inputName: "name",

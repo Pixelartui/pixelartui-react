@@ -77,6 +77,21 @@ export const ModalCustomBackgroundColor = {
     },
 };
 
+export const ModalCustomHeightAndWidth = {
+    args: {
+        open: true,
+        header: "Attention Attention Attention Attention Attention Attention",
+        actionButtons: {
+            left: "Cancel",
+            right: "OK",
+        },
+        children: <StyledContent>This is a content</StyledContent>,
+        name: "story-modal",
+        width: "600px",
+        height: "400px",
+    },
+};
+
 export const ModalNoHeaderAndActions = {
     args: {
         open: true,

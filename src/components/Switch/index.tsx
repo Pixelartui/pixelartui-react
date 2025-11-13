@@ -18,7 +18,6 @@ export const Switch: React.FC<SwitchProps> = ({
     defaultChecked,
     noLabel,
     backgroundColor,
-    checked,
     switchStyle = "dark",
     onChange,
     ...props
@@ -39,6 +38,7 @@ export const Switch: React.FC<SwitchProps> = ({
         >
             {!noLabel && <StyledLabel name={name} text={label} />}
             <StyledPixelBox
+                width={theme.switch.size.free?.width}
                 type={switchStyle}
                 {...(isOn
                     ? {
@@ -61,7 +61,7 @@ export const Switch: React.FC<SwitchProps> = ({
                         id={`cp-switch-${name}`}
                         type="checkbox"
                         onChange={handleOnChange}
-                        checked={checked}
+                        checked={isOn}
                     />
 
                     <Button

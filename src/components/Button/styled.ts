@@ -90,11 +90,17 @@ const handleButtonSize = (size: ButtonSize, theme: DefaultTheme) => {
 
 export const StyledButtonBox = Styled(StyledPixelBox)<{
     $size?: ButtonSize;
+    $height?: string;
+    $width?: string;
 }>`
-    min-height: ${(props) =>
-        handleButtonSize(props.$size || "medium", props.theme)?.height};
+    height: ${(props) =>
+        props.height
+            ? props.height
+            : handleButtonSize(props.$size || "medium", props.theme)?.height};
     min-width: ${(props) =>
-        handleButtonSize(props.$size || "medium", props.theme)?.width};
+        props.width
+            ? props.width
+            : handleButtonSize(props.$size || "medium", props.theme)?.width};
 `;
 
 export const StyledTextContainerSecondLayer = Styled.button<{

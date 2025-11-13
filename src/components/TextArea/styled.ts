@@ -29,14 +29,34 @@ const handleFontColor = (
     return getContrastColor(bgColor, darkColor, brightColor);
 };
 
-export const StyledTextAreaContainer = Styled(StyledContainer)`
+export const StyledTextAreaContainer = Styled(StyledContainer)<{
+    $fullwidth?: boolean;
+}>`
     flex-direction: column;
+    width: ${(props) => (props.$fullwidth ? "100%" : "fit-content")};
+
+    .cp-pixel-box-outer,
+    .cp-pixel-box-content-inner {
+        width: ${(props) => (props.$fullwidth ? "100%" : "auto")};
+        height: auto;
+    }
 `;
 
 export const StyledTextArea = Styled.textarea<{
     $backgroundColor?: string;
     $disabled?: boolean;
+    $width?: string;
+    $height?: string;
+    $fullwidth?: boolean;
 }>`
+    width: ${(props) =>
+        props.$fullwidth
+            ? "100%"
+            : props.$width
+            ? props.$width
+            : props.theme.textArea.size.free?.width};
+    height: ${(props) =>
+        props.$height ? props.$height : props.theme.textArea.size.free?.height};
     font: inherit;
     border: none;
     background: ${(props) =>

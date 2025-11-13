@@ -13,13 +13,20 @@ export const StyledSwitchWrapper = Styled.div<{
 }>`
     display: flex;
     position: relative;
-    width: 55px;
+    width: ${(props) => props.theme.switch.size.free?.width};
     background: ${(props) =>
         props.$isOn
             ? props.$backgroundColor
                 ? props.$backgroundColor
                 : props.theme.general.color.primary
             : props.theme.general.color.disabled};
+    ${(props) =>
+        props.$isOn
+            ? `.cp-switch-input-check ~ .cp-button-container {
+      margin-left: 27px;
+    }`
+            : ""}
+    
 
     .cp-switch-input-check:checked ~ .cp-button-container {
       margin-left: 27px;

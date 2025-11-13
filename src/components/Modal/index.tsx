@@ -26,6 +26,8 @@ export const Modal: React.FC<ModalProps> = ({
     disabled,
     name,
     modalStyle = "dark",
+    width,
+    height,
     onClickButtonLeft,
     onClickButtonRight,
     handleClose,
@@ -74,8 +76,8 @@ export const Modal: React.FC<ModalProps> = ({
                     <StyledPixelBox
                         className={`cp-modal-box-${name}`}
                         backgroundColor={backgroundColor}
-                        width="400px"
-                        height="400px"
+                        width={width ? width : "400px"}
+                        height={height ? height : "400px"}
                         type={modalStyle}
                     >
                         <StyledModalContent

@@ -15,6 +15,7 @@ import {
     StyleSelectDropdown,
 } from "./styled";
 import { useClickOutsideCompnent } from "../../hooks";
+import { theme } from "../../Theme";
 
 const SelectIcon = ({ open, backgroundColor, disabled }: SelectIconProps) => {
     return (
@@ -63,6 +64,9 @@ export const Select: React.FC<SelectProps> = ({
     type,
     disabled,
     error,
+    width,
+    height,
+    fullwidth,
     selectStyle = "dark",
     onChange,
     ...props
@@ -127,6 +131,11 @@ export const Select: React.FC<SelectProps> = ({
                         disabled={disabled}
                         error={error}
                         type={selectStyle}
+                        width={width ? width : theme.select.size.free?.width}
+                        height={
+                            height ? height : theme.select.size.free?.height
+                        }
+                        fullwidth={fullwidth}
                     >
                         <StyledSelectDisplayText className="cp-select-display-text">
                             {selectDisplay}
@@ -149,6 +158,8 @@ export const Select: React.FC<SelectProps> = ({
                         backgroundColor={backgroundColor}
                         disabled={disabled}
                         type={selectStyle}
+                        width={width ? width : theme.select.size.free?.width}
+                        fullwidth={fullwidth}
                     >
                         <StyledOptionsWrapper className="cp-select-options-wrapper">
                             {options.map((option) => (

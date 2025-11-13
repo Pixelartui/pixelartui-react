@@ -15,5 +15,8 @@ export interface TextAreaProps {
     value?: string;
     className?: string;
     textAreaStyle?: TextAreaStyle;
+    width?: string;
+    height?: string;
+    fullwidth?: boolean;
     onChange?: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
 }

@@ -7,4 +7,7 @@ export interface BoxProps {
     backgroundColor?: string;
     className?: string;
     boxStyle?: BoxStyle;
+    width?: string;
+    height?: string;
+    fullwidth?: boolean;
 }

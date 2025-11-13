@@ -9,6 +9,7 @@ import {
 import { TextInputProps } from "./types";
 import { StyledPixelBox } from "../SharedComponent/StyledPixelBox";
 import { StyledLabel } from "../SharedComponent/StyledLabel";
+import { theme } from "../../Theme";
 
 export const TextInput: React.FC<TextInputProps> = ({
     inputName,
@@ -22,6 +23,9 @@ export const TextInput: React.FC<TextInputProps> = ({
     disabled,
     value,
     inputStyle = "dark",
+    width,
+    height,
+    fullwidth,
     onChange,
     ...props
 }) => {
@@ -50,6 +54,9 @@ export const TextInput: React.FC<TextInputProps> = ({
                     type={inputStyle}
                     backgroundColor={backgroundColor}
                     disabled={disabled}
+                    width={width ? width : theme.textInput.size.free?.width}
+                    height={height ? height : theme.textInput.size.free?.height}
+                    fullwidth={fullwidth}
                 >
                     <StyledInput
                         name={inputName}

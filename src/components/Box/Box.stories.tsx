@@ -15,6 +15,21 @@ export const BoxMain = {
     },
 };
 
+export const BoxCustomWidthAndHeight = {
+    args: {
+        children: <div>This the children</div>,
+        width: "200px",
+        height: "300px",
+    },
+};
+
+export const BoxFullwidth = {
+    args: {
+        children: <div>This the children</div>,
+        fullwidth: true,
+    },
+};
+
 export const boxLight: Story = {
     decorators: [
         (Story) => (

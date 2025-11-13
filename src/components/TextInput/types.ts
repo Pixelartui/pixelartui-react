@@ -16,5 +16,8 @@ export interface TextInputProps {
     value?: string;
     className?: string;
     inputStyle?: InputStyle;
+    width?: string;
+    height?: string;
+    fullwidth?: boolean;
     onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }

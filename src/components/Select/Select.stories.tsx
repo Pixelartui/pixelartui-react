@@ -59,6 +59,29 @@ export const SelectNoLabel = {
     },
 };
 
+export const SelectCustomWidthAndHeight = {
+    args: {
+        type: "main",
+        options,
+        display: "Vehicle",
+        selectName: "my-select",
+        selectLabel: "My Select",
+        width: "700px",
+        height: "150px",
+    },
+};
+
+export const SelectFullwidth = {
+    args: {
+        type: "main",
+        options,
+        display: "Vehicle",
+        selectName: "my-select",
+        selectLabel: "My Select",
+        fullwidth: true,
+    },
+};
+
 export const SelectDisable = {
     args: {
         type: "main",

@@ -62,5 +62,9 @@ declare module "styled-components" {
         button: ComponentSpec;
         textInput: ComponentSpec;
         select: ComponentSpec;
+        switch: ComponentSpec;
+        textArea: ComponentSpec;
+        modal: ComponentSpec;
+        box: ComponentSpec;
     }
 }

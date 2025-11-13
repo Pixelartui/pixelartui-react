@@ -55,15 +55,9 @@ export const StyleSelectDisplay = Styled.div<{
 }>`
     display: flex;
 
-    .cp-pixel-box-wrapper,
-    .cp-pixel-box-outer,
-    .cp-pixel-box-content-inner {
-        width: 100%;
-    }
+    
 
     .cp-pixel-box-content-inner {
-        width: ${(props) => props.theme.select.size.free?.width};
-        height: ${(props) => props.theme.select.size.free?.height};
         align-items: center;
         padding: 0 5px;
         text-wrap-mode: nowrap;
@@ -98,16 +92,9 @@ export const StyleSelectDropdown = Styled.div<{
 }>`
     display: ${(props) => (props.$open ? "block" : "none")};
     transition: visibility .3s ease-out;
-    .cp-pixel-box-wrapper,
-    .cp-pixel-box-outer,
-    .cp-pixel-box-content-inner {
-        width: 100%;
-    }
+    
 
     .cp-pixel-box-content-inner {
-        width: ${(props) => props.theme.select.size.free?.width};
-        min-height: ${(props) => props.theme.select.size.free?.height};
-        width: 100%;
         background: ${(props) =>
             handleBackgroundColor(
                 props.$backgroundColor,

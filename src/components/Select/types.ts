@@ -20,6 +20,9 @@ export interface SelectProps {
     error?: boolean;
     className?: string;
     selectStyle?: SelectStyle;
+    width?: string;
+    height?: string;
+    fullwidth?: boolean;
     helperText?: FunctionStringCallback;
     onChange?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
 }

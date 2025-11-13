@@ -121,8 +121,8 @@ export const theme: DefaultTheme = {
         },
         size: {
             free: {
-                width: "140px",
-                height: "30px",
+                width: "200px",
+                height: "45px",
                 fontSize: "20px",
             },
         },
@@ -155,10 +155,38 @@ export const theme: DefaultTheme = {
         },
         size: {
             free: {
-                width: "130px",
-                height: "30px",
+                width: "180px",
+                height: "50px",
                 fontSize: "20px",
             },
         },
+    },
+    switch: {
+        size: {
+            free: {
+                width: "55px",
+                height: "",
+                fontSize: "",
+            },
+        },
+        color: {},
+    },
+    textArea: {
+        size: {
+            free: {
+                width: "500px",
+                height: "500px",
+                fontSize: "",
+            },
+        },
+        color: {},
+    },
+    box: {
+        size: {},
+        color: {},
+    },
+    modal: {
+        size: {},
+        color: {},
     },
 };

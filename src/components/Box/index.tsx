@@ -7,6 +7,9 @@ export const Box: React.FC<BoxProps> = ({
     backgroundColor,
     children,
     boxStyle = "dark",
+    width,
+    height,
+    fullwidth,
     ...props
 }) => {
     return (
@@ -14,6 +17,9 @@ export const Box: React.FC<BoxProps> = ({
             <StyledPixelBox
                 backgroundColor={backgroundColor}
                 type={boxStyle}
+                width={width}
+                height={height}
+                fullwidth={fullwidth}
                 {...props}
             >
                 {children}

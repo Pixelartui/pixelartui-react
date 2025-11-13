@@ -38,6 +38,7 @@ export const StyledInput = Styled.input<{
     $backgroundColor?: string;
     $disabled?: boolean;
 }>`
+    width: 100%;
     font: inherit;
     border: none;
     background: ${(props) =>
@@ -46,8 +47,6 @@ export const StyledInput = Styled.input<{
             props.disabled,
             props.theme
         )};
-    height: ${(props) => props.theme.textInput.size.free?.height};
-    width: ${(props) => props.theme.textInput.size.free?.width};
     color: ${(props) =>
         handleFontColor(
             props.$backgroundColor

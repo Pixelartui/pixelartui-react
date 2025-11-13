@@ -1,6 +1,5 @@
 import React from "react";
 import { TextAreaProps } from "./types";
-import { StyledPixelBox } from "../SharedComponent/StyledPixelBox";
 import {
     StyledTextArea,
     StyledTextAreaContainer,
@@ -9,6 +8,7 @@ import {
     StyledTextAreaWrapper,
 } from "./styled";
 import { StyledLabel } from "../SharedComponent/StyledLabel";
+import { StyledPixelBox } from "../SharedComponent/StyledPixelBox";
 
 export const TextArea: React.FC<TextAreaProps> = ({
     inputName,
@@ -22,6 +22,9 @@ export const TextArea: React.FC<TextAreaProps> = ({
     type,
     value,
     textAreaStyle = "dark",
+    width,
+    height,
+    fullwidth,
     onChange,
     ...props
 }) => {
@@ -34,6 +37,7 @@ export const TextArea: React.FC<TextAreaProps> = ({
         <StyledTextAreaContainer
             testId="qa-text-area"
             className="cp-text-area-container"
+            $fullwidth={fullwidth}
             {...props}
         >
             <StyledTextAreaWrapper
@@ -46,6 +50,7 @@ export const TextArea: React.FC<TextAreaProps> = ({
                     backgroundColor={backgroundColor}
                     disabled={disabled}
                     type={textAreaStyle}
+                    fullwidth={fullwidth}
                 >
                     <StyledTextArea
                         name={inputName}
@@ -57,7 +62,9 @@ export const TextArea: React.FC<TextAreaProps> = ({
                         disabled={disabled}
                         $disabled={disabled}
                         onChange={handleOnChange}
-                        {...props}
+                        $width={width}
+                        $height={height}
+                        $fullwidth={fullwidth}
                     />
                 </StyledPixelBox>
             </StyledTextAreaWrapper>

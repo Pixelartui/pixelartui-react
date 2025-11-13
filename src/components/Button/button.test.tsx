@@ -41,7 +41,7 @@ describe("Button component", () => {
         );
         const component = find(container, StyledPixelBoxWrapper);
         const styles = getComputedStyle(component!);
-        expect(styles.getPropertyValue("min-height")).toBe("35px");
+        expect(styles.getPropertyValue("height")).toBe("35px");
         expect(styles.getPropertyValue("min-width")).toBe("100px");
     });
 

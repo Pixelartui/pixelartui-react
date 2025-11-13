@@ -110,3 +110,14 @@ export const ButtonLightStyle: Story = {
         onClick: fn(),
     },
 };
+
+export const ButtonCustomSize = {
+    args: {
+        text: "Main",
+        buttonSize: "medium",
+        buttonType: "main",
+        width: "150px",
+        height: "80px",
+        onClick: fn(),
+    },
+};

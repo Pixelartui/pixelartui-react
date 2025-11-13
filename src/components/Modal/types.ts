@@ -20,6 +20,8 @@ export interface ModalProps {
     name: string;
     className?: string;
     modalStyle?: ModalStyle;
+    width?: string;
+    height?: string;
     onClickButtonLeft?: (
         e: React.MouseEvent<HTMLDivElement, MouseEvent>
     ) => void;

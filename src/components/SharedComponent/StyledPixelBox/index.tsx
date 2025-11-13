@@ -98,7 +98,6 @@ export const StyledPixelBox: React.FC<StyledPixelBoxProps> = ({
                     $backgroundColor={backgroundColor}
                     $error={error}
                     $disabled={disabled}
-                    {...props}
                 >
                     {children}
                 </StyledPixelBoxContentInner>

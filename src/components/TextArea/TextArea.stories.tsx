@@ -27,6 +27,27 @@ export const TextAreaInline = {
     },
 };
 
+export const TextAreaCustomWidthAndHeight = {
+    args: {
+        inputName: "name",
+        label: "Note",
+        helperText: "I need help",
+        type: "main",
+        width: "650px",
+        height: "250px",
+    },
+};
+
+export const TextAreaFullwidth = {
+    args: {
+        inputName: "name",
+        label: "Note",
+        helperText: "I need help",
+        type: "main",
+        fullwidth: true,
+    },
+};
+
 export const TextAreaPlaceholder = {
     args: {
         inputName: "name",
