@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.4.37](https://github.com/Pixelartui/pixelartui-react/compare/v0.4.36...v0.4.37) (2025-11-15)
+
+
+### Features
+
+* box wrapper class name ([ed61e51](https://github.com/Pixelartui/pixelartui-react/commit/ed61e51da6a3f62310c3d6b88175b2fc3665c069))
+
 ### [0.4.36](https://github.com/Pixelartui/pixelartui-react/compare/v0.4.35...v0.4.36) (2025-11-15)
 
 
