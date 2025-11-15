@@ -64,7 +64,7 @@ export const StyledPixelBox: React.FC<StyledPixelBoxProps> = ({
                                 $type={type}
                                 $backgroundColor={backgroundColor}
                                 $disabled={disabled}
-                                className="cp-pixel-box-side-second-inner-left"
+                                className="cp-pixel-box-side-round-third-inner-left"
                             />
                         </StyledPixelBoxSideRoundThird>
                     </>
@@ -114,7 +114,7 @@ export const StyledPixelBox: React.FC<StyledPixelBoxProps> = ({
                                 $type={type}
                                 $backgroundColor={backgroundColor}
                                 $disabled={disabled}
-                                className="cp-text-input-side-second-inner-left"
+                                className="cp-pixel-box-side-round-third-inner-right"
                             />
                         </StyledPixelBoxSideRoundThird>
                         <StyledPixelBoxSideRoundSecond
@@ -126,7 +126,7 @@ export const StyledPixelBox: React.FC<StyledPixelBoxProps> = ({
                                 $type={type}
                                 $backgroundColor={backgroundColor}
                                 $disabled={disabled}
-                                className="cp-text-input-side-second-inner-left"
+                                className="cp-pixel-box-side-second-inner-right"
                             />
                         </StyledPixelBoxSideRoundSecond>
                         <StyledPixelBoxSideRoundFirst
@@ -145,7 +145,7 @@ export const StyledPixelBox: React.FC<StyledPixelBoxProps> = ({
                                 $type={type}
                                 $backgroundColor={backgroundColor}
                                 $disabled={disabled}
-                                className="cp-text-input-side-second-inner-left"
+                                className="cp-text-input-side-second-inner-right"
                             />
                         </StyledPixelBoxSideSecond>
                         <StyledPixelBoxSideFirst

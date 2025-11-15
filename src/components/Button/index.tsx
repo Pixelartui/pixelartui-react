@@ -36,11 +36,13 @@ export const Button: React.FC<ButtonProps> = ({
                 $size={buttonSize}
                 disabled={disabled}
                 backgroundColor={backgroundColor}
+                $backgroundColor={backgroundColor}
                 round={round}
                 width={width}
                 height={height}
                 fullwidth={fullwidth}
                 type={buttonStyle}
+                $type={buttonType}
             >
                 <StyledTextContainerSecondLayer
                     className="cp-button-text-container-second-layer"
