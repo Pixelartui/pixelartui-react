@@ -46,6 +46,7 @@ export const TextArea: React.FC<TextAreaProps> = ({
             >
                 <StyledLabel text={label!} noLabel={noLabel} name={inputName} />
                 <StyledPixelBox
+                    className="cp-text-area-box-wrapper"
                     error={error}
                     backgroundColor={backgroundColor}
                     disabled={disabled}

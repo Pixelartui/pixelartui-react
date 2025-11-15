@@ -50,6 +50,7 @@ export const TextInput: React.FC<TextInputProps> = ({
                     name={inputName}
                 />
                 <StyledPixelBox
+                    className="cp-text-input-box-wrapper"
                     error={error}
                     type={inputStyle}
                     backgroundColor={backgroundColor}

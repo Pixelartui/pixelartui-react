@@ -33,6 +33,7 @@ export const Button: React.FC<ButtonProps> = ({
             {...props}
         >
             <StyledButtonBox
+                className="cp-button-box-wrapper"
                 $size={buttonSize}
                 disabled={disabled}
                 backgroundColor={backgroundColor}

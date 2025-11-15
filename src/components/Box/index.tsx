@@ -19,6 +19,7 @@ export const Box: React.FC<BoxProps> = ({
             {...props}
         >
             <StyledPixelBox
+                className="cp-box-wrapper"
                 backgroundColor={backgroundColor}
                 type={boxStyle}
                 width={width}

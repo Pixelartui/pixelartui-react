@@ -127,6 +127,7 @@ export const Select: React.FC<SelectProps> = ({
                     $disabled={disabled}
                 >
                     <StyledPixelBox
+                        className="cp-select-box-wrapper"
                         backgroundColor={backgroundColor}
                         disabled={disabled}
                         error={error}
