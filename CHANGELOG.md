@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.4.36](https://github.com/Pixelartui/pixelartui-react/compare/v0.4.35...v0.4.36) (2025-11-15)
+
+
+### Features
+
+* fix box to adap tailwind base style ([c689188](https://github.com/Pixelartui/pixelartui-react/commit/c689188d08d6901ca6ddd136d59c922e1f75d04d))
+
 ### [0.4.35](https://github.com/Pixelartui/pixelartui-react/compare/v0.4.34...v0.4.35) (2025-11-13)
 
 
