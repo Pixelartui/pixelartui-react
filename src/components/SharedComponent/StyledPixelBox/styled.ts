@@ -2,27 +2,6 @@ import Styled, { DefaultTheme } from "styled-components";
 import { adjust, handleCustomColor } from "../../../Theme/helper";
 import { StyledPixelBoxType } from "./types";
 
-const handlePrimaryColor = (arg: {
-    error: boolean | undefined;
-    backgroundColor: string | undefined;
-    theme: DefaultTheme;
-    disabled?: boolean;
-}) => {
-    if (arg.disabled) {
-        return arg.theme.general.color.disabled;
-    }
-
-    if (arg.error) {
-        const errorColor = "#ff0000";
-        return errorColor;
-    }
-
-    if (arg.backgroundColor) {
-        return handleCustomColor(arg.backgroundColor).customPrimaryColor;
-    }
-
-    return arg.theme.textInput.color.main?.normal?.primary;
-};
 const handleSecondaryColor = (arg: {
     error: boolean | undefined;
     backgroundColor: string | undefined;
@@ -85,6 +64,7 @@ export const StyledPixelBoxWrapper = Styled.div<{
 export const StyledPixelBoxSideWrapper = Styled.div`
     display: flex;
     align-items: center;
+    box-sizing: border-box;
 `;
 
 export const StyledPixelBoxSideFirst = Styled.div<{
@@ -108,7 +88,8 @@ export const StyledPixelBoxSideSecond = Styled.div<{
 }>`
     display: flex;
     width: 3px;
-    height: calc(100% - 12px);
+    box-sizing: border-box;
+    height: calc(100% - 6px);
     border-top: 3px solid ${(props) =>
         props.$type === "dark"
             ? props.theme.general.color.dark
@@ -125,7 +106,7 @@ export const StyledPixelBoxSideRoundThird = Styled(StyledPixelBoxSideSecond)`
 
 export const StyledPixelBoxSideRoundSecond = Styled(StyledPixelBoxSideSecond)`
    
-    height: calc(100% - 18px);
+    height: calc(100% - 12px);
     
 `;
 
@@ -168,13 +149,7 @@ export const StyledPixelBoxSideRoundThirdInnerLeft = Styled(
             theme: props.theme,
             disabled: props.$disabled,
         })};
-    background: ${(props) =>
-        handlePrimaryColor({
-            error: props.$error,
-            backgroundColor: props.$backgroundColor,
-            theme: props.theme,
-            disabled: props.$disabled,
-        })};
+    background: transparent;
 `;
 
 export const StyledPixelBoxSideSecondInnerRight = Styled.div<{
@@ -218,13 +193,7 @@ export const StyledPixelBoxSideRoundThirdInnerRight = Styled(
             theme: props.theme,
             disabled: props.$disabled,
         })};
-    background: ${(props) =>
-        handlePrimaryColor({
-            error: props.$error,
-            backgroundColor: props.$backgroundColor,
-            theme: props.theme,
-            disabled: props.$disabled,
-        })};
+    background: transparent;
 `;
 
 export const StyledPixelBoxContentOuter = Styled.div<{

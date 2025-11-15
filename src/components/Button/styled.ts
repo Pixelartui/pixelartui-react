@@ -4,6 +4,22 @@ import { getContrastColor, handleCustomColor } from "../../Theme/helper";
 import { FontColor } from "../../Theme/styled";
 import { StyledPixelBox } from "../SharedComponent/StyledPixelBox";
 
+const handlePrimaryColor = (arg: {
+    backgroundColor: string | undefined;
+    theme: DefaultTheme;
+    disabled?: boolean;
+}) => {
+    if (arg.disabled) {
+        return arg.theme.general.color.disabled;
+    }
+
+    if (arg.backgroundColor) {
+        return handleCustomColor(arg.backgroundColor).customPrimaryColor;
+    }
+
+    return arg.theme.textInput.color.main?.normal?.primary;
+};
+
 const handleButtonColour = (type: ButtonType, theme: DefaultTheme) => {
     switch (type) {
         case "main":
@@ -92,6 +108,10 @@ export const StyledButtonBox = Styled(StyledPixelBox)<{
     $size?: ButtonSize;
     $height?: string;
     $width?: string;
+    $round?: boolean;
+    $backgroundColor?: string;
+    $disabled?: boolean;
+    $type?: ButtonType;
 }>`
     height: ${(props) =>
         props.height
@@ -101,6 +121,19 @@ export const StyledButtonBox = Styled(StyledPixelBox)<{
         props.width
             ? props.width
             : handleButtonSize(props.$size || "medium", props.theme)?.width};
+
+    .cp-pixel-box-side-round-third-inner-left,
+    .cp-pixel-box-side-round-third-inner-right {
+        background: ${(props) =>
+            props.$type === "outline"
+                ? "transparent"
+                : handlePrimaryColor({
+                      backgroundColor: props.$backgroundColor,
+                      theme: props.theme,
+                      disabled: props.$disabled,
+                  })}
+    }
+
 `;
 
 export const StyledTextContainerSecondLayer = Styled.button<{
