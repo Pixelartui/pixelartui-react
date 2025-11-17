@@ -6,7 +6,7 @@ import { StyledPixelBoxType } from "../SharedComponent/StyledPixelBox/types";
 export const StyledBackdrop = Styled.div<{
     $modalStyle?: StyledPixelBoxType;
 }>`
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;

@@ -23,7 +23,7 @@ export const Modal: React.FC<ModalProps> = ({
     actionButtons,
     customHeader,
     customAction,
-    disabled,
+    disabled = false,
     name,
     modalStyle = "dark",
     width,
