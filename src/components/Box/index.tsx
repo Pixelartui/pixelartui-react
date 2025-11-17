@@ -15,6 +15,7 @@ export const Box: React.FC<BoxProps> = ({
     return (
         <StyledContainer
             testId="qa-box"
+            fullwidth={fullwidth}
             className="cp-box-container"
             {...props}
         >

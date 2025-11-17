@@ -107,6 +107,7 @@ export const Select: React.FC<SelectProps> = ({
             $disabled={disabled}
             testId="qa-select"
             className="cp-select-container"
+            fullwidth={fullwidth}
             {...props}
         >
             {!noLabel && (

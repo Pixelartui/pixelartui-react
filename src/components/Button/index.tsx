@@ -29,6 +29,7 @@ export const Button: React.FC<ButtonProps> = ({
         <StyledContainer
             testId="qa-button"
             className="cp-button-container"
+            fullwidth={fullwidth}
             onClick={handleOnClick}
             {...props}
         >

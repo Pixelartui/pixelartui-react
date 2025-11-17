@@ -9,6 +9,7 @@ export const StyledContainer: React.FC<StyledContainerProps> = ({
     testId,
     ref,
     onClick,
+    fullwidth,
     ...props
 }) => {
     return (
@@ -19,6 +20,7 @@ export const StyledContainer: React.FC<StyledContainerProps> = ({
                 ref={ref}
                 data-testid={testId}
                 className="cp-container"
+                $fullwidth={fullwidth}
                 {...props}
             >
                 {children}
