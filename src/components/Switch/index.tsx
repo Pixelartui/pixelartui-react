@@ -33,7 +33,7 @@ export const Switch: React.FC<SwitchProps> = ({
         <StyledSwitchContainer
             $type={type}
             testId="qa-switch"
-            className="cp-swicth-container"
+            className="cp-switch-container"
             {...props}
         >
             {!noLabel && (
