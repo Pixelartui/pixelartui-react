@@ -1,10 +1,10 @@
 import Styled from "styled-components";
 import { getContrastColor } from "../../Theme/helper";
 import { Button } from "../Button";
-import { StyledPixelBoxType } from "../SharedComponent/StyledPixelBox/types";
+import { StyledPixelBoxStyle } from "../SharedComponent/StyledPixelBox/types";
 
 export const StyledBackdrop = Styled.div<{
-    $modalStyle?: StyledPixelBoxType;
+    $modalStyle?: StyledPixelBoxStyle;
 }>`
     position: fixed;
     top: 0;
