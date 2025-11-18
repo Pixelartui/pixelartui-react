@@ -20,7 +20,7 @@ export const StyledPixelBox: React.FC<StyledPixelBoxProps> = ({
     children,
     error,
     backgroundColor,
-    type = "dark",
+    style = "dark",
     disabled,
     round,
     width,
@@ -40,28 +40,28 @@ export const StyledPixelBox: React.FC<StyledPixelBoxProps> = ({
                 {round ? (
                     <>
                         <StyledPixelBoxSideRoundFirst
-                            $type={type}
+                            $style={style}
                             className="cp-pixel-box-side-roundfirst"
                         />
                         <StyledPixelBoxSideRoundSecond
-                            $type={type}
+                            $style={style}
                             className="cp-pixel-box-side-round-second"
                         >
                             <StyledPixelBoxSideSecondInnerLeft
                                 $error={error}
-                                $type={type}
+                                $style={style}
                                 $backgroundColor={backgroundColor}
                                 $disabled={disabled}
                                 className="cp-pixel-box-side-second-inner-left"
                             />
                         </StyledPixelBoxSideRoundSecond>
                         <StyledPixelBoxSideRoundThird
-                            $type={type}
+                            $style={style}
                             className="cp-pixel-box-side-round-third"
                         >
                             <StyledPixelBoxSideRoundThirdInnerLeft
                                 $error={error}
-                                $type={type}
+                                $style={style}
                                 $backgroundColor={backgroundColor}
                                 $disabled={disabled}
                                 className="cp-pixel-box-side-round-third-inner-left"
@@ -71,16 +71,16 @@ export const StyledPixelBox: React.FC<StyledPixelBoxProps> = ({
                 ) : (
                     <>
                         <StyledPixelBoxSideFirst
-                            $type={type}
+                            $style={style}
                             className="cp-pixel-box-side-first"
                         />
                         <StyledPixelBoxSideSecond
-                            $type={type}
+                            $style={style}
                             className="cp-pixel-box-side-second"
                         >
                             <StyledPixelBoxSideSecondInnerLeft
                                 $error={error}
-                                $type={type}
+                                $style={style}
                                 $backgroundColor={backgroundColor}
                                 $disabled={disabled}
                                 className="cp-pixel-box-side-second-inner-left"
@@ -90,7 +90,7 @@ export const StyledPixelBox: React.FC<StyledPixelBoxProps> = ({
                 )}
             </StyledPixelBoxSideWrapper>
             <StyledPixelBoxContentOuter
-                $type={type}
+                $style={style}
                 className="cp-pixel-box-outer"
             >
                 <StyledPixelBoxContentInner
@@ -106,50 +106,50 @@ export const StyledPixelBox: React.FC<StyledPixelBoxProps> = ({
                 {round ? (
                     <>
                         <StyledPixelBoxSideRoundThird
-                            $type={type}
+                            $style={style}
                             className="cp-pixel-box-side-round-third"
                         >
                             <StyledPixelBoxSideRoundThirdInnerRight
                                 $error={error}
-                                $type={type}
+                                $style={style}
                                 $backgroundColor={backgroundColor}
                                 $disabled={disabled}
                                 className="cp-pixel-box-side-round-third-inner-right"
                             />
                         </StyledPixelBoxSideRoundThird>
                         <StyledPixelBoxSideRoundSecond
-                            $type={type}
+                            $style={style}
                             className="cp-pixel-box-side-round-second"
                         >
                             <StyledPixelBoxSideSecondInnerRight
                                 $error={error}
-                                $type={type}
+                                $style={style}
                                 $backgroundColor={backgroundColor}
                                 $disabled={disabled}
                                 className="cp-pixel-box-side-second-inner-right"
                             />
                         </StyledPixelBoxSideRoundSecond>
                         <StyledPixelBoxSideRoundFirst
-                            $type={type}
+                            $style={style}
                             className="cp-pixel-box-side-roundfirst"
                         />
                     </>
                 ) : (
                     <>
                         <StyledPixelBoxSideSecond
-                            $type={type}
+                            $style={style}
                             className="cp-pixel-box-side-second"
                         >
                             <StyledPixelBoxSideSecondInnerRight
                                 $error={error}
-                                $type={type}
+                                $style={style}
                                 $backgroundColor={backgroundColor}
                                 $disabled={disabled}
                                 className="cp-text-input-side-second-inner-right"
                             />
                         </StyledPixelBoxSideSecond>
                         <StyledPixelBoxSideFirst
-                            $type={type}
+                            $style={style}
                             className="cp-pixel-box-side-first"
                         />
                     </>

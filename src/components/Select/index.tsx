@@ -115,6 +115,7 @@ export const Select: React.FC<SelectProps> = ({
                     $type={type}
                     name={selectName}
                     text={selectLabel}
+                    style={selectStyle}
                 />
             )}
             <StyledSelectWrapper
@@ -132,7 +133,7 @@ export const Select: React.FC<SelectProps> = ({
                         backgroundColor={backgroundColor}
                         disabled={disabled}
                         error={error}
-                        type={selectStyle}
+                        style={selectStyle}
                         width={width ? width : theme.select.size.free?.width}
                         height={
                             height ? height : theme.select.size.free?.height
@@ -159,7 +160,7 @@ export const Select: React.FC<SelectProps> = ({
                     <StyledPixelBox
                         backgroundColor={backgroundColor}
                         disabled={disabled}
-                        type={selectStyle}
+                        style={selectStyle}
                         width={width ? width : theme.select.size.free?.width}
                         fullwidth={fullwidth}
                     >

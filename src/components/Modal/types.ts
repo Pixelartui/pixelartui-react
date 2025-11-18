@@ -1,12 +1,12 @@
 import { ReactNode } from "react";
-import { StyledPixelBoxType } from "../SharedComponent/StyledPixelBox/types";
+import { StyledPixelBoxStyle } from "../SharedComponent/StyledPixelBox/types";
 
 export interface ActionText {
     left: string;
     right: string;
 }
 
-export type ModalStyle = StyledPixelBoxType;
+export type ModalStyle = StyledPixelBoxStyle;
 
 export interface ModalProps {
     backgroundColor?: string;

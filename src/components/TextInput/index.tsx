@@ -2,14 +2,13 @@ import React from "react";
 import {
     StyledInput,
     StyledTextInputContainer,
-    StyledTextInputHelperText,
-    StyledTextInputHelperTextWrapper,
     StyledTextInputWrapper,
 } from "./styled";
 import { TextInputProps } from "./types";
 import { StyledPixelBox } from "../SharedComponent/StyledPixelBox";
 import { StyledLabel } from "../SharedComponent/StyledLabel";
 import { theme } from "../../Theme";
+import { StyledHelperText } from "../SharedComponent/StyledHelperText";
 
 export const TextInput: React.FC<TextInputProps> = ({
     inputName,
@@ -49,11 +48,12 @@ export const TextInput: React.FC<TextInputProps> = ({
                     text={textLabel!}
                     noLabel={noLabel}
                     name={inputName}
+                    style={inputStyle}
                 />
                 <StyledPixelBox
                     className="cp-text-input-box-wrapper"
                     error={error}
-                    type={inputStyle}
+                    style={inputStyle}
                     backgroundColor={backgroundColor}
                     disabled={disabled}
                     width={width ? width : theme.textInput.size.free?.width}
@@ -75,27 +75,19 @@ export const TextInput: React.FC<TextInputProps> = ({
                     />
                 </StyledPixelBox>
                 {helperText && type !== "inline" && (
-                    <StyledTextInputHelperTextWrapper className="cp-text-input-helper-text-wrapper">
-                        <StyledTextInputHelperText
-                            $error={error}
-                            $backgroundColor={backgroundColor}
-                            className="cp-text-input-helper-text"
-                        >
-                            {helperText}
-                        </StyledTextInputHelperText>
-                    </StyledTextInputHelperTextWrapper>
+                    <StyledHelperText
+                        helperText={helperText}
+                        error={error}
+                        style={inputStyle}
+                    />
                 )}
             </StyledTextInputWrapper>
             {helperText && type === "inline" && (
-                <StyledTextInputHelperTextWrapper className="cp-text-input-helper-text-wrapper">
-                    <StyledTextInputHelperText
-                        $error={error}
-                        $backgroundColor={backgroundColor}
-                        className="cp-text-input-helper-text"
-                    >
-                        {helperText}
-                    </StyledTextInputHelperText>
-                </StyledTextInputHelperTextWrapper>
+                <StyledHelperText
+                    helperText={helperText}
+                    error={error}
+                    style={inputStyle}
+                />
             )}
         </StyledTextInputContainer>
     );

@@ -1,7 +1,7 @@
-import { StyledPixelBoxType } from "../SharedComponent/StyledPixelBox/types";
+import { StyledPixelBoxStyle } from "../SharedComponent/StyledPixelBox/types";
 
 export type SwitchType = "main" | "inline";
-export type SwitchStyle = StyledPixelBoxType;
+export type SwitchStyle = StyledPixelBoxStyle;
 
 export interface SwitchProps {
     label: string;

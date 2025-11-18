@@ -36,11 +36,13 @@ export const Switch: React.FC<SwitchProps> = ({
             className="cp-swicth-container"
             {...props}
         >
-            {!noLabel && <StyledLabel name={name} text={label} />}
+            {!noLabel && (
+                <StyledLabel name={name} text={label} style={switchStyle} />
+            )}
             <StyledPixelBox
                 className="cp-switch-box-wrapper"
                 width={theme.switch.size.free?.width}
-                type={switchStyle}
+                style={switchStyle}
                 {...(isOn
                     ? {
                           backgroundColor: backgroundColor

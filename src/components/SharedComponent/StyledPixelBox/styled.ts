@@ -1,6 +1,6 @@
 import Styled, { DefaultTheme } from "styled-components";
 import { adjust, handleCustomColor } from "../../../Theme/helper";
-import { StyledPixelBoxType } from "./types";
+import { StyledPixelBoxStyle } from "./types";
 
 const handleSecondaryColor = (arg: {
     error: boolean | undefined;
@@ -68,12 +68,12 @@ export const StyledPixelBoxSideWrapper = Styled.div`
 `;
 
 export const StyledPixelBoxSideFirst = Styled.div<{
-    $type: StyledPixelBoxType;
+    $style: StyledPixelBoxStyle;
 }>`
     display: flex;
     width: 3px;
     background: ${(props) =>
-        props.$type === "dark"
+        props.$style === "dark"
             ? props.theme.general.color.dark
             : props.theme.general.color.light};
     height: calc(100% - 12px);
@@ -84,18 +84,18 @@ export const StyledPixelBoxSideRoundFirst = Styled(StyledPixelBoxSideFirst)`
 `;
 
 export const StyledPixelBoxSideSecond = Styled.div<{
-    $type: StyledPixelBoxType;
+    $style: StyledPixelBoxStyle;
 }>`
     display: flex;
     width: 3px;
     box-sizing: border-box;
     height: calc(100% - 6px);
     border-top: 3px solid ${(props) =>
-        props.$type === "dark"
+        props.$style === "dark"
             ? props.theme.general.color.dark
             : props.theme.general.color.light};
     border-bottom: 3px solid ${(props) =>
-        props.$type === "dark"
+        props.$style === "dark"
             ? props.theme.general.color.dark
             : props.theme.general.color.light};
 `;
@@ -111,7 +111,7 @@ export const StyledPixelBoxSideRoundSecond = Styled(StyledPixelBoxSideSecond)`
 `;
 
 export const StyledPixelBoxSideSecondInnerLeft = Styled.div<{
-    $type?: string;
+    $style?: string;
     $backgroundColor?: string;
     $error?: boolean;
     $disabled?: boolean;
@@ -137,7 +137,7 @@ export const StyledPixelBoxSideSecondInnerLeft = Styled.div<{
 export const StyledPixelBoxSideRoundThirdInnerLeft = Styled(
     StyledPixelBoxSideSecondInnerLeft
 )<{
-    $type?: string;
+    $style?: string;
     $backgroundColor?: string;
     $error?: boolean;
     $disabled?: boolean;
@@ -153,7 +153,7 @@ export const StyledPixelBoxSideRoundThirdInnerLeft = Styled(
 `;
 
 export const StyledPixelBoxSideSecondInnerRight = Styled.div<{
-    $type?: string;
+    $style?: string;
     $backgroundColor?: string;
     $error?: boolean;
     $disabled?: boolean;
@@ -179,7 +179,7 @@ export const StyledPixelBoxSideSecondInnerRight = Styled.div<{
 export const StyledPixelBoxSideRoundThirdInnerRight = Styled(
     StyledPixelBoxSideSecondInnerRight
 )<{
-    $type?: string;
+    $style?: string;
     $backgroundColor?: string;
     $error?: boolean;
     $disabled?: boolean;
@@ -197,15 +197,15 @@ export const StyledPixelBoxSideRoundThirdInnerRight = Styled(
 `;
 
 export const StyledPixelBoxContentOuter = Styled.div<{
-    $type: StyledPixelBoxType;
+    $style: StyledPixelBoxStyle;
 }>`
     display: flex;
     border-top: 3px solid ${(props) =>
-        props.$type === "dark"
+        props.$style === "dark"
             ? props.theme.general.color.dark
             : props.theme.general.color.light};
     border-bottom: 3px solid ${(props) =>
-        props.$type === "dark"
+        props.$style === "dark"
             ? props.theme.general.color.dark
             : props.theme.general.color.light};
     width: 100%;

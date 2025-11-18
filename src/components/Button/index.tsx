@@ -43,7 +43,7 @@ export const Button: React.FC<ButtonProps> = ({
                 width={width}
                 height={height}
                 fullwidth={fullwidth}
-                type={buttonStyle}
+                style={buttonStyle}
                 $type={buttonType}
             >
                 <StyledTextContainerSecondLayer

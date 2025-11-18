@@ -3,12 +3,11 @@ import { TextAreaProps } from "./types";
 import {
     StyledTextArea,
     StyledTextAreaContainer,
-    StyledTextAreaHelperText,
-    StyledTextAreaHelperTextWrapper,
     StyledTextAreaWrapper,
 } from "./styled";
 import { StyledLabel } from "../SharedComponent/StyledLabel";
 import { StyledPixelBox } from "../SharedComponent/StyledPixelBox";
+import { StyledHelperText } from "../SharedComponent/StyledHelperText";
 
 export const TextArea: React.FC<TextAreaProps> = ({
     inputName,
@@ -44,13 +43,18 @@ export const TextArea: React.FC<TextAreaProps> = ({
                 $type={type}
                 className="cp-text-area-wrapper"
             >
-                <StyledLabel text={label!} noLabel={noLabel} name={inputName} />
+                <StyledLabel
+                    text={label!}
+                    noLabel={noLabel}
+                    name={inputName}
+                    style={textAreaStyle}
+                />
                 <StyledPixelBox
                     className="cp-text-area-box-wrapper"
                     error={error}
                     backgroundColor={backgroundColor}
                     disabled={disabled}
-                    type={textAreaStyle}
+                    style={textAreaStyle}
                     fullwidth={fullwidth}
                 >
                     <StyledTextArea
@@ -71,15 +75,11 @@ export const TextArea: React.FC<TextAreaProps> = ({
             </StyledTextAreaWrapper>
 
             {helperText && (
-                <StyledTextAreaHelperTextWrapper className="cp-text-area-helper-text-wrapper">
-                    <StyledTextAreaHelperText
-                        $error={error}
-                        $backgroundColor={backgroundColor}
-                        className="cp-text-area-helper-text"
-                    >
-                        {helperText}
-                    </StyledTextAreaHelperText>
-                </StyledTextAreaHelperTextWrapper>
+                <StyledHelperText
+                    helperText={helperText}
+                    error={error}
+                    style={textAreaStyle}
+                />
             )}
         </StyledTextAreaContainer>
     );

@@ -1,12 +1,12 @@
 import { ReactNode } from "react";
-import { StyledPixelBoxType } from "../SharedComponent/StyledPixelBox/types";
+import { StyledPixelBoxStyle } from "../SharedComponent/StyledPixelBox/types";
 
 export interface SelectOption {
     label: string | ReactNode;
     value: string;
 }
 export type SelectType = "main" | "inline";
-export type SelectStyle = StyledPixelBoxType;
+export type SelectStyle = StyledPixelBoxStyle;
 
 export interface SelectProps {
     type: SelectType;
@@ -23,7 +23,6 @@ export interface SelectProps {
     width?: string;
     height?: string;
     fullwidth?: boolean;
-    helperText?: FunctionStringCallback;
     onChange?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
 }
 

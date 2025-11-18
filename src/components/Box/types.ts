@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
-import { StyledPixelBoxType } from "../SharedComponent/StyledPixelBox/types";
+import { StyledPixelBoxStyle } from "../SharedComponent/StyledPixelBox/types";
 
-export type BoxStyle = StyledPixelBoxType;
+export type BoxStyle = StyledPixelBoxStyle;
 export interface BoxProps {
     children: ReactNode;
     backgroundColor?: string;

@@ -1,8 +1,8 @@
-export type StyledPixelBoxType = "dark" | "light";
+export type StyledPixelBoxStyle = "dark" | "light";
 export interface StyledPixelBoxProps {
     children: React.ReactNode;
     error?: boolean;
-    type?: StyledPixelBoxType;
+    style?: StyledPixelBoxStyle;
     disabled?: boolean;
     backgroundColor?: string;
     round?: boolean;

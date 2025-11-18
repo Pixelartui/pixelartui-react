@@ -41,6 +41,6 @@ export const styledPixelBoxLight: Story = {
     ],
     args: {
         children: <div style={{ color: "white" }}>Pixel Box</div>,
-        type: "light",
+        style: "light",
     },
 };

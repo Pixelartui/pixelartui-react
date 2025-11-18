@@ -97,15 +97,3 @@ export const StyledTextAreaWrapper = Styled.div<{
     display: flex;
     flex-direction: ${(props) => (props.$type === "main" ? "column" : "row")};
 `;
-export const StyledTextAreaHelperTextWrapper = Styled.div`
-    display: flex;
-    justify-content: flex-end;
-`;
-
-export const StyledTextAreaHelperText = Styled.div<{
-    $error?: boolean;
-    $backgroundColor?: string;
-}>`
-    color: ${(props) =>
-        props.$error ? "red" : props.theme.general.color.font};
-`;

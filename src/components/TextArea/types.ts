@@ -1,7 +1,7 @@
-import { StyledPixelBoxType } from "../SharedComponent/StyledPixelBox/types";
+import { StyledPixelBoxStyle } from "../SharedComponent/StyledPixelBox/types";
 
 export type TextAreaType = "main" | "inline";
-export type TextAreaStyle = StyledPixelBoxType;
+export type TextAreaStyle = StyledPixelBoxStyle;
 export interface TextAreaProps {
     inputName: string;
     placeholder?: string;

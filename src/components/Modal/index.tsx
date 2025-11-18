@@ -78,7 +78,7 @@ export const Modal: React.FC<ModalProps> = ({
                         backgroundColor={backgroundColor}
                         width={width ? width : "400px"}
                         height={height ? height : "400px"}
-                        type={modalStyle}
+                        style={modalStyle}
                     >
                         <StyledModalContent
                             $backgroundColor={backgroundColor}

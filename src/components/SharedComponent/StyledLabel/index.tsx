@@ -6,6 +6,7 @@ export const StyledLabel: React.FC<StyledLabelProps> = ({
     text,
     noLabel,
     name,
+    style = "dark",
     ...props
 }) => {
     return (
@@ -13,6 +14,7 @@ export const StyledLabel: React.FC<StyledLabelProps> = ({
             <StyledTextInputLabel
                 className="cp-text-input-label"
                 htmlFor={name}
+                $style={style}
                 {...props}
             >
                 {text}
