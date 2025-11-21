@@ -12,3 +12,8 @@ export { Modal } from "./components/Modal";
 export { ModalProps } from "./components/Modal/types";
 export { Box } from "./components/Box";
 export { BoxProps } from "./components/Box/types";
+export { Pixel } from "./components/Pixel";
+export { PixelProps } from "./components/Pixel/types";
+export { Pixelator } from "./components/Pixelator";
+export { PixelatorProps } from "./components/Pixelator/types";
+export { pixelCssToData } from "./utils";

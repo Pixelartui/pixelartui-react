@@ -5,6 +5,7 @@ import { find } from "styled-components/test-utils";
 import { StyledModalContent } from "./styled";
 
 const props = {
+    name: "my-modal",
     open: true,
     header: "This is the header",
     actionButtons: {
