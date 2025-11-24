@@ -75,7 +75,7 @@ function processCSS(css: string) {
     return final;
 }
 
-export function pixelCssToData(cssData: CssData): PixelDssToDataOutput {
+export function cssToPixelator(cssData: CssData): PixelDssToDataOutput {
     const nuberOfPixel = cssData.canvasWidth * cssData.canvasHeight;
     let pixelObject: PixelData = {};
     [...Array(nuberOfPixel).keys()].map((pixel) => {

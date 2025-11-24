@@ -1,6 +1,6 @@
-import { pixelCssToData } from ".";
+import { cssToPixelator } from ".";
 
-describe("pixelCssToData", () => {
+describe("cssToPixelator", () => {
     const input = {
         css: `.pixelart-to-css {
   box-shadow: 5px 5px 0 0 #4caf50, 10px 5px 0 0 #4caf50, 10px 10px 0 0 #4caf50;
@@ -12,12 +12,12 @@ describe("pixelCssToData", () => {
         pixelSize: 5,
     };
     it("should output the right data type", () => {
-        const pixelData = pixelCssToData(input);
+        const pixelData = cssToPixelator(input);
         expect(typeof pixelData).toBe("object");
     });
 
     it("should output the right total item", () => {
-        const pixelData = pixelCssToData(input);
+        const pixelData = cssToPixelator(input);
         const pixelDataArr = Object.keys(pixelData);
         expect(pixelDataArr.length).toBe(
             input.canvasHeight * input.canvasWidth
@@ -25,7 +25,7 @@ describe("pixelCssToData", () => {
     });
 
     it("should output the right color per index", () => {
-        const pixelData = pixelCssToData(input);
+        const pixelData = cssToPixelator(input);
         expect(pixelData.data[0]?.color).toBe("#4caf50");
     });
 });

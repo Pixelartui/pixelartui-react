@@ -1,6 +1,6 @@
 import type { Meta } from "@storybook/react-vite";
 import { Pixelator } from ".";
-import { pixelCssToData } from "../../utils";
+import { cssToPixelator } from "../../utils";
 import { PixelatorProps } from "./types";
 
 const meta = {
@@ -10,7 +10,7 @@ const meta = {
 
 export default meta;
 
-const pixels = pixelCssToData({
+const pixels = cssToPixelator({
     canvasHeight: 16,
     canvasWidth: 16,
     pixelSize: 10,

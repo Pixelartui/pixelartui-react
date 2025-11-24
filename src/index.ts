@@ -16,4 +16,4 @@ export { Pixel } from "./components/Pixel";
 export { PixelProps } from "./components/Pixel/types";
 export { Pixelator } from "./components/Pixelator";
 export { PixelatorProps } from "./components/Pixelator/types";
-export { pixelCssToData } from "./utils";
+export { cssToPixelator } from "./utils";
