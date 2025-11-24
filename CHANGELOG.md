@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.4.45](https://github.com/Pixelartui/pixelartui-react/compare/v0.4.44...v0.4.45) (2025-11-24)
+
+
+### Bug Fixes
+
+* rename function ([63658b2](https://github.com/Pixelartui/pixelartui-react/commit/63658b298d77dae88e74ccfcbb06dbf9003b35f1))
+
 ### [0.4.44](https://github.com/Pixelartui/pixelartui-react/compare/v0.4.43...v0.4.44) (2025-11-24)
 
 
