@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.4.43](https://github.com/Pixelartui/pixelartui-react/compare/v0.4.42...v0.4.43) (2025-11-24)
+
+
+### Bug Fixes
+
+* pixelator logic ([0de638b](https://github.com/Pixelartui/pixelartui-react/commit/0de638b5a9677247174cc0ad7d6698dffbd83465))
+
 ### [0.4.42](https://github.com/Pixelartui/pixelartui-react/compare/v0.4.41...v0.4.42) (2025-11-21)
 
 
