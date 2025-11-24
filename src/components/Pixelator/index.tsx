@@ -19,6 +19,8 @@ export const Pixelator: React.FC<PixelatorProps> = ({
         <StyledPixelatorContainer
             testId="qa-pixelator"
             className="cp-pixelator-container"
+            $width={pixelPerRow * pixelSize}
+            $height={pixelPerCol * pixelSize}
         >
             {showgrid && (
                 <StyledGridWrapper

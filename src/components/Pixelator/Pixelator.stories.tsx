@@ -1,6 +1,7 @@
 import type { Meta } from "@storybook/react-vite";
 import { Pixelator } from ".";
 import { pixelCssToData } from "../../utils";
+import { PixelatorProps } from "./types";
 
 const meta = {
     title: "Pixel Component/Pixelator",
@@ -25,7 +26,23 @@ export const PixelatorItem = {
         pixelPerRow: pixels.canvasWidth,
         pixelPerCol: pixels.canvasHeight,
         pixelSize: pixels.pixelSize,
-        showgrid: true,
+        showgrid: false,
         pixels: pixels.data,
+    },
+    render: (arg: PixelatorProps) => {
+        return (
+            <div
+                style={{
+                    display: "flex",
+                    width: "300px",
+                    height: "300px",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    background: "lightgray",
+                }}
+            >
+                <Pixelator {...arg} />
+            </div>
+        );
     },
 };

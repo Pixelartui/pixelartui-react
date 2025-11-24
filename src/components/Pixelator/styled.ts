@@ -2,8 +2,13 @@ import Styled from "styled-components";
 import { StyledContainer } from "../SharedComponent/StyledContainer";
 import { Pixel } from "../Pixel";
 
-export const StyledPixelatorContainer = Styled(StyledContainer)`
+export const StyledPixelatorContainer = Styled(StyledContainer)<{
+    $width?: number;
+    $height?: number;
+}>`
     position: relative;
+    width: ${(props) => props.$width}px;
+    height: ${(props) => props.$height}px;
 `;
 
 export const StyledGridWrapper = Styled.div<{
