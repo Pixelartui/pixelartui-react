@@ -26,6 +26,6 @@ describe("pixelCssToData", () => {
 
     it("should output the right color per index", () => {
         const pixelData = pixelCssToData(input);
-        expect(pixelData[0]?.color).toBe("#4caf50");
+        expect(pixelData.data[0]?.color).toBe("#4caf50");
     });
 });

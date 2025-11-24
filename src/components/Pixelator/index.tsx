@@ -53,7 +53,9 @@ export const Pixelator: React.FC<PixelatorProps> = ({
                         <StyledPixel
                             className="cp-pixelator-grid"
                             key={`pixel-${key}`}
-                            backgroundColor={pixels[key]?.color}
+                            backgroundColor={
+                                pixels[key]?.color || "transparent"
+                            }
                             width={`${pixelSize}px`}
                             height={`${pixelSize}px`}
                         />
