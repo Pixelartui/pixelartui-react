@@ -43,11 +43,11 @@ export const StyledCheckmark = Styled.div<{
     height: 8px;
     border-left: 3px solid ${(props) =>
         props.$backgroundColor
-            ? props.$backgroundColor
+            ? props.theme.general.color.white
             : props.theme.general.color.primary};
     border-bottom: 3px solid ${(props) =>
         props.$backgroundColor
-            ? props.$backgroundColor
+            ? props.theme.general.color.white
             : props.theme.general.color.primary};
     transform: rotate(-45deg) translateY(-2px);
     opacity: ${(props) => (props.$isChecked ? 1 : 0)};

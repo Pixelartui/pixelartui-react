@@ -56,9 +56,11 @@ export const Checkbox: React.FC<CheckboxProps> = ({
                     backgroundColor={
                         disabled
                             ? theme.general.color.disabled
-                            : isChecked
-                              ? theme.general.color.white
-                              : theme.general.color.white
+                            : backgroundColor
+                              ? backgroundColor
+                              : isChecked
+                                ? theme.general.color.white
+                                : theme.general.color.white
                     }
                 >
                     <StyledCheckmark
