@@ -12,6 +12,8 @@ export { Checkbox } from "./components/Checkbox";
 export { CheckboxProps } from "./components/Checkbox/types";
 export { Radio } from "./components/Radio";
 export { RadioProps } from "./components/Radio/types";
+export { Badge } from "./components/Badge";
+export { BadgeProps } from "./components/Badge/types";
 export { Modal } from "./components/Modal";
 export { ModalProps } from "./components/Modal/types";
 export { Box } from "./components/Box";
