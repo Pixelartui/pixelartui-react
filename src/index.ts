@@ -10,6 +10,8 @@ export { Switch } from "./components/Switch";
 export { SwitchProps } from "./components/Switch/types";
 export { Checkbox } from "./components/Checkbox";
 export { CheckboxProps } from "./components/Checkbox/types";
+export { Radio } from "./components/Radio";
+export { RadioProps } from "./components/Radio/types";
 export { Modal } from "./components/Modal";
 export { ModalProps } from "./components/Modal/types";
 export { Box } from "./components/Box";
