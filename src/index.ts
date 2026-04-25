@@ -14,6 +14,8 @@ export { Radio } from "./components/Radio";
 export { RadioProps } from "./components/Radio/types";
 export { Badge } from "./components/Badge";
 export { BadgeProps } from "./components/Badge/types";
+export { Slider } from "./components/Slider";
+export { SliderProps } from "./components/Slider/types";
 export { Modal } from "./components/Modal";
 export { ModalProps } from "./components/Modal/types";
 export { Box } from "./components/Box";
