@@ -16,6 +16,8 @@ export { Badge } from "./components/Badge";
 export { BadgeProps } from "./components/Badge/types";
 export { Slider } from "./components/Slider";
 export { SliderProps } from "./components/Slider/types";
+export { Tooltip } from "./components/Tooltip";
+export { TooltipProps } from "./components/Tooltip/types";
 export { Modal } from "./components/Modal";
 export { ModalProps } from "./components/Modal/types";
 export { Box } from "./components/Box";
