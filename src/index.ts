@@ -8,6 +8,8 @@ export { TextArea } from "./components/TextArea";
 export { TextAreaProps } from "./components/TextArea/types";
 export { Switch } from "./components/Switch";
 export { SwitchProps } from "./components/Switch/types";
+export { DropdownMenu } from "./components/DropdownMenu";
+export { DropdownMenuProps, DropdownMenuItem } from "./components/DropdownMenu/types";
 export { Modal } from "./components/Modal";
 export { ModalProps } from "./components/Modal/types";
 export { Box } from "./components/Box";
