@@ -16,4 +16,6 @@ export { Pixel } from "./components/Pixel";
 export { PixelProps } from "./components/Pixel/types";
 export { Pixelator } from "./components/Pixelator";
 export { PixelatorProps } from "./components/Pixelator/types";
+export { ProgressBar } from "./components/ProgressBar";
+export { ProgressBarProps } from "./components/ProgressBar/types";
 export { cssToPixelator } from "./utils";
