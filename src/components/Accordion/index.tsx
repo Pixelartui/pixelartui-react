@@ -21,7 +21,7 @@ export const Accordion: React.FC<AccordionProps> = ({
 
     const toggleItem = (index: number) => {
         const item = items[index];
-        if (item.disabled) return;
+        if (!item || item.disabled) return;
 
         let newOpenIndexes: number[];
         if (openIndexes.includes(index)) {
