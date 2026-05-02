@@ -42,4 +42,6 @@ export { Avatar } from "./components/Avatar";
 export { AvatarProps } from "./components/Avatar/types";
 export { Accordion } from "./components/Accordion";
 export { AccordionProps, AccordionItem } from "./components/Accordion/types";
+export { ChatPrompt } from "./components/ChatPrompt";
+export { ChatPromptProps } from "./components/ChatPrompt/types";
 export { cssToPixelator } from "./utils";
