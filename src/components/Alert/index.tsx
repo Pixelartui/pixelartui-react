@@ -7,6 +7,7 @@ import {
     StyledAlertMessage,
     StyledAlertDismiss,
 } from "./styled";
+import { StyledContainer } from "../SharedComponent/StyledContainer";
 
 export const Alert: React.FC<AlertProps> = ({
     message,
@@ -18,37 +19,37 @@ export const Alert: React.FC<AlertProps> = ({
     ...props
 }) => {
     return (
-        <StyledAlertContainer
-            $variant={variant}
-            data-testid="qa-alert"
-            className={`cp-alert ${className || ""}`}
-            role="alert"
-            {...props}
-        >
-            <StyledAlertContent className="cp-alert-content">
-                {title && (
-                    <StyledAlertTitle
+        <StyledContainer testId="qa-alert" className={`cp-alert ${className || ""}`}>
+            <StyledAlertContainer
+                $variant={variant}
+                role="alert"
+                {...props}
+            >
+                <StyledAlertContent className="cp-alert-content">
+                    {title && (
+                        <StyledAlertTitle
+                            $variant={variant}
+                            className="cp-alert-title"
+                        >
+                            {title}
+                        </StyledAlertTitle>
+                    )}
+                    <StyledAlertMessage className="cp-alert-message">
+                        {message}
+                    </StyledAlertMessage>
+                </StyledAlertContent>
+                {dismissible && (
+                    <StyledAlertDismiss
                         $variant={variant}
-                        className="cp-alert-title"
+                        className="cp-alert-dismiss"
+                        onClick={onDismiss}
+                        aria-label="Dismiss alert"
+                        type="button"
                     >
-                        {title}
-                    </StyledAlertTitle>
+                        x
+                    </StyledAlertDismiss>
                 )}
-                <StyledAlertMessage className="cp-alert-message">
-                    {message}
-                </StyledAlertMessage>
-            </StyledAlertContent>
-            {dismissible && (
-                <StyledAlertDismiss
-                    $variant={variant}
-                    className="cp-alert-dismiss"
-                    onClick={onDismiss}
-                    aria-label="Dismiss alert"
-                    type="button"
-                >
-                    x
-                </StyledAlertDismiss>
-            )}
-        </StyledAlertContainer>
+            </StyledAlertContainer>
+        </StyledContainer>
     );
 };
