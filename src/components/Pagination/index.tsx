@@ -5,6 +5,7 @@ import {
     StyledPageButton,
     StyledEllipsis,
 } from "./styled";
+import { StyledContainer } from "../SharedComponent/StyledContainer";
 
 const getPageRange = (
     currentPage: number,
@@ -79,52 +80,52 @@ export const Pagination: React.FC<PaginationProps> = ({
     };
 
     return (
-        <StyledPaginationContainer
-            data-testid="qa-pagination"
-            className={`cp-pagination ${className || ""}`}
-            aria-label="Pagination"
-            {...props}
-        >
-            <StyledPageButton
-                className="cp-pagination-prev"
-                onClick={() => handlePageChange(activePage - 1)}
-                disabled={activePage === 1}
-                aria-label="Previous page"
+        <StyledContainer testId="qa-pagination" className={`cp-pagination ${className || ""}`}>
+            <StyledPaginationContainer
+                aria-label="Pagination"
+                {...props}
             >
-                &lt;
-            </StyledPageButton>
-            {pages.map((item, index) =>
-                item === "ellipsis" ? (
-                    <StyledEllipsis
-                        key={`ellipsis-${index}`}
-                        className="cp-pagination-ellipsis"
-                    >
-                        ...
-                    </StyledEllipsis>
-                ) : (
-                    <StyledPageButton
-                        key={item}
-                        className="cp-pagination-page"
-                        $isActive={activePage === item}
-                        $backgroundColor={backgroundColor}
-                        onClick={() => handlePageChange(item)}
-                        aria-current={
-                            activePage === item ? "page" : undefined
-                        }
-                        aria-label={`Page ${item}`}
-                    >
-                        {item}
-                    </StyledPageButton>
-                )
-            )}
-            <StyledPageButton
-                className="cp-pagination-next"
-                onClick={() => handlePageChange(activePage + 1)}
-                disabled={activePage === totalPages}
-                aria-label="Next page"
-            >
-                &gt;
-            </StyledPageButton>
-        </StyledPaginationContainer>
+                <StyledPageButton
+                    className="cp-pagination-prev"
+                    onClick={() => handlePageChange(activePage - 1)}
+                    disabled={activePage === 1}
+                    aria-label="Previous page"
+                >
+                    &lt;
+                </StyledPageButton>
+                {pages.map((item, index) =>
+                    item === "ellipsis" ? (
+                        <StyledEllipsis
+                            key={`ellipsis-${index}`}
+                            className="cp-pagination-ellipsis"
+                        >
+                            ...
+                        </StyledEllipsis>
+                    ) : (
+                        <StyledPageButton
+                            key={item}
+                            className="cp-pagination-page"
+                            $isActive={activePage === item}
+                            $backgroundColor={backgroundColor}
+                            onClick={() => handlePageChange(item)}
+                            aria-current={
+                                activePage === item ? "page" : undefined
+                            }
+                            aria-label={`Page ${item}`}
+                        >
+                            {item}
+                        </StyledPageButton>
+                    )
+                )}
+                <StyledPageButton
+                    className="cp-pagination-next"
+                    onClick={() => handlePageChange(activePage + 1)}
+                    disabled={activePage === totalPages}
+                    aria-label="Next page"
+                >
+                    &gt;
+                </StyledPageButton>
+            </StyledPaginationContainer>
+        </StyledContainer>
     );
 };
