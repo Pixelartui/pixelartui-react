@@ -7,6 +7,7 @@ import {
     StyledAccordionIcon,
     StyledAccordionPanel,
 } from "./styled";
+import { StyledContainer } from "../SharedComponent/StyledContainer";
 
 export const Accordion: React.FC<AccordionProps> = ({
     items,
@@ -37,9 +38,8 @@ export const Accordion: React.FC<AccordionProps> = ({
     };
 
     return (
+        <StyledContainer testId="qa-accordion" className={`cp-accordion ${className || ""}`}>
         <StyledAccordionContainer
-            data-testid="qa-accordion"
-            className={`cp-accordion ${className || ""}`}
             {...props}
         >
             {items.map((item, index) => {
@@ -75,5 +75,6 @@ export const Accordion: React.FC<AccordionProps> = ({
                 );
             })}
         </StyledAccordionContainer>
+        </StyledContainer>
     );
 };
