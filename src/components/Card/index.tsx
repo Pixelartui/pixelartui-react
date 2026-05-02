@@ -6,6 +6,7 @@ import {
     StyledCardBody,
     StyledCardFooter,
 } from "./styled";
+import { StyledContainer } from "../SharedComponent/StyledContainer";
 
 export const Card: React.FC<CardProps> = ({
     title,
@@ -16,25 +17,25 @@ export const Card: React.FC<CardProps> = ({
     ...props
 }) => {
     return (
-        <StyledCardContainer
-            $backgroundColor={backgroundColor}
-            data-testid="qa-card"
-            className={`cp-card ${className || ""}`}
-            {...props}
-        >
-            {title && (
-                <StyledCardHeader className="cp-card-header">
-                    {title}
-                </StyledCardHeader>
-            )}
-            <StyledCardBody className="cp-card-body">
-                {children}
-            </StyledCardBody>
-            {footer && (
-                <StyledCardFooter className="cp-card-footer">
-                    {footer}
-                </StyledCardFooter>
-            )}
-        </StyledCardContainer>
+        <StyledContainer testId="qa-card" className={`cp-card ${className || ""}`}>
+            <StyledCardContainer
+                $backgroundColor={backgroundColor}
+                {...props}
+            >
+                {title && (
+                    <StyledCardHeader className="cp-card-header">
+                        {title}
+                    </StyledCardHeader>
+                )}
+                <StyledCardBody className="cp-card-body">
+                    {children}
+                </StyledCardBody>
+                {footer && (
+                    <StyledCardFooter className="cp-card-footer">
+                        {footer}
+                    </StyledCardFooter>
+                )}
+            </StyledCardContainer>
+        </StyledContainer>
     );
 };
