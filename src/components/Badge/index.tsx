@@ -1,5 +1,6 @@
 import React from "react";
 import { StyledPixelBox } from "../SharedComponent/StyledPixelBox";
+import { StyledContainer } from "../SharedComponent/StyledContainer";
 import { BadgeProps } from "./types";
 import {
     StyledBadgeWrapper,
@@ -7,6 +8,13 @@ import {
     StyledDismissButton,
 } from "./styled";
 import { theme } from "../../Theme";
+
+const variantColorMap: Record<string, string> = {
+    success: "#10B981",
+    error: "#EF4444",
+    warning: "#F59E0B",
+    info: "#3B82F6",
+};
 
 export const Badge: React.FC<BadgeProps> = ({
     text,
@@ -18,50 +26,37 @@ export const Badge: React.FC<BadgeProps> = ({
     className,
 }) => {
     const getVariantColor = () => {
-        switch (variant) {
-            case "success":
-                return theme.general.color.success;
-            case "error":
-                return theme.general.color.error;
-            case "warning":
-                return theme.general.color.warning;
-            case "info":
-                return theme.general.color.info;
-            default:
-                return theme.general.color.primary;
-        }
+        return variantColorMap[variant] || theme.general.color.primary;
     };
 
     return (
-        <StyledBadgeWrapper
-            $size={size}
-            className={`cp-badge ${className || ""}`}
-            data-testid="qa-badge"
-        >
-            <StyledPixelBox
-                className="cp-badge-box"
-                style={badgeStyle}
-                backgroundColor={getVariantColor()}
-                round
-            >
-                <StyledBadgeText
-                    $size={size}
-                    $variant={variant}
-                    className="cp-badge-text"
+        <StyledContainer testId="qa-badge" className={`cp-badge ${className || ""}`}>
+            <StyledBadgeWrapper $size={size}>
+                <StyledPixelBox
+                    className="cp-badge-box"
+                    style={badgeStyle}
+                    backgroundColor={getVariantColor()}
+                    round
                 >
-                    {text}
-                </StyledBadgeText>
-            </StyledPixelBox>
-            {dismissible && (
-                <StyledDismissButton
-                    $size={size}
-                    onClick={onDismiss}
-                    className="cp-badge-dismiss"
-                    aria-label="Dismiss badge"
-                >
-                    ×
-                </StyledDismissButton>
-            )}
-        </StyledBadgeWrapper>
+                    <StyledBadgeText
+                        $size={size}
+                        $variant={variant}
+                        className="cp-badge-text"
+                    >
+                        {text}
+                    </StyledBadgeText>
+                </StyledPixelBox>
+                {dismissible && (
+                    <StyledDismissButton
+                        $size={size}
+                        onClick={onDismiss}
+                        className="cp-badge-dismiss"
+                        aria-label="Dismiss badge"
+                    >
+                        ×
+                    </StyledDismissButton>
+                )}
+            </StyledBadgeWrapper>
+        </StyledContainer>
     );
 };

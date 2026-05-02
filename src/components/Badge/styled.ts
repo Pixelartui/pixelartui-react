@@ -1,6 +1,13 @@
 import Styled from "styled-components";
 import { BadgeSize, BadgeVariant } from "./types";
 
+const variantColorMap: Record<string, string> = {
+    success: "#10B981",
+    error: "#EF4444",
+    warning: "#F59E0B",
+    info: "#3B82F6",
+};
+
 export const StyledBadgeWrapper = Styled.div<{
     $size?: BadgeSize;
 }>`
@@ -19,13 +26,9 @@ export const StyledBadgeText = Styled.span<{
     font-weight: 600;
     padding: ${(props) =>
         props.$size === "small" ? "2px 6px" : props.$size === "large" ? "4px 10px" : "3px 8px"};
-    color: ${(props) => {
-        if (props.$variant === "success") return props.theme.general.color.success;
-        if (props.$variant === "error") return props.theme.general.color.error;
-        if (props.$variant === "warning") return props.theme.general.color.warning;
-        if (props.$variant === "info") return props.theme.general.color.info;
-        return props.theme.general.color.primary;
-    }};
+    color: ${(props) =>
+        (props.$variant && variantColorMap[props.$variant]) ||
+        props.theme.general.color.primary};
 `;
 
 export const StyledDismissButton = Styled.button<{

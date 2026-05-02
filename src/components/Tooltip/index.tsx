@@ -1,6 +1,7 @@
 import React from "react";
 import { TooltipProps } from "./types";
 import { StyledTooltipWrapper, StyledTooltipContent } from "./styled";
+import { StyledContainer } from "../SharedComponent/StyledContainer";
 import { theme } from "../../Theme";
 
 export const Tooltip: React.FC<TooltipProps> = ({
@@ -22,19 +23,20 @@ export const Tooltip: React.FC<TooltipProps> = ({
     };
 
     return (
-        <StyledTooltipWrapper
+        <StyledContainer
+            testId="qa-tooltip"
             className={`cp-tooltip ${className || ""}`}
-            data-testid="qa-tooltip"
-            {...props}
         >
-            {children}
-            <StyledTooltipContent
-                className="cp-tooltip-content"
-                $position={position}
-                $backgroundColor={getBackgroundColor()}
-            >
-                {text}
-            </StyledTooltipContent>
-        </StyledTooltipWrapper>
+            <StyledTooltipWrapper {...props}>
+                {children}
+                <StyledTooltipContent
+                    className="cp-tooltip-content"
+                    $position={position}
+                    $backgroundColor={getBackgroundColor()}
+                >
+                    {text}
+                </StyledTooltipContent>
+            </StyledTooltipWrapper>
+        </StyledContainer>
     );
 };
