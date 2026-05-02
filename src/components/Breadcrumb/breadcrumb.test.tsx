@@ -65,9 +65,10 @@ describe("Breadcrumb component", () => {
     });
 
     it("renders aria-label on nav element", () => {
-        const { getByTestId } = renderWithTheme(<Breadcrumb {...props} />);
-        const nav = getByTestId("qa-breadcrumb");
-        expect(nav.getAttribute("aria-label")).toBe("Breadcrumb");
+        const { getByLabelText } = renderWithTheme(
+            <Breadcrumb {...props} />
+        );
+        expect(getByLabelText("Breadcrumb")).toBeInTheDocument();
     });
 
     it("renders aria-current on last item", () => {

@@ -7,6 +7,7 @@ import {
     StyledBreadcrumbButton,
     StyledBreadcrumbSeparator,
 } from "./styled";
+import { StyledContainer } from "../SharedComponent/StyledContainer";
 
 export const Breadcrumb: React.FC<BreadcrumbProps> = ({
     items,
@@ -15,9 +16,11 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({
     ...props
 }) => {
     return (
-        <StyledBreadcrumbContainer
-            data-testid="qa-breadcrumb"
+        <StyledContainer
+            testId="qa-breadcrumb"
             className={`cp-breadcrumb ${className || ""}`}
+        >
+        <StyledBreadcrumbContainer
             aria-label="Breadcrumb"
             {...props}
         >
@@ -59,5 +62,6 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({
                 );
             })}
         </StyledBreadcrumbContainer>
+        </StyledContainer>
     );
 };
