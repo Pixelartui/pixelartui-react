@@ -63,20 +63,6 @@ jobs:
                   paths:
                       - dist
                       - README.md
-    publish_to_npm:
-        executor: node/default
-        description: Publish to npm
-        steps:
-            - attach_workspace:
-                  at: .
-            - run:
-                  name: Login to NPM
-                  command: echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
-            - run:
-                  name: Publish to NPM
-                  command: npm publish
-                  environment:
-                      NPM_TOKEN: $NPM_TOKEN
 workflows:
     build_app:
         jobs:
@@ -106,14 +92,6 @@ workflows:
             - build:
                   requires:
                       - run_tests
-                  filters:
-                      tags:
-                          only: /^v.*/
-                      branches:
-                          ignore: /.*/
-            - publish_to_npm:
-                  requires:
-                      - build
                   filters:
                       tags:
                           only: /^v.*/
