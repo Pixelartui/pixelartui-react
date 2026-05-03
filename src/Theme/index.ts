@@ -36,6 +36,10 @@ export const theme: DefaultTheme = {
             disabled: disableColor,
             white: "#ffffff",
             black: "#000000",
+            success: "#10B981",
+            error: "#EF4444",
+            warning: "#F59E0B",
+            info: "#3B82F6",
         },
     },
     button: {
