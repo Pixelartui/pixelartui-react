@@ -8,6 +8,8 @@ export { TextArea } from "./components/TextArea";
 export { TextAreaProps } from "./components/TextArea/types";
 export { Switch } from "./components/Switch";
 export { SwitchProps } from "./components/Switch/types";
+export { Breadcrumb } from "./components/Breadcrumb";
+export { BreadcrumbProps, BreadcrumbItem } from "./components/Breadcrumb/types";
 export { Pagination } from "./components/Pagination";
 export { PaginationProps } from "./components/Pagination/types";
 export { Checkbox } from "./components/Checkbox";
