@@ -1,5 +1,4 @@
 import Styled, { DefaultTheme } from "styled-components";
-import { StyledPixelBox } from "../SharedComponent/StyledPixelBox";
 import { handleCustomColor } from "../../Theme/helper";
 
 const handleActiveBackground = (
@@ -17,19 +16,6 @@ export const StyledPaginationContainer = Styled.nav`
     align-items: center;
     gap: 4px;
     font-family: 'Pixelify Sans', cursive;
-`;
-
-export const StyledPageButtonBox = Styled(StyledPixelBox)<{
-    $isActive?: boolean;
-    $backgroundColor?: string;
-}>`
-    height: 32px;
-    min-width: 32px;
-    cursor: pointer;
-
-    &:hover {
-        opacity: ${(props) => (props.$isActive ? 1 : 0.8)};
-    }
 `;
 
 export const StyledPageButtonContent = Styled.button<{

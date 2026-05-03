@@ -2,11 +2,11 @@ import React, { useState, useMemo } from "react";
 import { PaginationProps } from "./types";
 import {
     StyledPaginationContainer,
-    StyledPageButtonBox,
     StyledPageButtonContent,
     StyledEllipsis,
 } from "./styled";
 import { StyledContainer } from "../SharedComponent/StyledContainer";
+import { StyledPixelBox } from "../SharedComponent/StyledPixelBox";
 
 const getPageRange = (
     currentPage: number,
@@ -87,7 +87,7 @@ export const Pagination: React.FC<PaginationProps> = ({
                 aria-label="Pagination"
                 {...props}
             >
-                <StyledPageButtonBox
+                <StyledPixelBox
                     className="cp-pagination-prev"
                     style={paginationStyle}
                     backgroundColor={backgroundColor}
@@ -99,7 +99,7 @@ export const Pagination: React.FC<PaginationProps> = ({
                     >
                         &lt;
                     </StyledPageButtonContent>
-                </StyledPageButtonBox>
+                </StyledPixelBox>
                 {pages.map((item, index) =>
                     item === "ellipsis" ? (
                         <StyledEllipsis
@@ -109,11 +109,9 @@ export const Pagination: React.FC<PaginationProps> = ({
                             ...
                         </StyledEllipsis>
                     ) : (
-                        <StyledPageButtonBox
+                        <StyledPixelBox
                             key={item}
                             className="cp-pagination-page"
-                            $isActive={activePage === item}
-                            $backgroundColor={backgroundColor}
                             style={paginationStyle}
                             backgroundColor={
                                 activePage === item
@@ -132,10 +130,10 @@ export const Pagination: React.FC<PaginationProps> = ({
                             >
                                 {item}
                             </StyledPageButtonContent>
-                        </StyledPageButtonBox>
+                        </StyledPixelBox>
                     )
                 )}
-                <StyledPageButtonBox
+                <StyledPixelBox
                     className="cp-pagination-next"
                     style={paginationStyle}
                     backgroundColor={backgroundColor}
@@ -147,7 +145,7 @@ export const Pagination: React.FC<PaginationProps> = ({
                     >
                         &gt;
                     </StyledPageButtonContent>
-                </StyledPageButtonBox>
+                </StyledPixelBox>
             </StyledPaginationContainer>
         </StyledContainer>
     );
