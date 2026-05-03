@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.4.46](https://github.com/Pixelartui/pixelartui-react/compare/v0.4.45...v0.4.46) (2026-05-03)
+
+
+### Features
+
+* add Accordion component ([#19](https://github.com/Pixelartui/pixelartui-react/issues/19)) ([25b0a23](https://github.com/Pixelartui/pixelartui-react/commit/25b0a23d776a185e889b780020f4245a0a6cd803))
+* add Alert component ([#15](https://github.com/Pixelartui/pixelartui-react/issues/15)) ([95b69d6](https://github.com/Pixelartui/pixelartui-react/commit/95b69d60051b1dab0041d12406dd26353903db4e))
+* add Avatar component ([#18](https://github.com/Pixelartui/pixelartui-react/issues/18)) ([ec133cb](https://github.com/Pixelartui/pixelartui-react/commit/ec133cb9369ed31ca846ba38f89befef8fbac300))
+* add Breadcrumb component ([#12](https://github.com/Pixelartui/pixelartui-react/issues/12)) ([5e4e944](https://github.com/Pixelartui/pixelartui-react/commit/5e4e944612811afd06c6e5c7a269563c88b77cdd))
+* add Card component ([#17](https://github.com/Pixelartui/pixelartui-react/issues/17)) ([a93752c](https://github.com/Pixelartui/pixelartui-react/commit/a93752c1cd3aead3df18cacf6777d5f48bbdf135))
+* add ChatPrompt component ([#21](https://github.com/Pixelartui/pixelartui-react/issues/21)) ([c759e8b](https://github.com/Pixelartui/pixelartui-react/commit/c759e8b7148745ccd3c29c7ee17e9a8682b9e903))
+* add Checkbox, Radio, Badge, Slider, and Tooltip components ([#10](https://github.com/Pixelartui/pixelartui-react/issues/10)) ([90021ee](https://github.com/Pixelartui/pixelartui-react/commit/90021eec68eccafdfa8cb7196ad254f5f85dabb3))
+* add Pagination component ([#13](https://github.com/Pixelartui/pixelartui-react/issues/13)) ([3d63623](https://github.com/Pixelartui/pixelartui-react/commit/3d63623f37bba91e4e71590255fa20d8977197fd))
+* add ProgressBar component ([#16](https://github.com/Pixelartui/pixelartui-react/issues/16)) ([f12afd9](https://github.com/Pixelartui/pixelartui-react/commit/f12afd9b3a6b2feb89bb634c5723ab0b4a8768e9))
+* add Tabs component ([#11](https://github.com/Pixelartui/pixelartui-react/issues/11)) ([67e08f4](https://github.com/Pixelartui/pixelartui-react/commit/67e08f44ca04799e29d9bbd85c1bd352720701be))
+
+
+### Bug Fixes
+
+* **readme:** update readme ([0d4dc57](https://github.com/Pixelartui/pixelartui-react/commit/0d4dc5701974136c34afd6a88196977981064fd1))
+
 ### [0.4.45](https://github.com/Pixelartui/pixelartui-react/compare/v0.4.44...v0.4.45) (2025-11-24)
 
 
