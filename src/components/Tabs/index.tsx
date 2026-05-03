@@ -6,6 +6,7 @@ import {
     StyledTab,
     StyledTabPanel,
 } from "./styled";
+import { StyledContainer } from "../SharedComponent/StyledContainer";
 
 export const Tabs: React.FC<TabsProps> = ({
     tabs,
@@ -32,31 +33,32 @@ export const Tabs: React.FC<TabsProps> = ({
     };
 
     return (
-        <StyledTabsContainer
-            data-testid="qa-tabs"
+        <StyledContainer
+            testId="qa-tabs"
             className={`cp-tabs ${className || ""}`}
-            {...props}
         >
-            <StyledTabList className="cp-tabs-list" role="tablist">
-                {tabs.map((tab, index) => (
-                    <StyledTab
-                        key={index}
-                        className="cp-tab"
-                        role="tab"
-                        aria-selected={activeTab === index}
-                        $isActive={activeTab === index}
-                        $backgroundColor={backgroundColor}
-                        $disabled={tab.disabled}
-                        disabled={tab.disabled}
-                        onClick={() => handleTabClick(index)}
-                    >
-                        {tab.label}
-                    </StyledTab>
-                ))}
-            </StyledTabList>
-            <StyledTabPanel className="cp-tab-panel" role="tabpanel">
-                {tabs[activeTab]?.content}
-            </StyledTabPanel>
-        </StyledTabsContainer>
+            <StyledTabsContainer {...props}>
+                <StyledTabList className="cp-tabs-list" role="tablist">
+                    {tabs.map((tab, index) => (
+                        <StyledTab
+                            key={index}
+                            className="cp-tab"
+                            role="tab"
+                            aria-selected={activeTab === index}
+                            $isActive={activeTab === index}
+                            $backgroundColor={backgroundColor}
+                            $disabled={tab.disabled}
+                            disabled={tab.disabled}
+                            onClick={() => handleTabClick(index)}
+                        >
+                            {tab.label}
+                        </StyledTab>
+                    ))}
+                </StyledTabList>
+                <StyledTabPanel className="cp-tab-panel" role="tabpanel">
+                    {tabs[activeTab]?.content}
+                </StyledTabPanel>
+            </StyledTabsContainer>
+        </StyledContainer>
     );
 };
