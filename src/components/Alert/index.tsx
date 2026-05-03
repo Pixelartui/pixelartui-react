@@ -6,6 +6,7 @@ import {
     StyledAlertTitle,
     StyledAlertMessage,
     StyledAlertDismiss,
+    variantColorMap,
 } from "./styled";
 import { StyledContainer } from "../SharedComponent/StyledContainer";
 import { StyledPixelBox } from "../SharedComponent/StyledPixelBox";
@@ -24,6 +25,7 @@ export const Alert: React.FC<AlertProps> = ({
         <StyledContainer testId="qa-alert" className={`cp-alert ${className || ""}`}>
             <StyledPixelBox
                 style={alertStyle}
+                backgroundColor={variantColorMap[variant]}
                 fullwidth
                 {...props}
             >

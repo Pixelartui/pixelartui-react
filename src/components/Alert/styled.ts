@@ -1,7 +1,7 @@
 import Styled from "styled-components";
 import { AlertVariant } from "./types";
 
-const variantColorMap: Record<AlertVariant, string> = {
+export const variantColorMap: Record<AlertVariant, string> = {
     success: "#10B981",
     error: "#EF4444",
     warning: "#F59E0B",
