@@ -82,8 +82,8 @@ describe("Alert component", () => {
     });
 
     it("renders with role=alert", () => {
-        const { getByTestId } = renderWithTheme(<Alert {...props} />);
-        expect(getByTestId("qa-alert").getAttribute("role")).toBe("alert");
+        const { getByRole } = renderWithTheme(<Alert {...props} />);
+        expect(getByRole("alert")).toBeInTheDocument();
     });
 
     it("renders with custom className", () => {
