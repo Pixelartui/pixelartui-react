@@ -78,9 +78,10 @@ describe("Pagination component", () => {
     });
 
     it("renders aria-label on nav element", () => {
-        const { getByTestId } = renderWithTheme(<Pagination {...props} />);
-        const nav = getByTestId("qa-pagination");
-        expect(nav.getAttribute("aria-label")).toBe("Pagination");
+        const { getByLabelText } = renderWithTheme(
+            <Pagination {...props} />
+        );
+        expect(getByLabelText("Pagination")).toBeInTheDocument();
     });
 
     it("renders with custom className", () => {
