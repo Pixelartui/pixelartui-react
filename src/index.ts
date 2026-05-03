@@ -38,4 +38,6 @@ export { ProgressBar } from "./components/ProgressBar";
 export { ProgressBarProps } from "./components/ProgressBar/types";
 export { Card } from "./components/Card";
 export { CardProps } from "./components/Card/types";
+export { Avatar } from "./components/Avatar";
+export { AvatarProps } from "./components/Avatar/types";
 export { cssToPixelator } from "./utils";
