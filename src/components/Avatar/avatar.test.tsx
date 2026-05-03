@@ -18,8 +18,8 @@ describe("Avatar component", () => {
     });
 
     it("renders with role=img", () => {
-        const { getByTestId } = renderWithTheme(<Avatar {...props} />);
-        expect(getByTestId("qa-avatar").getAttribute("role")).toBe("img");
+        const { getByRole } = renderWithTheme(<Avatar {...props} />);
+        expect(getByRole("img")).toBeInTheDocument();
     });
 
     it("renders image when src is provided", () => {
@@ -71,26 +71,26 @@ describe("Avatar component", () => {
     });
 
     it("uses alt as aria-label when provided", () => {
-        const { getByTestId } = renderWithTheme(
+        const { getByRole } = renderWithTheme(
             <Avatar alt="Profile picture" />
         );
-        expect(getByTestId("qa-avatar").getAttribute("aria-label")).toBe(
+        expect(getByRole("img").getAttribute("aria-label")).toBe(
             "Profile picture"
         );
     });
 
     it("uses initials as aria-label when no alt provided", () => {
-        const { getByTestId } = renderWithTheme(
+        const { getByRole } = renderWithTheme(
             <Avatar initials="JD" />
         );
-        expect(getByTestId("qa-avatar").getAttribute("aria-label")).toBe(
+        expect(getByRole("img").getAttribute("aria-label")).toBe(
             "JD"
         );
     });
 
     it("uses default aria-label when no alt or initials provided", () => {
-        const { getByTestId } = renderWithTheme(<Avatar />);
-        expect(getByTestId("qa-avatar").getAttribute("aria-label")).toBe(
+        const { getByRole } = renderWithTheme(<Avatar />);
+        expect(getByRole("img").getAttribute("aria-label")).toBe(
             "Avatar"
         );
     });
