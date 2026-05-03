@@ -1,4 +1,16 @@
-import Styled from "styled-components";
+import Styled, { DefaultTheme } from "styled-components";
+import { StyledPixelBox } from "../SharedComponent/StyledPixelBox";
+import { handleCustomColor } from "../../Theme/helper";
+
+const handleActiveBackground = (
+    backgroundColor: string | undefined,
+    theme: DefaultTheme
+) => {
+    if (backgroundColor) {
+        return handleCustomColor(backgroundColor).customPrimaryColor;
+    }
+    return theme.general.color.primary;
+};
 
 export const StyledPaginationContainer = Styled.nav`
     display: flex;
@@ -7,35 +19,42 @@ export const StyledPaginationContainer = Styled.nav`
     font-family: 'Pixelify Sans', cursive;
 `;
 
-export const StyledPageButton = Styled.button<{
+export const StyledPageButtonBox = Styled(StyledPixelBox)<{
     $isActive?: boolean;
     $backgroundColor?: string;
 }>`
-    min-width: 32px;
     height: 32px;
+    min-width: 32px;
+    cursor: pointer;
+
+    &:hover {
+        opacity: ${(props) => (props.$isActive ? 1 : 0.8)};
+    }
+`;
+
+export const StyledPageButtonContent = Styled.button<{
+    $isActive?: boolean;
+    $backgroundColor?: string;
+}>`
+    border: none;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 4px 8px;
-    border: 2px solid ${(props) => props.theme.general.color.dark};
-    background-color: ${(props) => {
-        if (props.$isActive) return props.$backgroundColor || props.theme.general.color.primary;
-        return props.theme.general.color.white;
-    }};
-    color: ${(props) =>
-        props.$isActive
-            ? props.theme.general.color.fontLight
-            : props.theme.general.color.font};
     font-family: 'Pixelify Sans', cursive;
     font-size: 14px;
     font-weight: bold;
     cursor: pointer;
-    image-rendering: pixelated;
-    transition: background-color 0.1s ease;
-
-    &:hover:not(:disabled) {
-        background-color: ${(props) =>
-            props.$isActive
-                ? props.$backgroundColor || props.theme.general.color.primary
-                : props.theme.general.color.light};
-    }
+    background: ${(props) =>
+        props.$isActive
+            ? handleActiveBackground(props.$backgroundColor, props.theme)
+            : "transparent"};
+    color: ${(props) =>
+        props.$isActive
+            ? props.theme.general.color.fontLight
+            : props.theme.general.color.font};
 
     &:disabled {
         cursor: not-allowed;

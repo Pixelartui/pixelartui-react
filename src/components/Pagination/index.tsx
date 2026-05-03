@@ -2,7 +2,8 @@ import React, { useState, useMemo } from "react";
 import { PaginationProps } from "./types";
 import {
     StyledPaginationContainer,
-    StyledPageButton,
+    StyledPageButtonBox,
+    StyledPageButtonContent,
     StyledEllipsis,
 } from "./styled";
 import { StyledContainer } from "../SharedComponent/StyledContainer";
@@ -54,6 +55,7 @@ export const Pagination: React.FC<PaginationProps> = ({
     currentPage,
     defaultPage = 1,
     siblingCount = 1,
+    paginationStyle = "dark",
     backgroundColor,
     className,
     onChange,
@@ -85,14 +87,19 @@ export const Pagination: React.FC<PaginationProps> = ({
                 aria-label="Pagination"
                 {...props}
             >
-                <StyledPageButton
+                <StyledPageButtonBox
                     className="cp-pagination-prev"
-                    onClick={() => handlePageChange(activePage - 1)}
-                    disabled={activePage === 1}
-                    aria-label="Previous page"
+                    style={paginationStyle}
+                    backgroundColor={backgroundColor}
                 >
-                    &lt;
-                </StyledPageButton>
+                    <StyledPageButtonContent
+                        onClick={() => handlePageChange(activePage - 1)}
+                        disabled={activePage === 1}
+                        aria-label="Previous page"
+                    >
+                        &lt;
+                    </StyledPageButtonContent>
+                </StyledPageButtonBox>
                 {pages.map((item, index) =>
                     item === "ellipsis" ? (
                         <StyledEllipsis
@@ -102,29 +109,45 @@ export const Pagination: React.FC<PaginationProps> = ({
                             ...
                         </StyledEllipsis>
                     ) : (
-                        <StyledPageButton
+                        <StyledPageButtonBox
                             key={item}
                             className="cp-pagination-page"
                             $isActive={activePage === item}
                             $backgroundColor={backgroundColor}
-                            onClick={() => handlePageChange(item)}
-                            aria-current={
-                                activePage === item ? "page" : undefined
+                            style={paginationStyle}
+                            backgroundColor={
+                                activePage === item
+                                    ? backgroundColor
+                                    : undefined
                             }
-                            aria-label={`Page ${item}`}
                         >
-                            {item}
-                        </StyledPageButton>
+                            <StyledPageButtonContent
+                                $isActive={activePage === item}
+                                $backgroundColor={backgroundColor}
+                                onClick={() => handlePageChange(item)}
+                                aria-current={
+                                    activePage === item ? "page" : undefined
+                                }
+                                aria-label={`Page ${item}`}
+                            >
+                                {item}
+                            </StyledPageButtonContent>
+                        </StyledPageButtonBox>
                     )
                 )}
-                <StyledPageButton
+                <StyledPageButtonBox
                     className="cp-pagination-next"
-                    onClick={() => handlePageChange(activePage + 1)}
-                    disabled={activePage === totalPages}
-                    aria-label="Next page"
+                    style={paginationStyle}
+                    backgroundColor={backgroundColor}
                 >
-                    &gt;
-                </StyledPageButton>
+                    <StyledPageButtonContent
+                        onClick={() => handlePageChange(activePage + 1)}
+                        disabled={activePage === totalPages}
+                        aria-label="Next page"
+                    >
+                        &gt;
+                    </StyledPageButtonContent>
+                </StyledPageButtonBox>
             </StyledPaginationContainer>
         </StyledContainer>
     );
