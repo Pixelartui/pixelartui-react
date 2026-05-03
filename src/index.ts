@@ -40,4 +40,6 @@ export { Card } from "./components/Card";
 export { CardProps } from "./components/Card/types";
 export { Avatar } from "./components/Avatar";
 export { AvatarProps } from "./components/Avatar/types";
+export { Accordion } from "./components/Accordion";
+export { AccordionProps, AccordionItem } from "./components/Accordion/types";
 export { cssToPixelator } from "./utils";
