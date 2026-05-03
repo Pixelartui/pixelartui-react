@@ -57,6 +57,10 @@ declare module "styled-components" {
                 light: string;
                 white: string;
                 black: string;
+                success: string;
+                error: string;
+                warning: string;
+                info: string;
             };
         };
         button: ComponentSpec;
