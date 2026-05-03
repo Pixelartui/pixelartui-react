@@ -8,14 +8,14 @@ const variantColorMap: Record<AlertVariant, string> = {
     info: "#3B82F6",
 };
 
-export const StyledAlertContainer = Styled.div<{
+export const StyledAlertInner = Styled.div<{
     $variant: AlertVariant;
 }>`
     display: flex;
     align-items: flex-start;
     gap: 12px;
     padding: 12px 16px;
-    border: 2px solid ${(props) => variantColorMap[props.$variant]};
+    width: 100%;
     background-color: ${(props) => variantColorMap[props.$variant]}20;
     image-rendering: pixelated;
     font-family: 'Pixelify Sans', cursive;
