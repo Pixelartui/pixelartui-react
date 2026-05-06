@@ -293,25 +293,28 @@ Duplicate runs on the same branch are cancelled automatically (`concurrency`).
 
 ### Release Workflow (`.github/workflows/release.yml`)
 
-Triggered when a tag matching `v*` is pushed (e.g. `v0.5.0`).
+Triggered **manually** via GitHub Actions UI (`workflow_dispatch`). You choose the release type (patch, minor, or major) when dispatching.
 
-| Job            | Description                                      | Depends on |
-| -------------- | ------------------------------------------------ | ---------- |
-| CI             | Re-uses the CI workflow (lint, test, build)       | -          |
-| Publish        | Builds and publishes the package to npm           | CI         |
-| GitHub Release | Creates a GitHub Release with auto-generated notes| Publish    |
+| Job              | Description                                                        | Depends on |
+| ---------------- | ------------------------------------------------------------------ | ---------- |
+| CI               | Re-uses the CI workflow (lint, test, build)                        | -          |
+| Release & Publish| Bumps version, pushes tag, builds, publishes to npm, creates GitHub Release | CI |
 
 **Required secret:** `NPM_TOKEN` must be set in the repository's GitHub Actions secrets.
 
 ### How to Cut a Release
 
 1. Make sure `main` is up to date and CI is green.
-2. Run the release script from a local checkout:
-   ```bash
-   npm run release
-   ```
-   This uses [standard-version](https://github.com/conventional-changelog/standard-version) to bump the version based on conventional commits, update `CHANGELOG.md`, create a commit, and push the `v*` tag.
-3. The tag push triggers the **Release** workflow, which publishes to npm and creates a GitHub Release.
+2. Go to **Actions → Release → Run workflow** in the GitHub UI.
+3. Select the release type (`patch`, `minor`, or `major`).
+4. Click **Run workflow**.
+
+The workflow will automatically:
+- Bump the version in `package.json` using [standard-version](https://github.com/conventional-changelog/standard-version)
+- Update `CHANGELOG.md`
+- Commit and push a `v*` tag to `main`
+- Build and publish the package to npm
+- Create a GitHub Release with auto-generated notes
 
 ## Pull Request Process
 
