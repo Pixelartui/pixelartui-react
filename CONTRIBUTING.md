@@ -11,6 +11,7 @@ First off, thank you for considering contributing to PixelArtUI React! It's peop
 - [Component Guidelines](#component-guidelines)
 - [Code Style](#code-style)
 - [Commit Messages](#commit-messages)
+- [CI/CD Workflows](#cicd-workflows)
 - [Pull Request Process](#pull-request-process)
 - [Reporting Bugs](#reporting-bugs)
 - [Suggesting Features](#suggesting-features)
@@ -273,6 +274,44 @@ Fixes issue where page could scroll while modal was displayed.
 
 Fixes #456
 ```
+
+## CI/CD Workflows
+
+This project uses **GitHub Actions** for continuous integration and releases.
+
+### CI Workflow (`.github/workflows/ci.yml`)
+
+Runs automatically on every push to `main` and on pull requests targeting `main`.
+
+| Job    | Description                          | Depends on |
+| ------ | ------------------------------------ | ---------- |
+| Lint   | Runs `npm run lint` (ESLint)         | -          |
+| Test   | Runs `npm test` (Jest)               | Lint       |
+| Build  | Runs `npm run build` (Rollup)        | Test       |
+
+Duplicate runs on the same branch are cancelled automatically (`concurrency`).
+
+### Release Workflow (`.github/workflows/release.yml`)
+
+Triggered when a tag matching `v*` is pushed (e.g. `v0.5.0`).
+
+| Job            | Description                                      | Depends on |
+| -------------- | ------------------------------------------------ | ---------- |
+| CI             | Re-uses the CI workflow (lint, test, build)       | -          |
+| Publish        | Builds and publishes the package to npm           | CI         |
+| GitHub Release | Creates a GitHub Release with auto-generated notes| Publish    |
+
+**Required secret:** `NPM_TOKEN` must be set in the repository's GitHub Actions secrets.
+
+### How to Cut a Release
+
+1. Make sure `main` is up to date and CI is green.
+2. Run the release script from a local checkout:
+   ```bash
+   npm run release
+   ```
+   This uses [standard-version](https://github.com/conventional-changelog/standard-version) to bump the version based on conventional commits, update `CHANGELOG.md`, create a commit, and push the `v*` tag.
+3. The tag push triggers the **Release** workflow, which publishes to npm and creates a GitHub Release.
 
 ## Pull Request Process
 
