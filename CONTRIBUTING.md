@@ -293,28 +293,43 @@ Duplicate runs on the same branch are cancelled automatically (`concurrency`).
 
 ### Release Workflow (`.github/workflows/release.yml`)
 
-Triggered **manually** via GitHub Actions UI (`workflow_dispatch`). You choose the release type (patch, minor, or major) when dispatching.
+Triggered **manually** via GitHub Actions UI (`workflow_dispatch`). You choose the release type (patch, minor, or major) and whether it's a pre-release.
 
 | Job              | Description                                                        | Depends on |
 | ---------------- | ------------------------------------------------------------------ | ---------- |
 | CI               | Re-uses the CI workflow (lint, test, build)                        | -          |
 | Release & Publish| Bumps version, pushes tag, builds, publishes to npm, creates GitHub Release | CI |
 
-**Required secret:** `NPM_TOKEN` must be set in the repository's GitHub Actions secrets.
+Key features:
+- **Environment protection:** The release job runs in the `production` environment. Configure required reviewers in GitHub repo settings to add an approval gate before publishing.
+- **npm provenance:** Every published version is cryptographically linked to the GitHub Actions build and source commit via `--provenance`.
+- **Pre-release support:** Toggle the "Publish as pre-release" checkbox to publish a beta version (e.g. `0.5.0-beta.0`) under the `beta` npm tag.
+
+**Required secrets:** `NPM_TOKEN` must be set in the repository's GitHub Actions secrets.
+
+**Required setup:** Create a `production` environment in **Settings → Environments** and optionally add required reviewers for an approval gate.
 
 ### How to Cut a Release
 
 1. Make sure `main` is up to date and CI is green.
 2. Go to **Actions → Release → Run workflow** in the GitHub UI.
 3. Select the release type (`patch`, `minor`, or `major`).
-4. Click **Run workflow**.
+4. Optionally check **"Publish as pre-release (beta)"** for a beta version.
+5. Click **Run workflow**.
 
 The workflow will automatically:
 - Bump the version in `package.json` using [standard-version](https://github.com/conventional-changelog/standard-version)
 - Update `CHANGELOG.md`
 - Commit and push a `v*` tag to `main`
-- Build and publish the package to npm
+- Build and publish the package to npm (with provenance)
 - Create a GitHub Release with auto-generated notes
+
+### Pre-release Flow
+
+To test a version before stable release:
+1. Run the Release workflow with **pre-release enabled** → publishes e.g. `0.5.0-beta.0` under the `beta` tag.
+2. Consumers test with `npm install pixelartui-react@beta`.
+3. When ready, run a normal (non-pre-release) release to promote to stable.
 
 ## Pull Request Process
 
